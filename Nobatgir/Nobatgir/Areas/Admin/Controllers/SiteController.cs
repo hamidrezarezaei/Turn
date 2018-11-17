@@ -1,11 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Nobatgir.Model;
 using Nobatgir.Services;
-using Nobatgir.Util;
 
 namespace Nobatgir.Areas.Admin.Controllers
 {
@@ -21,7 +21,7 @@ namespace Nobatgir.Areas.Admin.Controllers
 
         public IActionResult Index(int pageNumber, string searchString)
         {
-            var data = this.repository.GetEntities(pageNumber, searchString);
+            var data = this.repository.GetSites(pageNumber, searchString);
             ViewBag.SearchString = searchString;
 
             return View(data);
@@ -29,21 +29,21 @@ namespace Nobatgir.Areas.Admin.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult Edit(Site row, ReturnUrl returnUrl)
+        public IActionResult Edit(Site row, string returnURL)
         {
             if (ModelState.IsValid)
             {
                 this.repository.UpdateRow(row);
-                return RedirectToLocal(returnUrl);
+                return RedirectToLocal(returnURL);
             }
 
-            ViewBag.ReturnUrl = returnUrl;
+            ViewBag.ReturnUrl = returnURL;
             return View(row);
         }
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult Create(Site row, ReturnUrl ReturnUrl)
+        public IActionResult Create(Site row, string ReturnUrl)
         {
             if (ModelState.IsValid)
             {

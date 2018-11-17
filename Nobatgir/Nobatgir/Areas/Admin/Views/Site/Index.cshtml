@@ -4,7 +4,8 @@
     ViewBag.ActionType = "index";
     ViewBag.PageTitle = "لیست سایت ها";
     ViewBag.AddNewTitle = "ایحاد موجودیت جدید";
-    ViewBag.ReturnUrl = new ReturnUrl("Site", "Index");
+
+  //  ViewBag.ReturnURL = "google.com";
 }
 
 @Html.Partial("_TitleBar")
@@ -18,16 +19,16 @@
                 r++;
                 <tr>
                     <td>
-                        <a asp-action="Details" asp-route-id="@item.ID">@r -  @Html.DisplayFor(modelItem => item.Title)</a>
+                        <a asp-action="Details" asp-route-id="@item.ID" asp-route-ReturnURL="@ViewBag.ReturnURL">@r -  @Html.DisplayFor(modelItem => item.Title)</a>
                     </td>
                     <td class="op-buttns">
-                        <a btn-type="Edit" asp-action="Edit" asp-route-id="@item.ID" asp-route-ReturnController="@ViewBag.ReturnUrl.ReturnController" asp-route-ReturnAction="@ViewBag.ReturnUrl.ReturnAction">ویرایش</a>
-                        <a btn-type="Delete" asp-action="Delete" asp-route-id="@item.ID" asp-route-ReturnController="@ViewBag.ReturnUrl.ReturnController" asp-route-ReturnAction="@ViewBag.ReturnUrl.ReturnAction">حذف </a>
+                        <a btn-type="Edit" asp-action="Edit" asp-route-id="@item.ID" asp-route-ReturnURL="@ViewBag.ReturnURL" >ویرایش</a>
+                        <a btn-type="Delete" asp-action="Delete" asp-route-id="@item.ID" asp-route-ReturnURL="@ViewBag.ReturnURL"  >حذف </a>
                     </td>
                 </tr>
             }
         </tbody>
     </table>
 </div>
-<nav page-model="@Model.PagingData" page-action="index" page-contoller="EntityType" search-string="@ViewBag.SearchString"></nav>
+<nav page-model="@Model.PagingData" page-action="index" page-contoller="Site" search-string="@ViewBag.SearchString"></nav>
 

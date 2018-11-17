@@ -3588,11 +3588,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "E:\\Projects\\Nobatgir\\Nobatgir\\Nobatgir.Data\\3-Nobatgir.Data.csproj",
+      "projectUniqueName": "E:\\Projects\\Nobatgir\\GIT\\Nobatgir\\Nobatgir.Data\\3-Nobatgir.Data.csproj",
       "projectName": "3-Nobatgir.Data",
-      "projectPath": "E:\\Projects\\Nobatgir\\Nobatgir\\Nobatgir.Data\\3-Nobatgir.Data.csproj",
+      "projectPath": "E:\\Projects\\Nobatgir\\GIT\\Nobatgir\\Nobatgir.Data\\3-Nobatgir.Data.csproj",
       "packagesPath": "C:\\Users\\Asus\\.nuget\\packages\\",
-      "outputPath": "E:\\Projects\\Nobatgir\\Nobatgir\\Nobatgir.Data\\obj\\",
+      "outputPath": "E:\\Projects\\Nobatgir\\GIT\\Nobatgir\\Nobatgir.Data\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
@@ -3611,8 +3611,8 @@
       "frameworks": {
         "netcoreapp2.1": {
           "projectReferences": {
-            "E:\\Projects\\Nobatgir\\Nobatgir\\Nobatgir.Model\\1-Nobatgir.Model.csproj": {
-              "projectPath": "E:\\Projects\\Nobatgir\\Nobatgir\\Nobatgir.Model\\1-Nobatgir.Model.csproj"
+            "E:\\Projects\\Nobatgir\\GIT\\Nobatgir\\Nobatgir.Model\\1-Nobatgir.Model.csproj": {
+              "projectPath": "E:\\Projects\\Nobatgir\\GIT\\Nobatgir\\Nobatgir.Model\\1-Nobatgir.Model.csproj"
             }
           }
         }

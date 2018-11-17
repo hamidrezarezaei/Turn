@@ -5,6 +5,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Folder Include="Util\" />
     <Folder Include="wwwroot\" />
   </ItemGroup>
 
@@ -18,6 +19,18 @@
     <ProjectReference Include="..\Nobatgir.Data\3-Nobatgir.Data.csproj" />
     <ProjectReference Include="..\Nobatgir.Lib\2-Nobatgir.Lib.csproj" />
     <ProjectReference Include="..\Nobatgir.Model\1-Nobatgir.Model.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Update="Areas\Admin\Views\Shared\Details.cshtml">
+      <Pack>$(IncludeRazorContentInPack)</Pack>
+    </Content>
+    <Content Update="Areas\Admin\Views\Expert\Details_partial.cshtml">
+      <Pack>$(IncludeRazorContentInPack)</Pack>
+    </Content>
+    <Content Update="Areas\Admin\Views\Expert\Index.cshtml">
+      <Pack>$(IncludeRazorContentInPack)</Pack>
+    </Content>
   </ItemGroup>
 
 </Project>

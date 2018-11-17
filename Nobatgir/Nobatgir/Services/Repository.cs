@@ -109,8 +109,12 @@ namespace Nobatgir.Services
         // #endregion
 
         // #region Entity
+        public List<Site> GetSites()
+        {
+            return _myContext.Sites.Where(e => !e.IsDeleted).ToList();
+        }
 
-        public PagedResult<Site> GetEntities(int pageNumber, string searchString = "")
+        public PagedResult<Site> GetSites(int pageNumber, string searchString = "")
         {
             if (pageNumber == 0)
                 pageNumber = 1;
@@ -136,14 +140,31 @@ namespace Nobatgir.Services
             return result;
         }
 
-        //public Entity GetEntity(int id)
-        //{
-        //    var entity = myContext.Entities.SingleOrDefault(e => e.Id == id && !e.IsDeleted);
-        //    return entity;
-        //}
-        //#endregion
+        public PagedResult<Expert> GetExperts(int pageNumber, string searchString = "")
+        {
+            if (pageNumber == 0)
+                pageNumber = 1;
 
-        //#region AdminMenu
+            IQueryable<Expert> query;
+
+            if (!string.IsNullOrEmpty(searchString))
+                query = _myContext.Experts.Where(e => e.Title.Contains(searchString) && !e.IsDeleted);
+            else
+                query = _myContext.Experts.Where(e => !e.IsDeleted);
+
+            var result = new PagedResult<Expert>
+            {
+                PagingData =
+                {
+                    CurrentPage = pageNumber,
+                    ItemsPerPage = pageSize,
+                    TotalItems = query.Count()
+                },
+                Items = query.OrderBy(e => e.OrderIndex).Skip((pageNumber - 1) * pageSize).Take(pageSize).ToList()
+            };
+
+            return result;
+        }
 
         public IEnumerable<AdminMenu> GetAdminMenus()
         {
@@ -151,8 +172,6 @@ namespace Nobatgir.Services
                                                 OrderBy(am => am.OrderIndex);
             return adminMenus;
         }
-
-        //#endregion
     }
 
 }

@@ -2,14 +2,15 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using Nobatgir.Services;
-using Nobatgir.Util;
+using Microsoft.AspNetCore.Mvc.Filters;
 
 namespace Nobatgir.Areas.Admin.Controllers
 {
     [Area("Admin")]
-    public class BaseController: Controller
+    public class BaseController : Controller
     {
         #region Controller
         protected Type type;
@@ -21,48 +22,68 @@ namespace Nobatgir.Areas.Admin.Controllers
         }
         #endregion
 
-        public IActionResult Create(ReturnUrl ReturnUrl)
+        public override void OnActionExecuting(ActionExecutingContext context)
         {
-            ViewBag.ReturnUrl = ReturnUrl;
-            return View();
+            base.OnActionExecuting(context);
+
+            // اضافی
+            //var ControllerName = new Regex("[.](\\w+)Controller").Match(base.ToString()).Groups[1].Value;
+            ViewBag.ReturnURL =Url.Action("Index", this.ControllerContext.ActionDescriptor.ControllerName);
         }
-        public IActionResult Edit(int? id, ReturnUrl ReturnUrl)
+
+        public IActionResult Details(int? id, string ReturnURL)
         {
             var row = this.repository.GetRow(id, this.type);
             if (row == null)
             {
                 return NotFound();
             }
-            ViewBag.ReturnUrl = ReturnUrl;
+            ViewBag.ReturnURL = ReturnURL;
             return View(row);
         }
 
-        public IActionResult Delete(int? id, ReturnUrl ReturnUrl)
+        public IActionResult Create(string ReturnURL)
         {
-            var row = this.repository.GetRow(id,this.type);
+            ViewBag.ReturnURL = ReturnURL;
+            return View();
+        }
+        public IActionResult Edit(int? id, string ReturnURL)
+        {
+            var row = this.repository.GetRow(id, this.type);
+            if (row == null)
+            {
+                return NotFound();
+            }
+            ViewBag.ReturnURL = ReturnURL;
+            return View(row);
+        }
+
+        public IActionResult Delete(int? id, string ReturnURL)
+        {
+            var row = this.repository.GetRow(id, this.type);
             if (row == null)
             {
                 return NotFound();
             }
 
-            ViewBag.ReturnUrl = ReturnUrl;
+            ViewBag.ReturnURL = ReturnURL;
             return View(row);
         }
 
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
-        public IActionResult DeleteConfirmed(int id, ReturnUrl ReturnUrl)
+        public IActionResult DeleteConfirmed(int id, string ReturnURL)
         {
             var row = this.repository.GetRow(id, type);
             this.repository.DeleteRow(row);
-            return RedirectToLocal(ReturnUrl);
+            return RedirectToLocal(ReturnURL);
         }
 
-        public IActionResult RedirectToLocal(ReturnUrl ReturnUrl)
+        public IActionResult RedirectToLocal(string ReturnURL)
         {
-            if (Url.IsLocalUrl(ReturnUrl.Url))
+            if (Url.IsLocalUrl(ReturnURL))
             {
-                return Redirect(ReturnUrl.Url);
+                return Redirect(ReturnURL);
             }
             else
             {

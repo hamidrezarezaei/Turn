@@ -687,11 +687,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "E:\\Projects\\Nobatgir\\Nobatgir\\Nobatgir.Lib\\2-Nobatgir.Lib.csproj",
+      "projectUniqueName": "E:\\Projects\\Nobatgir\\GIT\\Nobatgir\\Nobatgir.Lib\\2-Nobatgir.Lib.csproj",
       "projectName": "2-Nobatgir.Lib",
-      "projectPath": "E:\\Projects\\Nobatgir\\Nobatgir\\Nobatgir.Lib\\2-Nobatgir.Lib.csproj",
+      "projectPath": "E:\\Projects\\Nobatgir\\GIT\\Nobatgir\\Nobatgir.Lib\\2-Nobatgir.Lib.csproj",
       "packagesPath": "C:\\Users\\Asus\\.nuget\\packages\\",
-      "outputPath": "E:\\Projects\\Nobatgir\\Nobatgir\\Nobatgir.Lib\\obj\\",
+      "outputPath": "E:\\Projects\\Nobatgir\\GIT\\Nobatgir\\Nobatgir.Lib\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"

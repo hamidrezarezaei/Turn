@@ -7,10 +7,10 @@
 
 @Html.Partial("Details_partial", Model)
 
-<form asp-route-ReturnController="@ViewBag.ReturnUrl.ReturnController" asp-route-ReturnAction="@ViewBag.ReturnUrl.ReturnAction" asp-action="Delete">
+<form asp-route-ReturnURL="@ViewBag.ReturnURL" asp-action="Delete">
     <input type="hidden" asp-for="ID" />
     <div class="op-buttns bottom">
-        <a btn-type="cancel" href="@ViewBag.ReturnUrl.Url">لغو</a>
+        <a btn-type="cancel" href="@ViewBag.ReturnURL">لغو</a>
         <input btn-type="submitdelete" type="submit" value="حذف" />
 
     </div>

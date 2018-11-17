@@ -1,0 +1,18 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\Nobatgir",
+    "\\Nobatgir\\Nobatgir",
+    "\\Nobatgir\\Nobatgir\\Areas",
+    "\\Nobatgir\\Nobatgir\\Areas\\Admin",
+    "\\Nobatgir\\Nobatgir\\Areas\\Admin\\Controllers",
+    "\\Nobatgir\\Nobatgir\\Areas\\Admin\\TagHelper",
+    "\\Nobatgir\\Nobatgir\\Areas\\Admin\\ViewComponent",
+    "\\Nobatgir\\Nobatgir\\Areas\\Admin\\Views",
+    "\\Nobatgir\\Nobatgir\\Areas\\Admin\\Views\\Shared",
+    "\\Nobatgir\\Nobatgir\\Areas\\Admin\\Views\\Site",
+    "\\Nobatgir\\Nobatgir\\Util"
+  ],
+  "SelectedNode": "\\Nobatgir\\Nobatgir\\Areas\\Admin\\Controllers\\BaseController.cs",
+  "PreviewInSolutionExplorer": false
+}
