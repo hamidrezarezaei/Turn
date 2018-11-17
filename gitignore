@@ -245,3 +245,5 @@ nunit-*.xml
 GitHubVS.sln.DotSettings
 
 Nobatgir/Nobatgir/appsettings.Development.json
+Nobatgir/Nobatgir/appsettings.Production.json
+Nobatgir/Nobatgir/appsettings.json
