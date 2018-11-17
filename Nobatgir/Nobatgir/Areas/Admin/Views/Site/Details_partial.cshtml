@@ -1,0 +1,70 @@
+﻿@model Site
+
+<div class="admin-data-box">
+    <table class="table detail table-striped">
+        <tr>
+            <td>
+                @Html.DisplayNameFor(model => model.IsActive):
+            </td>
+            @if (ViewBag.ActionType == "create" || ViewBag.ActionType == "edit")
+            {
+                <td><input asp-for="IsActive" /></td>
+            }
+            else
+            {
+                <td>
+                    @Html.DisplayFor(model => model.IsActive)
+                </td>
+            }
+        </tr>
+        <tr>
+            <td>
+                @Html.DisplayNameFor(model => model.Name):
+            </td>
+            @if (ViewBag.ActionType == "create" || ViewBag.ActionType == "edit")
+            {
+                <td class="ltr"><input asp-for="Name" class="form-control" /></td>
+            }
+            else
+            {
+                <td>
+                    @Html.DisplayFor(model => model.Name)
+                </td>
+            }
+        </tr>
+        <tr>
+            <td>
+                @Html.DisplayNameFor(model => model.Title):
+            </td>
+            @if (ViewBag.ActionType == "create" || ViewBag.ActionType == "edit")
+            {
+                <td><input asp-for="Title" class="form-control" /></td>
+            }
+            else
+            {
+                <td>
+                    @Html.DisplayFor(model => model.Title)
+                </td>
+            }
+        </tr>
+        <tr>
+            <td>
+                @Html.DisplayNameFor(model => model.Domain):
+            </td>
+            @if (ViewBag.ActionType == "create" || ViewBag.ActionType == "edit")
+            {
+                <td><input asp-for="Domain" class="form-control" /></td>
+            }
+            else
+            {
+                <td>
+                    @Html.DisplayFor(model => model.Domain)
+                </td>
+            }
+        </tr>
+
+    </table>
+</div>
+
+
+

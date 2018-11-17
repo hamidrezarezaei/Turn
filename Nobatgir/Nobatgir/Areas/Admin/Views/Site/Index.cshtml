@@ -1,0 +1,33 @@
+﻿
+@model PagedResult<Site>
+@{
+    ViewBag.ActionType = "index";
+    ViewBag.PageTitle = "لیست سایت ها";
+    ViewBag.AddNewTitle = "ایحاد موجودیت جدید";
+    ViewBag.ReturnUrl = new ReturnUrl("Site", "Index");
+}
+
+@Html.Partial("_TitleBar")
+
+<div class="admin-data-box">
+    <table class="table table-striped">
+        <tbody>
+            @{int r = (Model.PagingData.CurrentPage - 1) * Model.PagingData.ItemsPerPage;}
+            @foreach (var item in Model.Items)
+            {
+                r++;
+                <tr>
+                    <td>
+                        <a asp-action="Details" asp-route-id="@item.ID">@r -  @Html.DisplayFor(modelItem => item.Title)</a>
+                    </td>
+                    <td class="op-buttns">
+                        <a btn-type="Edit" asp-action="Edit" asp-route-id="@item.ID" asp-route-ReturnController="@ViewBag.ReturnUrl.ReturnController" asp-route-ReturnAction="@ViewBag.ReturnUrl.ReturnAction">ویرایش</a>
+                        <a btn-type="Delete" asp-action="Delete" asp-route-id="@item.ID" asp-route-ReturnController="@ViewBag.ReturnUrl.ReturnController" asp-route-ReturnAction="@ViewBag.ReturnUrl.ReturnAction">حذف </a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+<nav page-model="@Model.PagingData" page-action="index" page-contoller="EntityType" search-string="@ViewBag.SearchString"></nav>
+

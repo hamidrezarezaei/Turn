@@ -1,0 +1,19 @@
+﻿@model IEnumerable<AdminMenu>
+
+<ul class="admin-menu">
+    @foreach (var item in Model)
+    {
+        string className = "admin-menu-item";
+
+        //if (item.Controller.ToLower() == currentController.ToLower())
+        //{
+        //    className += " active";
+
+        //}
+        <li class="@className">
+            <a asp-route-area="Admin" asp-controller="@Html.Raw(item.Controller)" asp-action="Index">
+                @Html.Raw(item.Title)
+            </a>
+        </li>
+    }
+</ul>

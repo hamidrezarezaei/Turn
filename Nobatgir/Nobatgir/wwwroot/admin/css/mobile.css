@@ -1,0 +1,8 @@
+﻿#admin-container {
+    margin-right:0px !important;
+}
+#admin-menu
+{
+    z-index:9;
+    right:-200px;
+}

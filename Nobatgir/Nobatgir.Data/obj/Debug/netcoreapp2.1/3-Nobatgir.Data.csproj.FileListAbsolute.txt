@@ -1,0 +1,16 @@
+E:\Projects\Nobatgir\Nobatgir\Nobatgir.Data\bin\Debug\netcoreapp2.1\3-Nobatgir.Data.deps.json
+E:\Projects\Nobatgir\Nobatgir\Nobatgir.Data\bin\Debug\netcoreapp2.1\3-Nobatgir.Data.runtimeconfig.json
+E:\Projects\Nobatgir\Nobatgir\Nobatgir.Data\bin\Debug\netcoreapp2.1\3-Nobatgir.Data.runtimeconfig.dev.json
+E:\Projects\Nobatgir\Nobatgir\Nobatgir.Data\bin\Debug\netcoreapp2.1\3-Nobatgir.Data.dll
+E:\Projects\Nobatgir\Nobatgir\Nobatgir.Data\bin\Debug\netcoreapp2.1\3-Nobatgir.Data.pdb
+E:\Projects\Nobatgir\Nobatgir\Nobatgir.Data\bin\Debug\netcoreapp2.1\1-Nobatgir.Model.dll
+E:\Projects\Nobatgir\Nobatgir\Nobatgir.Data\bin\Debug\netcoreapp2.1\2-Nobatgir.Lib.dll
+E:\Projects\Nobatgir\Nobatgir\Nobatgir.Data\bin\Debug\netcoreapp2.1\1-Nobatgir.Model.pdb
+E:\Projects\Nobatgir\Nobatgir\Nobatgir.Data\bin\Debug\netcoreapp2.1\2-Nobatgir.Lib.pdb
+E:\Projects\Nobatgir\Nobatgir\Nobatgir.Data\obj\Debug\netcoreapp2.1\3-Nobatgir.Data.csprojAssemblyReference.cache
+E:\Projects\Nobatgir\Nobatgir\Nobatgir.Data\obj\Debug\netcoreapp2.1\3-Nobatgir.Data.csproj.CoreCompileInputs.cache
+E:\Projects\Nobatgir\Nobatgir\Nobatgir.Data\obj\Debug\netcoreapp2.1\3-Nobatgir.Data.AssemblyInfoInputs.cache
+E:\Projects\Nobatgir\Nobatgir\Nobatgir.Data\obj\Debug\netcoreapp2.1\3-Nobatgir.Data.AssemblyInfo.cs
+E:\Projects\Nobatgir\Nobatgir\Nobatgir.Data\obj\Debug\netcoreapp2.1\3-Nobatgir.Data.csproj.CopyComplete
+E:\Projects\Nobatgir\Nobatgir\Nobatgir.Data\obj\Debug\netcoreapp2.1\3-Nobatgir.Data.dll
+E:\Projects\Nobatgir\Nobatgir\Nobatgir.Data\obj\Debug\netcoreapp2.1\3-Nobatgir.Data.pdb
