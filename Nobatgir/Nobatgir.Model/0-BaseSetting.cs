@@ -5,7 +5,7 @@ using System.Text;
 
 namespace Nobatgir.Model
 {
-    public class Setting 
+    public class BaseSetting
     {
         public int ID { get; set; }
 
@@ -14,8 +14,5 @@ namespace Nobatgir.Model
 
         [Display(Name = "مقدار")]
         public string Value { get; set; }
-
-        [Display(Name = "سایت")]
-        public Expert Expert { get; set; }
     }
 }

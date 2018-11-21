@@ -32,7 +32,7 @@ namespace Nobatgir.Areas.Admin.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult Edit(Site row, string returnURL)
+        public IActionResult Edit(Expert row, string returnURL)
         {
             if (ModelState.IsValid)
             {
@@ -46,7 +46,7 @@ namespace Nobatgir.Areas.Admin.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult Create(Site row, string ReturnUrl)
+        public IActionResult Create(Expert row, string ReturnUrl)
         {
             if (ModelState.IsValid)
             {

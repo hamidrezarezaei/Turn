@@ -20,9 +20,11 @@ namespace Nobatgir.Areas.Admin
         #region Invoke
         public async Task<IViewComponentResult> InvokeAsync()
         {
-            var items = repository.GetAdminMenus();
+            //var items = repository.GetAdminMenus();
 
-            return View("Default", items);
+            //return View("Default", items);
+
+            return View();
         }
         #endregion 
     }

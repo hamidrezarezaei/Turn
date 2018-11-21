@@ -108,7 +108,7 @@ Write(Html.Partial("_TitleBar"));
             WriteLiteral("                <tr>\r\n                    <td>\r\n                        ");
             EndContext();
             BeginContext(572, 140, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "6da7e123c9e546f296e8678872681a04", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "23779d59525749638e0f2c7df3493a4f", async() => {
                 BeginContext(662, 1, false);
 #line 22 "E:\Projects\Nobatgir\GIT\Nobatgir\Nobatgir\Areas\Admin\Views\Site\Index.cshtml"
                                                                                                             Write(r);
@@ -166,7 +166,7 @@ Write(Html.Partial("_TitleBar"));
             WriteLiteral("\r\n                    </td>\r\n                    <td class=\"op-buttns\">\r\n                        ");
             EndContext();
             BeginContext(809, 113, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "1f0d488ec91e4eb188cb87de6aa48503", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "d6c58bd467cc49f38fd5fb3a5c50e5f0", async() => {
                 BeginContext(912, 6, true);
                 WriteLiteral("ویرایش");
                 EndContext();
@@ -213,7 +213,7 @@ Write(Html.Partial("_TitleBar"));
             WriteLiteral("\r\n                        ");
             EndContext();
             BeginContext(948, 116, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "cbb2a4cf1dda4b4fa840c1c89497e131", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "94b545ae907142ed9f2b551ec14dc0b4", async() => {
                 BeginContext(1056, 4, true);
                 WriteLiteral("حذف ");
                 EndContext();
@@ -268,7 +268,7 @@ Write(Html.Partial("_TitleBar"));
             WriteLiteral("        </tbody>\r\n    </table>\r\n</div>\r\n");
             EndContext();
             BeginContext(1171, 122, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("nav", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "1bbff122d57c453090394c2c2b22527d", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("nav", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "5a4b3614ea26448787a56e797db972be", async() => {
             }
             );
             __Nobatgir_Areas_Admin_PagerTagHelper = CreateTagHelper<global::Nobatgir.Areas.Admin.PagerTagHelper>();

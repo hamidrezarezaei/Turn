@@ -5,15 +5,10 @@ using System.Text;
 
 namespace Nobatgir.Model
 {
-    public class TimeTemplate : BaseClass
+    public class BaseTimeTemplate : BaseClass
     {
-        public Expert Expert { get; set; }
-
         [Display(Name = "روز هفته")]
         public int WeekDay { get; set; }
-
-        [Display(Name = "مکان")]
-        public string Place { get; set; }
 
         [Display(Name = "زمان ها")]
         public string Times { get; set; }

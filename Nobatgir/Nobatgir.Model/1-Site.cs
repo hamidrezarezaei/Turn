@@ -9,5 +9,9 @@ namespace Nobatgir.Model
     {
         [Display(Name = "دامنه")]
         public string Domain { get; set; }
+
+        public IEnumerable<SiteSetting> SiteSettings { get; set; }
+
+        public IEnumerable<SiteTimeTemplate> SiteTimeTemplates { get; set; }
     }
 }

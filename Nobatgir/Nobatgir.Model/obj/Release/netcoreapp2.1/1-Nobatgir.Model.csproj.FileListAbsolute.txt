@@ -1,0 +1,12 @@
+E:\Projects\Nobatgir\GIT\Nobatgir\Nobatgir.Model\bin\Release\netcoreapp2.1\1-Nobatgir.Model.deps.json
+E:\Projects\Nobatgir\GIT\Nobatgir\Nobatgir.Model\bin\Release\netcoreapp2.1\1-Nobatgir.Model.dll
+E:\Projects\Nobatgir\GIT\Nobatgir\Nobatgir.Model\bin\Release\netcoreapp2.1\1-Nobatgir.Model.pdb
+E:\Projects\Nobatgir\GIT\Nobatgir\Nobatgir.Model\bin\Release\netcoreapp2.1\2-Nobatgir.Lib.dll
+E:\Projects\Nobatgir\GIT\Nobatgir\Nobatgir.Model\bin\Release\netcoreapp2.1\2-Nobatgir.Lib.pdb
+E:\Projects\Nobatgir\GIT\Nobatgir\Nobatgir.Model\obj\Release\netcoreapp2.1\1-Nobatgir.Model.csprojAssemblyReference.cache
+E:\Projects\Nobatgir\GIT\Nobatgir\Nobatgir.Model\obj\Release\netcoreapp2.1\1-Nobatgir.Model.csproj.CoreCompileInputs.cache
+E:\Projects\Nobatgir\GIT\Nobatgir\Nobatgir.Model\obj\Release\netcoreapp2.1\1-Nobatgir.Model.AssemblyInfoInputs.cache
+E:\Projects\Nobatgir\GIT\Nobatgir\Nobatgir.Model\obj\Release\netcoreapp2.1\1-Nobatgir.Model.AssemblyInfo.cs
+E:\Projects\Nobatgir\GIT\Nobatgir\Nobatgir.Model\obj\Release\netcoreapp2.1\1-Nobatgir.Model.csproj.CopyComplete
+E:\Projects\Nobatgir\GIT\Nobatgir\Nobatgir.Model\obj\Release\netcoreapp2.1\1-Nobatgir.Model.dll
+E:\Projects\Nobatgir\GIT\Nobatgir\Nobatgir.Model\obj\Release\netcoreapp2.1\1-Nobatgir.Model.pdb

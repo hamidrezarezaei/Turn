@@ -85,12 +85,12 @@ Write(Html.Partial("_TitleBar"));
             WriteLiteral("\r\n\r\n");
             EndContext();
             BeginContext(136, 398, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "d1e7802d61c14b26b0d6b3b834684096", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "8bfcaf51adc24fc6b75385c4d003e527", async() => {
                 BeginContext(233, 6, true);
                 WriteLiteral("\r\n    ");
                 EndContext();
                 BeginContext(239, 66, false);
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("div", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "7a5d0b552193429698fa74d438a929fc", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("div", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "4e60a22a73714a8bab2469f6dfaeb0de", async() => {
                 }
                 );
                 __Microsoft_AspNetCore_Mvc_TagHelpers_ValidationSummaryTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.TagHelpers.ValidationSummaryTagHelper>();
@@ -124,7 +124,7 @@ Write(Html.Partial("Details_partial", Model));
                 WriteLiteral("\r\n    <div class=\"op-buttns bottom\">\r\n        ");
                 EndContext();
                 BeginContext(396, 54, false);
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "00295d11492a4008bc589f5f3cd367f2", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "584a60a4da524b7188dfdcd85bda0795", async() => {
                     BeginContext(443, 3, true);
                     WriteLiteral("لغو");
                     EndContext();
@@ -152,7 +152,7 @@ AddHtmlAttributeValue("", 423, ViewBag.ReturnURL, 423, 18, false);
                 WriteLiteral("\r\n        ");
                 EndContext();
                 BeginContext(460, 53, false);
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("input", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "917e3ebfe7b24fcd946fd13e3efa000f", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("input", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "972a7ec10f1e443ea9907b0aa3ea54f6", async() => {
                 }
                 );
                 __Turn_Areas_Admin_AdminButton = CreateTagHelper<global::Turn.Areas.Admin.AdminButton>();

@@ -166,12 +166,12 @@ namespace Nobatgir.Services
             return result;
         }
 
-        public IEnumerable<AdminMenu> GetAdminMenus()
-        {
-            var adminMenus = _myContext.AdminMenus.Where(am => am.IsActive && !am.IsDeleted).
-                                                OrderBy(am => am.OrderIndex);
-            return adminMenus;
-        }
+        //public IEnumerable<AdminMenu> GetAdminMenus()
+        //{
+        //    var adminMenus = _myContext.AdminMenus.Where(am => am.IsActive && !am.IsDeleted).
+        //                                        OrderBy(am => am.OrderIndex);
+        //    return adminMenus;
+        //}
     }
 
 }

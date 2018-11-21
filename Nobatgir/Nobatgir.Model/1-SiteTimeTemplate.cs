@@ -2,13 +2,13 @@
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Text;
-using Nobatgir.Model;
 
 namespace Nobatgir.Model
 {
-    public class AdminMenu : BaseClass
+    public class SiteTimeTemplate : BaseTimeTemplate
     {
-        [Display(Name = "کنترلر")]
-        public string Controller { get; set; }
+        public int SiteID { get; set; }
+
+        public Site Site { get; set; }
     }
 }

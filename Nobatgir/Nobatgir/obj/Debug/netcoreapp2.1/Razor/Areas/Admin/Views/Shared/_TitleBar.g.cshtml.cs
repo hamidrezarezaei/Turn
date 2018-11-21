@@ -80,7 +80,7 @@ using Microsoft.AspNetCore.Identity;
             WriteLiteral("</h1>\r\n        <div class=\"col-md-5 admin-title\">\r\n            ");
             EndContext();
             BeginContext(191, 227, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "d14845d774534ba0a8cc068a24a7ceb4", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "436c46d0984644b18d7028d4ab20ba0f", async() => {
                 BeginContext(197, 68, true);
                 WriteLiteral("\r\n                <p>\r\n                    فیلتر: <input type=\"text\"");
                 EndContext();
@@ -112,7 +112,7 @@ WriteAttributeValue("", 273, ViewBag.SearchString, 273, 21, false);
             WriteLiteral("\r\n        </div>\r\n        <div class=\"col-6 col-md-3 op-buttns top\">\r\n            ");
             EndContext();
             BeginContext(500, 138, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "94d7c2dd8da74cb88278f753b9257106", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "e88a807fbec54a69b9177ff381aff537", async() => {
                 BeginContext(582, 18, true);
                 WriteLiteral("\r\n                ");
                 EndContext();
@@ -180,7 +180,7 @@ else if (ViewBag.ActionType == "edit")
             WriteLiteral("</h1>\r\n        <div class=\"col-md-3 op-buttns top\">\r\n            ");
             EndContext();
             BeginContext(863, 56, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "772b41ca5e0b43f398d2b156b014b095", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "2c98360df49e45408ecd2c856519b69a", async() => {
                 BeginContext(908, 7, true);
                 WriteLiteral("بازگشت ");
                 EndContext();
@@ -228,7 +228,7 @@ else if (ViewBag.ActionType == "create")
             WriteLiteral("</h1>\r\n        <div class=\"col-md-3 op-buttns top\">\r\n            ");
             EndContext();
             BeginContext(1145, 57, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "e9d45cd0206e4710b357e0dd209f7fb3", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "06d3b695dd8f4fccacca931e12fe2f7e", async() => {
                 BeginContext(1190, 8, true);
                 WriteLiteral(" بازگشت ");
                 EndContext();
@@ -276,7 +276,7 @@ else if (ViewBag.ActionType == "delete")
             WriteLiteral(" اطمینان دارید? </h1>\r\n        <div class=\"col-md-3 op-buttns top\">\r\n            ");
             EndContext();
             BeginContext(1448, 56, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "7514b66fd7b04477a8a94682a5f48fc9", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "38eb473f931c4defb267823b05885f35", async() => {
                 BeginContext(1493, 7, true);
                 WriteLiteral("بازگشت ");
                 EndContext();
@@ -324,7 +324,7 @@ else if (ViewBag.ActionType == "details")
             WriteLiteral("</h1>\r\n        <div class=\"col-md-3 op-buttns top\">\r\n            ");
             EndContext();
             BeginContext(1724, 56, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "2c07eae31790459f8c8fd231540f1398", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "72ef63b57e984be48d6e8128aefd0df6", async() => {
                 BeginContext(1769, 7, true);
                 WriteLiteral("بازگشت ");
                 EndContext();
