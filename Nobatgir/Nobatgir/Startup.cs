@@ -46,6 +46,10 @@ namespace Nobatgir
             }).AddEntityFrameworkStores<IdentityContext>()
               .AddDefaultTokenProviders();
 
+            services.AddTransient<IEmailSender, EmailSender>();
+
+            services.ConfigureApplicationCookie(c => c.LoginPath = "/Account/User/Login");
+
             services.AddMvc();
         }
 
@@ -63,6 +67,8 @@ namespace Nobatgir
             }
 
             app.UseStaticFiles();
+
+            app.UseAuthentication();
 
             app.UseMvc(routes =>
             {

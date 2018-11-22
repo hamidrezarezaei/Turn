@@ -1,0 +1,42 @@
+﻿
+@model ActionCategory
+@{
+    ViewBag.ActionType = "details";
+    ViewBag.PageTitle = "لیست منوها";
+}
+
+
+@Html.Partial("_TitleBar")
+
+@Html.Partial("Details_partial", Model)
+
+@{
+    ViewBag.ActionType = "index";
+    ViewBag.PageTitle = "لیست دسته منوها";
+    ViewBag.AddNewTitle = "ایحاد دسته جدید";
+}
+
+@Html.Partial("_TitleBar")
+
+<div class="admin-data-box">
+    <table class="table table-striped">
+        <tbody>
+            @{int r = (ViewBag.Actions.PagingData.CurrentPage - 1) * ViewBag.Actions.PagingData.ItemsPerPage;}
+            @foreach (var item in ViewBag.Actions.Items)
+            {
+                r++;
+                <tr>
+                    <td>
+                        <a asp-action="Details" asp-route-id="@item.ID" asp-route-ReturnURL="@ViewBag.ReturnURL">@r -  @item.Title</a>
+                    </td>
+                    <td class="op-buttons">
+                        <a btn-type="Edit" asp-action="Edit" asp-route-id="@item.ID" asp-route-ReturnURL="@ViewBag.ReturnURL">ویرایش</a>
+                        <a btn-type="Delete" asp-action="Delete" asp-route-id="@item.ID" asp-route-ReturnURL="@ViewBag.ReturnURL">حذف </a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+<nav page-model="@ViewBag.Actions.PagingData" page-action="index" page-contoller="ActionCategory" search-string="@ViewBag.SearchString"></nav>
+

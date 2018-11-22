@@ -1,19 +1,18 @@
-﻿@model BaseClass
-@{
-    ViewBag.ActionType = "edit";
-}
+﻿@model DetailsViewModel<BaseClass>
 
-@Html.Partial("_TitleBar")
+<partial name="_TitleBar" />
 
 <form asp-route-ReturnURL="@ViewBag.ReturnURL" asp-action="Edit" enctype="multipart/form-data">
+   
     <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-    <input type="hidden" asp-for="ID" />
-  @*  <input type="hidden" asp-for="SiteID" />*@
+   
+    <input type="hidden" asp-for="Row.ID" />
+  
+    <partial name="Details_partial" model="Model" />
 
-    @Html.Partial("Details_partial", Model)
-
-    <div class="op-buttns bottom">
+    <div class="op-buttons bottom">
         <a btn-type="cancel" href="@ViewBag.ReturnURL">لغو</a>
         <input btn-type="save" type="submit" value="ذخیره" />
     </div>
+
 </form>

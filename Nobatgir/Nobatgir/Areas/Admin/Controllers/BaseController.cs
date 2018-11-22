@@ -6,6 +6,7 @@ using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using Nobatgir.Services;
 using Microsoft.AspNetCore.Mvc.Filters;
+using Nobatgir.Model;
 
 namespace Nobatgir.Areas.Admin.Controllers
 {
@@ -28,24 +29,24 @@ namespace Nobatgir.Areas.Admin.Controllers
 
             // اضافی
             //var ControllerName = new Regex("[.](\\w+)Controller").Match(base.ToString()).Groups[1].Value;
-            ViewBag.ReturnURL =Url.Action("Index", this.ControllerContext.ActionDescriptor.ControllerName);
+            ViewBag.ReturnURL = Url.Action("Index", this.ControllerContext.ActionDescriptor.ControllerName);
         }
 
-        public IActionResult Details(int? id, string ReturnURL)
-        {
-            var row = this.repository.GetRow(id, this.type);
-            if (row == null)
-            {
-                return NotFound();
-            }
-            ViewBag.ReturnURL = ReturnURL;
-            return View(row);
-        }
+        //public IActionResult Details(int? id, string ReturnURL)
+        //{
+        //    var row = this.repository.GetRow(id, this.type);
+        //    if (row == null)
+        //    {
+        //        return NotFound();
+        //    }
+        //    ViewBag.ReturnURL = ReturnURL;
+        //    return View(row);
+        //}
 
         public IActionResult Create(string ReturnURL)
         {
             ViewBag.ReturnURL = ReturnURL;
-            return View();
+            return View(new DetailsViewModel<BaseClass> { ActionType = ActionTypes.Edit });
         }
         public IActionResult Edit(int? id, string ReturnURL)
         {
@@ -55,7 +56,8 @@ namespace Nobatgir.Areas.Admin.Controllers
                 return NotFound();
             }
             ViewBag.ReturnURL = ReturnURL;
-            return View(row);
+
+            return View(new DetailsViewModel<BaseClass> { Row = row, ActionType = ActionTypes.Edit });
         }
 
         public IActionResult Delete(int? id, string ReturnURL)
@@ -67,7 +69,7 @@ namespace Nobatgir.Areas.Admin.Controllers
             }
 
             ViewBag.ReturnURL = ReturnURL;
-            return View(row);
+            return View(new DetailsViewModel<BaseClass> { Row = row, ActionType = ActionTypes.Delete });
         }
 
         [HttpPost, ActionName("Delete")]

@@ -28,6 +28,10 @@ namespace Nobatgir.Data.Migrations
 
                     b.Property<int>("ActionCategoryID");
 
+                    b.Property<string>("ActionName");
+
+                    b.Property<string>("ControllerName");
+
                     b.Property<bool>("IsActive");
 
                     b.Property<bool>("IsDeleted");

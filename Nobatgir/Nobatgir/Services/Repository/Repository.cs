@@ -2,13 +2,14 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Internal;
 using Nobatgir.Data;
 using Nobatgir.Model;
 
 namespace Nobatgir.Services
 {
-    public class Repository
+    public partial class Repository
     {
         #region constructor
         private readonly MyContext _myContext;
@@ -166,12 +167,47 @@ namespace Nobatgir.Services
             return result;
         }
 
-        //public IEnumerable<AdminMenu> GetAdminMenus()
-        //{
-        //    var adminMenus = _myContext.AdminMenus.Where(am => am.IsActive && !am.IsDeleted).
-        //                                        OrderBy(am => am.OrderIndex);
-        //    return adminMenus;
-        //}
-    }
 
+
+
+
+
+
+        public IQueryable<T> FilterExist<T>(IQueryable<T> db) where T : BaseClass
+        {
+            return db.Where(am => !am.IsDeleted).OrderBy(am => am.OrderIndex);
+        }
+
+        public IQueryable<T> FilterActive<T>(IQueryable<T> db) where T : BaseClass
+        {
+            return db.Where(am => am.IsActive);
+        }
+
+        public PagedResult<T> GetPagedResult<T>(IQueryable<T> db, int pageNumber, string searchString = "") where T : BaseClass
+        {
+            if (pageNumber == 0)
+                pageNumber = 1;
+
+            IEnumerable<T> query;
+
+            if (!string.IsNullOrEmpty(searchString))
+                query = FilterExist(db).Where(e => e.Title.Contains(searchString));
+            else
+                query = FilterExist(db);
+
+            var result = new PagedResult<T>
+            {
+                PagingData =
+                {
+                    CurrentPage = pageNumber,
+                    ItemsPerPage = pageSize,
+                    TotalItems = query.Count()
+                },
+                Items = query.OrderBy(e => e.OrderIndex).Skip((pageNumber - 1) * pageSize).Take(pageSize).ToList()
+            };
+
+            return result;
+        }
+
+    }
 }

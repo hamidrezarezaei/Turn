@@ -213,25 +213,25 @@ body {
     padding-right: 90px;
 }
 
-div.op-buttns {
+div.op-buttons {
     text-align: left;
     margin: 10px 0px 20px;
 }
 
-td.op-buttns {
+td.op-buttons {
     text-align: left;
 }
 
-.op-buttns.bottom .btn {
+.op-buttons.bottom .btn {
     width: 150px;
 }
 
-.op-buttns .btn-cancel {
+.op-buttons .btn-cancel {
     background-color: #969ba8;
     color: white;
 }
 
-    .op-buttns .btn-cancel:hover {
+    .op-buttons .btn-cancel:hover {
         background-color: #7c808c;
     }
 
@@ -279,12 +279,12 @@ td.op-buttns {
         background-color: #191e23;
     }
 
-    .admin-menu-item a {
+.admin-menu-item ,.admin-menu-item a {
         display: block;
         color: #fff;
     }
 
-    .admin-menu-item:hover a {
+     .admin-menu-item:hover a {
         color: #8cddcd;
     }
 

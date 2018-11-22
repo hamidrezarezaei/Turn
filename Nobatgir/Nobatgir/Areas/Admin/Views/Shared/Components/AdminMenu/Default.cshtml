@@ -1,7 +1,7 @@
-﻿@*@model IEnumerable<AdminMenu>
+﻿@model IEnumerable<Nobatgir.Model.ActionCategory>
 
 <ul class="admin-menu">
-    @foreach (var item in Model)
+    @foreach (var cat in Model)
     {
         string className = "admin-menu-item";
 
@@ -10,10 +10,21 @@
         //    className += " active";
 
         //}
-        <li class="@className">
-            <a asp-route-area="Admin" asp-controller="@Html.Raw(item.Controller)" asp-action="Index">
-                @Html.Raw(item.Title)
-            </a>
+
+        <li>
+            <li class="admin-menu-item">
+                @cat.Title
+            </li>
+            <ul>
+                @foreach (var act in cat.Actions)
+                {
+                    <li class="@className">
+                        <a asp-route-area="Admin" asp-controller="@act.ControllerName" asp-action="@act.ActionName">
+                            @act.Title
+                        </a>
+                    </li>
+                }
+            </ul>
         </li>
     }
-</ul>*@
+</ul>

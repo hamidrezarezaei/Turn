@@ -1,16 +1,20 @@
-﻿@model BaseClass
+﻿@model DetailsViewModel<BaseClass>
+
 @{
     ViewBag.PageTitle = "ایجاد سطر جدید";
-    ViewBag.ActionType = "create";
 }
 
-@Html.Partial("_TitleBar")
+<partial name="_TitleBar" />
 
 <form asp-action="Create" asp-route-ReturnURL="@ViewBag.ReturnURL" enctype="multipart/form-data">
+
     <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-    @Html.Partial("Details_partial", Model)
-    <div class="op-buttns bottom">
+
+    <partial name="Details_partial" model="Model" />
+
+    <div class="op-buttons bottom">
         <a btn-type="cancel" href="@ViewBag.ReturnURL">لغو</a>
         <input btn-type="save" type="submit" value="ایجاد" />
     </div>
+
 </form>

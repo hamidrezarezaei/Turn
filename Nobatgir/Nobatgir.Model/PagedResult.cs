@@ -5,7 +5,7 @@ using System.Text;
 namespace Nobatgir.Model
 {
     
-    public class PagedResult<T> where T : new()
+    public class PagedResult<T> where T : BaseClass
     {
         public List<T> Items { get; set; } = new List<T>();
         public PagingData PagingData { get; set; } = new PagingData();

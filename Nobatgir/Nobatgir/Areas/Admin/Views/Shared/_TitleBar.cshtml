@@ -10,7 +10,7 @@
                 </p>
             </form>
         </div>
-        <div class="col-6 col-md-3 op-buttns top">
+        <div class="col-6 col-md-3 op-buttons top">
             <a btn-type="Create" asp-action="Create" asp-route-ReturnURL="@ViewBag.ReturnURL">
                 @ViewBag.AddNewTitle
             </a>
@@ -21,7 +21,7 @@ else if (ViewBag.ActionType == "edit")
 {
     <div class="row">
         <h1 class="col-md-9 admin-title"> ویرایش @Model.Title</h1>
-        <div class="col-md-3 op-buttns top">
+        <div class="col-md-3 op-buttons top">
             <a btn-type="back" href="@ViewBag.ReturnURL">بازگشت </a>
         </div>
     </div>
@@ -30,7 +30,7 @@ else if (ViewBag.ActionType == "create")
 {
     <div class="row">
         <h1 class="col-md-9 admin-title"> @ViewBag.PageTitle</h1>
-        <div class="col-md-3 op-buttns top">
+        <div class="col-md-3 op-buttons top">
             <a btn-type="back" href="@ViewBag.ReturnURL"> بازگشت </a>
         </div>
     </div>
@@ -39,7 +39,7 @@ else if (ViewBag.ActionType == "delete")
 {
     <div class="row">
         <h1 class="col-md-9 admin-title">آیا از حذف @Model.Title اطمینان دارید? </h1>
-        <div class="col-md-3 op-buttns top">
+        <div class="col-md-3 op-buttons top">
             <a btn-type="back" href="@ViewBag.ReturnURL">بازگشت </a>
         </div>
     </div>
@@ -48,7 +48,7 @@ else if (ViewBag.ActionType == "details")
 {
     <div class="row">
         <h1 class="col-md-9 admin-title">@Model.Title</h1>
-        <div class="col-md-3 op-buttns top">
+        <div class="col-md-3 op-buttons top">
             <a btn-type="back" href="@ViewBag.ReturnURL">بازگشت </a>
         </div>
     </div>

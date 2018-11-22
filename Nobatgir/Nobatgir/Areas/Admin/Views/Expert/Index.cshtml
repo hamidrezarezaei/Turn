@@ -23,7 +23,7 @@
                     <td>
                         <a asp-action="Details" asp-route-id="@item.ID" asp-route-ReturnURL="@ViewBag.ReturnURL">@r -  @Html.DisplayFor(modelItem => item.Title)</a>
                     </td>
-                    <td class="op-buttns">
+                    <td class="op-buttons">
                         <a btn-type="Edit" asp-action="Edit" asp-route-id="@item.ID" asp-route-ReturnURL="@ViewBag.ReturnURL">ویرایش</a>
                         <a btn-type="Delete" asp-action="Delete" asp-route-id="@item.ID" asp-route-ReturnURL="@ViewBag.ReturnURL">حذف </a>
                     </td>

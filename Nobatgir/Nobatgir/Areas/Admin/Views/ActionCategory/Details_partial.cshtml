@@ -1,0 +1,61 @@
+﻿
+@model DetailsViewModel<BaseClass>
+@{
+   var Row = Model.Row as ActionCategory;
+}
+
+<div class="admin-data-box">
+    <table class="table detail table-striped">
+        <tr>
+            <td>
+                <label asp-for="@Row.IsActive"> @Html.DisplayNameFor(model => Row.IsActive):</label>
+
+            </td>
+            @if (Model.ActionType == ActionTypes.Create || Model.ActionType == ActionTypes.Edit)
+            {
+                <td><input asp-for="@Row.IsActive" /></td>
+            }
+            else
+            {
+                <td>
+                    @Html.DisplayFor(model => Row.IsActive)
+                </td>
+            }
+        </tr>
+        <tr>
+            <td>
+                <label asp-for="@Row.Name">@Html.DisplayNameFor(model => Row.Name):</label>
+            </td>
+            @if (Model.ActionType == ActionTypes.Create || Model.ActionType == ActionTypes.Edit)
+            {
+                <td class="ltr"><input asp-for="@Row.Name" class="form-control" /></td>
+            }
+            else
+            {
+                <td>
+                    @Html.DisplayFor(model => Row.Name)
+                </td>
+            }
+        </tr>
+        <tr>
+            <td>
+                <label asp-for="@Row.Title"> @Html.DisplayNameFor(model => model.Row.Title):</label>
+            </td>
+            @if (Model.ActionType == ActionTypes.Create || Model.ActionType == ActionTypes.Edit)
+            {
+                <td><input asp-for="Row.Title" class="form-control" /></td>
+            }
+            else
+            {
+                <td>
+                    @Html.DisplayFor(model => model.Row.Title)
+                </td>
+            }
+        </tr>
+
+
+    </table>
+</div>
+
+
+

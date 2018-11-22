@@ -32,7 +32,7 @@
                 <div class="close-container">
                     <i class="fas fa-times close-btn" onclick="hideMenu()"></i>
                 </div>
-                
+
                 @await Component.InvokeAsync("AdminMenu")
             </div>
             <div id="admin-container" class="col">
@@ -40,5 +40,7 @@
             </div>
         </div>
     </div>
+
+    @RenderSection("Scripts", false)
 </body>
 </html>

@@ -4,6 +4,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Nobatgir.Services;
+using Nobatgir.Data;
+using Nobatgir.Model;
 
 namespace Nobatgir.Areas.Admin
 {
@@ -20,11 +22,9 @@ namespace Nobatgir.Areas.Admin
         #region Invoke
         public async Task<IViewComponentResult> InvokeAsync()
         {
-            //var items = repository.GetAdminMenus();
-
-            //return View("Default", items);
-
-            return View();
+            var items = repository.GetActiveActionCategories();
+        
+            return View("Default", items);
         }
         #endregion 
     }
