@@ -1,17 +1,12 @@
-﻿@model BaseClass
-@{
-    ViewBag.ActionType = "details";
-}
+﻿@model DetailsViewModel<BaseClass>
 
-@Html.Partial("_TitleBar")
+<partial name="_TitleBar" model="@{new TitleBarViewModel{ActionType = ActionTypes.Details,Title = Model.Row.Title};}" />
 
 @Html.Partial("Details_partial", Model)
 
 <form asp-route-ReturnURL="@ViewBag.ReturnURL" asp-action="Delete">
-    <input type="hidden" asp-for="ID" />
+    <input type="hidden" asp-for="Row.ID" />
     <div class="op-buttons bottom">
         <a btn-type="cancel" href="@ViewBag.ReturnURL">بازگشت</a>
-        
-
     </div>
 </form>

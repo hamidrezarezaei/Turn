@@ -1,13 +1,6 @@
-﻿
-@model PagedResult<ActionCategory>
-@{
-    ViewBag.ActionType = "index";
-    ViewBag.PageTitle = "لیست دسته منوها";
-    ViewBag.AddNewTitle = "ایحاد دسته جدید";
-}
+﻿@model PagedResult<ActionCategory>
 
-
-@Html.Partial("_TitleBar")
+<partial name="_TitleBar" model="@{new TitleBarViewModel{ActionType = ActionTypes.Index, Title = "لیست دسته منوها", AddNewController="ActionCategory", AddNewTitle = "ایحاد دسته جدید"};}" />
 
 <div class="admin-data-box">
     <table class="table table-striped">
@@ -29,5 +22,5 @@
         </tbody>
     </table>
 </div>
+
 <nav page-model="@Model.PagingData" page-action="index" page-contoller="ActionCategory" search-string="@ViewBag.SearchString"></nav>
- 

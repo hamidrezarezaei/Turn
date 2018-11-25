@@ -7,8 +7,9 @@ namespace Nobatgir.Model
 {
     public class SiteTimeTemplate : BaseTimeTemplate
     {
-        public int SiteID { get; set; }
-
+        [Display(Name = "سایت")]
         public Site Site { get; set; }
+
+        public int SiteID { get; set; }
     }
 }

@@ -10,50 +10,42 @@ namespace Nobatgir.Services
 {
     public partial class Repository
     {
+        public Model.Action GetAction(int id)
+        {
+            return FilterExist(_myContext.Actions).FirstOrDefault(x => x.ID == id);
+        }
+
         public IQueryable<Model.Action> GetActions()
         {
             return FilterExist(_myContext.Actions);
         }
 
-        public PagedResult<Model.Action> GetActions(int ActionCategoryID, int pageNumber, string searchString = "")
-        {
-            var q = FilterExist(_myContext.Actions).Where(x => x.ActionCategoryID == ActionCategoryID);
-
-            return GetPagedResult(q, pageNumber, searchString);
-        }
-
         public IQueryable<Model.Action> GetActiveActions()
         {
-            var adminMenus = FilterActive(FilterExist(_myContext.Actions));
+            var adminMenus = FilterActive(this.GetActions());
             return adminMenus;
+        }
+
+        public IQueryable<Model.Action> GetActions(int ActionCategoryID)
+        {
+            return this.GetActions().Where(x => x.ActionCategoryID == ActionCategoryID);
+        }
+
+        public IQueryable<Model.Action> GetActiveActions(int ActionCategoryID)
+        {
+            var Actions = FilterActive(GetActions(ActionCategoryID));
+            return Actions;
+        }
+
+        public PagedResult<Model.Action> GetActions(int ActionCategoryID, int pageNumber, string searchString = "")
+        {
+            var q = this.GetActions(ActionCategoryID);
+            return GetPagedResult(q, pageNumber, searchString);
         }
 
         public PagedResult<Model.Action> GetActions(int pageNumber, string searchString = "")
         {
-            return GetPagedResult(_myContext.Actions, pageNumber, searchString);
-
-            //if (pageNumber == 0)
-            //    pageNumber = 1;
-
-            //IEnumerable<Model.Action> query;
-
-            //if (!string.IsNullOrEmpty(searchString))
-            //    query = FilterExist(_myContext.Actions).Where(e => e.Title.Contains(searchString));
-            //else
-            //    query = FilterExist(_myContext.Actions);
-
-            //var result = new PagedResult<Model.Action>
-            //{
-            //    PagingData =
-            //    {
-            //        CurrentPage = pageNumber,
-            //        ItemsPerPage = pageSize,
-            //        TotalItems = query.Count()
-            //    },
-            //    Items = query.OrderBy(e => e.OrderIndex).Skip((pageNumber - 1) * pageSize).Take(pageSize).ToList()
-            //};
-
-            //return result;
+            return GetPagedResult(this.GetActions(), pageNumber, searchString);
         }
     }
 }

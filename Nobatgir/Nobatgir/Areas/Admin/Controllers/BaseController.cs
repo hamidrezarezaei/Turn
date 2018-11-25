@@ -32,23 +32,22 @@ namespace Nobatgir.Areas.Admin.Controllers
             ViewBag.ReturnURL = Url.Action("Index", this.ControllerContext.ActionDescriptor.ControllerName);
         }
 
-        //public IActionResult Details(int? id, string ReturnURL)
-        //{
-        //    var row = this.repository.GetRow(id, this.type);
-        //    if (row == null)
-        //    {
-        //        return NotFound();
-        //    }
-        //    ViewBag.ReturnURL = ReturnURL;
-        //    return View(row);
-        //}
+        public virtual IActionResult Details(int? id, int pageNumber, string searchString)
+        {
+            if (id == null)
+                return NotFound();
 
-        public IActionResult Create(string ReturnURL)
+            var row = this.repository.GetRow(id, this.type);
+            return View(new DetailsViewModel<BaseClass> { Row = row, ActionType = ActionTypes.Details });
+        }
+
+        public virtual IActionResult Create(string ReturnURL)
         {
             ViewBag.ReturnURL = ReturnURL;
             return View(new DetailsViewModel<BaseClass> { ActionType = ActionTypes.Edit });
         }
-        public IActionResult Edit(int? id, string ReturnURL)
+
+        public virtual IActionResult Edit(int? id, string ReturnURL)
         {
             var row = this.repository.GetRow(id, this.type);
             if (row == null)
@@ -60,7 +59,7 @@ namespace Nobatgir.Areas.Admin.Controllers
             return View(new DetailsViewModel<BaseClass> { Row = row, ActionType = ActionTypes.Edit });
         }
 
-        public IActionResult Delete(int? id, string ReturnURL)
+        public virtual IActionResult Delete(int? id, string ReturnURL)
         {
             var row = this.repository.GetRow(id, this.type);
             if (row == null)
@@ -74,14 +73,14 @@ namespace Nobatgir.Areas.Admin.Controllers
 
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
-        public IActionResult DeleteConfirmed(int id, string ReturnURL)
+        public virtual IActionResult DeleteConfirmed(int id, string ReturnURL)
         {
             var row = this.repository.GetRow(id, type);
             this.repository.DeleteRow(row);
             return RedirectToLocal(ReturnURL);
         }
 
-        public IActionResult RedirectToLocal(string ReturnURL)
+        public virtual IActionResult RedirectToLocal(string ReturnURL)
         {
             if (Url.IsLocalUrl(ReturnURL))
             {

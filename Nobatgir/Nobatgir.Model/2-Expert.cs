@@ -10,6 +10,8 @@ namespace Nobatgir.Model
         [Display(Name = "سایت")]
         public Site Site { get; set; }
 
+        public int SiteID { get; set; }
+
         public IEnumerable<ExpertSetting> ExpertSettings { get; set; }
 
         public IEnumerable<ExpertTimeTemplate> ExpertTimeTemplates { get; set; }

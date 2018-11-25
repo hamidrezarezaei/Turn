@@ -92,6 +92,8 @@ namespace Nobatgir.Data.Migrations
 
                     b.Property<int>("OrderIndex");
 
+                    b.Property<int>("SiteID");
+
                     b.Property<string>("Title");
 
                     b.Property<DateTime>("UpdateDateTime");
@@ -99,6 +101,8 @@ namespace Nobatgir.Data.Migrations
                     b.Property<int>("UserID");
 
                     b.HasKey("ID");
+
+                    b.HasIndex("SiteID");
 
                     b.ToTable("Categories");
                 });
@@ -177,7 +181,7 @@ namespace Nobatgir.Data.Migrations
 
                     b.Property<int>("OrderIndex");
 
-                    b.Property<int?>("SiteID");
+                    b.Property<int>("SiteID");
 
                     b.Property<string>("Title");
 
@@ -395,6 +399,14 @@ namespace Nobatgir.Data.Migrations
                         .OnDelete(DeleteBehavior.Cascade);
                 });
 
+            modelBuilder.Entity("Nobatgir.Model.Category", b =>
+                {
+                    b.HasOne("Nobatgir.Model.Site", "Site")
+                        .WithMany()
+                        .HasForeignKey("SiteID")
+                        .OnDelete(DeleteBehavior.Cascade);
+                });
+
             modelBuilder.Entity("Nobatgir.Model.CategorySetting", b =>
                 {
                     b.HasOne("Nobatgir.Model.Category", "Category")
@@ -415,7 +427,8 @@ namespace Nobatgir.Data.Migrations
                 {
                     b.HasOne("Nobatgir.Model.Site", "Site")
                         .WithMany()
-                        .HasForeignKey("SiteID");
+                        .HasForeignKey("SiteID")
+                        .OnDelete(DeleteBehavior.Cascade);
                 });
 
             modelBuilder.Entity("Nobatgir.Model.ExpertSetting", b =>

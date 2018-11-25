@@ -1,6 +1,6 @@
 ﻿@model DetailsViewModel<BaseClass>
 
-<partial name="_TitleBar" />
+<partial name="_TitleBar" model="@{new TitleBarViewModel {ActionType = ActionTypes.Edit,Title = "ویرایش "+ Model.Row.Title};}" />
 
 <form asp-route-ReturnURL="@ViewBag.ReturnURL" asp-action="Edit" enctype="multipart/form-data">
    

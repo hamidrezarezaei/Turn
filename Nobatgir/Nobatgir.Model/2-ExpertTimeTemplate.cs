@@ -7,9 +7,9 @@ namespace Nobatgir.Model
 {
     public class ExpertTimeTemplate : BaseTimeTemplate
     {
-        public int ExpertID { get; set; }
-
         public Expert Expert { get; set; }
+
+        public int ExpertID { get; set; }
 
     }
 }

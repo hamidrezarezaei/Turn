@@ -8,8 +8,8 @@ namespace Nobatgir.Model
     public class DetailsViewModel<T> where T : BaseClass
     {
         public T Row{ get; set; } 
-        public ActionTypes ActionType { get; set; }
 
+        public ActionTypes ActionType { get; set; }
     }
     
 }

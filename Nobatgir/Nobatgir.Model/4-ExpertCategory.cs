@@ -7,10 +7,12 @@ namespace Nobatgir.Model
 {
     public class ExpertCategory : BaseClass
     {
-        public int CategoryID { get; set; }
-        public int ExpertID { get; set; }
-
         public Category Category { get; set; }
+
+        public int CategoryID { get; set; }
+
         public Expert Expert { get; set; }
+
+        public int ExpertID { get; set; }
     }
 }

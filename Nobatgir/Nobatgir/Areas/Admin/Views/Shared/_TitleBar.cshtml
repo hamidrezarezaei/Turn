@@ -1,7 +1,11 @@
-﻿@if (ViewBag.ActionType == "index")
+﻿@model TitleBarViewModel
+
+@if (Model.ActionType == ActionTypes.Index)
 {
     <div class="row">
-        <h1 class="col-6 col-md-4 admin-title">@ViewBag.PageTitle</h1>
+        <h1 class="col-6 col-md-4 admin-title">
+            @Model.Title
+        </h1>
         <div class="col-md-5 admin-title">
             <form>
                 <p>
@@ -11,43 +15,51 @@
             </form>
         </div>
         <div class="col-6 col-md-3 op-buttons top">
-            <a btn-type="Create" asp-action="Create" asp-route-ReturnURL="@ViewBag.ReturnURL">
-                @ViewBag.AddNewTitle
+            <a btn-type="Create" asp-controller="@Model.AddNewController" asp-action="Create" asp-route-ReturnURL="@ViewBag.ReturnURL">
+                @Model.AddNewTitle
             </a>
         </div>
     </div>
 }
-else if (ViewBag.ActionType == "edit")
+else if (Model.ActionType == ActionTypes.Edit)
 {
     <div class="row">
-        <h1 class="col-md-9 admin-title"> ویرایش @Model.Title</h1>
+        <h1 class="col-md-9 admin-title">
+            @Model.Title
+        </h1>
         <div class="col-md-3 op-buttons top">
             <a btn-type="back" href="@ViewBag.ReturnURL">بازگشت </a>
         </div>
     </div>
 }
-else if (ViewBag.ActionType == "create")
+else if (Model.ActionType == ActionTypes.Create)
 {
     <div class="row">
-        <h1 class="col-md-9 admin-title"> @ViewBag.PageTitle</h1>
+        <h1 class="col-md-9 admin-title">
+            @Model.Title
+        </h1>
         <div class="col-md-3 op-buttons top">
             <a btn-type="back" href="@ViewBag.ReturnURL"> بازگشت </a>
         </div>
     </div>
 }
-else if (ViewBag.ActionType == "delete")
+else if (Model.ActionType == ActionTypes.Delete)
 {
     <div class="row">
-        <h1 class="col-md-9 admin-title">آیا از حذف @Model.Title اطمینان دارید? </h1>
+        <h1 class="col-md-9 admin-title">
+            @Model.Title
+        </h1>
         <div class="col-md-3 op-buttons top">
             <a btn-type="back" href="@ViewBag.ReturnURL">بازگشت </a>
         </div>
     </div>
 }
-else if (ViewBag.ActionType == "details")
+else if (Model.ActionType == ActionTypes.Details)
 {
     <div class="row">
-        <h1 class="col-md-9 admin-title">@Model.Title</h1>
+        <h1 class="col-md-9 admin-title">
+            @Model.Title
+        </h1>
         <div class="col-md-3 op-buttons top">
             <a btn-type="back" href="@ViewBag.ReturnURL">بازگشت </a>
         </div>

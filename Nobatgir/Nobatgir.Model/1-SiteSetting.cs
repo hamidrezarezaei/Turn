@@ -9,6 +9,8 @@ namespace Nobatgir.Model
     {
         [Display(Name = "سایت")]
         public Site Site { get; set; }
+
         public int SiteID { get; set; }
+
     }
 }

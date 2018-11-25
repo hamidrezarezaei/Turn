@@ -1,14 +1,6 @@
-﻿
-@model PagedResult<Site>
-@{
-    ViewBag.ActionType = "index";
-    ViewBag.PageTitle = "لیست سایت ها";
-    ViewBag.AddNewTitle = "ایحاد موجودیت جدید";
+﻿@model PagedResult<Site>
 
-  //  ViewBag.ReturnURL = "google.com";
-}
-
-@Html.Partial("_TitleBar")
+<partial name="_TitleBar"  model="@{new TitleBarViewModel { ActionType = ActionTypes.Index, Title = "لیست سایت ها", AddNewController="Site", AddNewTitle = "ایحاد سایت جدید"};}" />
 
 <div class="admin-data-box">
     <table class="table table-striped">
@@ -22,8 +14,8 @@
                         <a asp-action="Details" asp-route-id="@item.ID" asp-route-ReturnURL="@ViewBag.ReturnURL">@r -  @Html.DisplayFor(modelItem => item.Title)</a>
                     </td>
                     <td class="op-buttons">
-                        <a btn-type="Edit" asp-action="Edit" asp-route-id="@item.ID" asp-route-ReturnURL="@ViewBag.ReturnURL" >ویرایش</a>
-                        <a btn-type="Delete" asp-action="Delete" asp-route-id="@item.ID" asp-route-ReturnURL="@ViewBag.ReturnURL"  >حذف </a>
+                        <a btn-type="Edit" asp-action="Edit" asp-route-id="@item.ID" asp-route-ReturnURL="@ViewBag.ReturnURL">ویرایش</a>
+                        <a btn-type="Delete" asp-action="Delete" asp-route-id="@item.ID" asp-route-ReturnURL="@ViewBag.ReturnURL">حذف </a>
                     </td>
                 </tr>
             }

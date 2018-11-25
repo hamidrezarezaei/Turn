@@ -9,6 +9,7 @@ namespace Nobatgir.Model
     {
         [Display(Name = "بخش")]
         public Category Category { get; set; }
+
         public int CategoryID { get; set; }
     }
 }

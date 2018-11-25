@@ -1,10 +1,6 @@
 ﻿@model DetailsViewModel<BaseClass>
 
-@{
-    ViewBag.PageTitle = "ایجاد سطر جدید";
-}
-
-<partial name="_TitleBar" />
+<partial name="_TitleBar" model="@{new TitleBarViewModel {ActionType = ActionTypes.Create, Title = "ایجاد سطر جدید"};}" />
 
 <form asp-action="Create" asp-route-ReturnURL="@ViewBag.ReturnURL" enctype="multipart/form-data">
 

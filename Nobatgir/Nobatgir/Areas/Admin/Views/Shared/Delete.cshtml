@@ -1,6 +1,6 @@
 ﻿@model DetailsViewModel<BaseClass>
 
-<partial name="_TitleBar" />
+<partial name="_TitleBar" model="@{new TitleBarViewModel{ActionType = ActionTypes.Delete,Title = "از حذف این سطر اطمینان دارید؟"};}" />
 
 <partial name="Details_partial" model="Model" />
 

@@ -5,18 +5,11 @@ using System.Text;
 
 namespace Nobatgir.Model
 {
-    public class ExpertSetting
+    public class ExpertSetting:BaseSetting
     {
-        public int ID { get; set; }
-
-        [Display(Name = "کلید")]
-        public string Key { get; set; }
-
-        [Display(Name = "مقدار")]
-        public string Value { get; set; }
-
         [Display(Name = "بخش")]
         public Expert Expert { get; set; }
+
         public int ExpertID { get; set; }
     }
 }

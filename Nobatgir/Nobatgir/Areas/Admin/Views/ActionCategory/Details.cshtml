@@ -1,22 +1,10 @@
-﻿
-@model ActionCategory
-@{
-    ViewBag.ActionType = "details";
-    ViewBag.PageTitle = "لیست منوها";
-}
+﻿@model DetailsViewModel<BaseClass>
 
+<partial name="_TitleBar" model="@{new TitleBarViewModel{ActionType = ActionTypes.Details, Title = "دسته منوی " + Model.Row.Title};}" />
 
-@Html.Partial("_TitleBar")
+<partial name="Details_partial" model="Model" />
 
-@Html.Partial("Details_partial", Model)
-
-@{
-    ViewBag.ActionType = "index";
-    ViewBag.PageTitle = "لیست دسته منوها";
-    ViewBag.AddNewTitle = "ایحاد دسته جدید";
-}
-
-@Html.Partial("_TitleBar")
+<partial name="_TitleBar" model="@{new TitleBarViewModel{ActionType = ActionTypes.Index, Title = "لیست منوهای این دسته" , AddNewController = "Action", AddNewTitle = "ایحاد منوی جدید"};}" />
 
 <div class="admin-data-box">
     <table class="table table-striped">
@@ -39,4 +27,3 @@
     </table>
 </div>
 <nav page-model="@ViewBag.Actions.PagingData" page-action="index" page-contoller="ActionCategory" search-string="@ViewBag.SearchString"></nav>
-

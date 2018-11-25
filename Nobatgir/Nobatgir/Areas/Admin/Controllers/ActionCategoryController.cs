@@ -28,15 +28,15 @@ namespace Nobatgir.Areas.Admin.Controllers
             return View(data);
         }
 
-        public IActionResult Details(int? id, int pageNumber, string searchString)
+        public override IActionResult Details(int? id, int pageNumber, string searchString)
         {
             if (id == null)
                 return NotFound();
 
-            var data = this.repository.GetActionCategory(id.Value);
+            var row = this.repository.GetActionCategory(id.Value);
             ViewBag.Actions = this.repository.GetActions(id.Value, pageNumber, searchString);
 
-            return View(data);
+            return View(new DetailsViewModel<BaseClass> { Row = row, ActionType = ActionTypes.Details });
         }
 
         [HttpPost]
