@@ -9,7 +9,7 @@ namespace Nobatgir.Model
     {
         public int ID { get; set; }
 
-        public Action Action { get; set; }
+        public Act Action { get; set; }
 
         public int ActionID { get; set; }
 

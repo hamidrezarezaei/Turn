@@ -11,12 +11,12 @@ using Nobatgir.Services;
 namespace Nobatgir.Areas.Admin.Controllers
 {
     [Area("Admin")]
-    public class ActionController : BaseController
+    public class ActController : BaseController
     {
         #region Constructor
-        public ActionController(Repository repository) : base(repository)
+        public ActController(Repository repository) : base(repository)
         {
-            this.type = typeof(Model.Action);
+            this.type = typeof(Model.Act);
         }
         #endregion
 
@@ -30,30 +30,16 @@ namespace Nobatgir.Areas.Admin.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult Edit(Model.Action row, string returnURL)
+        public IActionResult Edit(Model.Act row, string returnURL)
         {
-            if (ModelState.IsValid)
-            {
-                this.repository.UpdateRow(row);
-                return RedirectToLocal(returnURL);
-            }
-
-            ViewBag.ReturnUrl = returnURL;
-            return View(row);
+            return this.EditBase(row,returnURL);
         }
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult Create(Model.Action row, string ReturnUrl)
+        public IActionResult Create(Model.Act row, string ReturnUrl)
         {
-            if (ModelState.IsValid)
-            {
-                repository.AddRow(row);
-                return RedirectToLocal(ReturnUrl);
-            }
-            ViewBag.ReturnUrl = ReturnUrl;
-
-            return View(row);
+            return this.CreateBase(row,ReturnUrl);
         }
     }
 }

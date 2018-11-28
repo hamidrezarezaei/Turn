@@ -5,8 +5,8 @@ using Microsoft.AspNetCore.Identity;
 
 namespace Nobatgir.Model
 {
-    public class ActionCategory : BaseClass
+    public class ActCategory : BaseClass
     {
-        public IEnumerable<Action> Actions { get; set; }
+        public IEnumerable<Act> Acts { get; set; }
     }
 }

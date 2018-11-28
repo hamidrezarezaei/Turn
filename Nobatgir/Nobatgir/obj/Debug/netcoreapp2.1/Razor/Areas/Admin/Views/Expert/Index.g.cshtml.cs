@@ -79,7 +79,7 @@ using Microsoft.AspNetCore.Identity;
             WriteLiteral("\r\n<div>\r\n    ");
             EndContext();
             BeginContext(173, 46, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("select", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "2f66ea79ce2a434893e48a4540c6ad3a", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("select", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "95bac8be179645818c32e324edf7a27d", async() => {
             }
             );
             __Microsoft_AspNetCore_Mvc_TagHelpers_SelectTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.TagHelpers.SelectTagHelper>();
@@ -130,7 +130,7 @@ Write(Html.Partial("_TitleBar"));
             WriteLiteral("                <tr>\r\n                    <td>\r\n                        ");
             EndContext();
             BeginContext(598, 140, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "8a40ae5b517b4fa0aed4d74d0d38490b", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "5d2fb8882d434340b8a181f5935e05f7", async() => {
                 BeginContext(688, 1, false);
 #line 24 "D:\Turn\Nobatgir\Nobatgir\Areas\Admin\Views\Expert\Index.cshtml"
                                                                                                             Write(r);
@@ -188,7 +188,7 @@ Write(Html.Partial("_TitleBar"));
             WriteLiteral("\r\n                    </td>\r\n                    <td class=\"op-buttons\">\r\n                        ");
             EndContext();
             BeginContext(836, 112, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "397a40eaec024ea2888eefb5469dc7d1", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "50ec3d8b03aa45ce973167080c1d151a", async() => {
                 BeginContext(938, 6, true);
                 WriteLiteral("ویرایش");
                 EndContext();
@@ -235,7 +235,7 @@ Write(Html.Partial("_TitleBar"));
             WriteLiteral("\r\n                        ");
             EndContext();
             BeginContext(974, 114, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "9a36270b4e2d4d77a0af2efa6b465c6f", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "9d85524684eb46d48205f9ff44da4469", async() => {
                 BeginContext(1080, 4, true);
                 WriteLiteral("حذف ");
                 EndContext();
@@ -290,7 +290,7 @@ Write(Html.Partial("_TitleBar"));
             WriteLiteral("        </tbody>\r\n    </table>\r\n</div>\r\n");
             EndContext();
             BeginContext(1195, 124, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("nav", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "ae1827cd84714e35a3c61e8c68b83d5d", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("nav", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "dc078176de2a48eea8a139470b8fa434", async() => {
             }
             );
             __Nobatgir_Areas_Admin_PagerTagHelper = CreateTagHelper<global::Nobatgir.Areas.Admin.PagerTagHelper>();

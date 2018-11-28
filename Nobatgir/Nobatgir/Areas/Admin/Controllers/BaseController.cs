@@ -13,6 +13,9 @@ namespace Nobatgir.Areas.Admin.Controllers
     [Area("Admin")]
     public class BaseController : Controller
     {
+
+        
+
         #region Controller
         protected Type type;
 
@@ -80,6 +83,28 @@ namespace Nobatgir.Areas.Admin.Controllers
             return RedirectToLocal(ReturnURL);
         }
 
+        protected IActionResult EditBase(BaseClass row, string returnURL)
+        {
+            if (ModelState.IsValid)
+            {
+                this.repository.UpdateRow(row);
+                return RedirectToLocal(returnURL);
+            }
+
+            ViewBag.ReturnUrl = returnURL;
+            return View(row);
+        }
+        protected IActionResult CreateBase(BaseClass row, string ReturnUrl)
+        {
+            if (ModelState.IsValid)
+            {
+                repository.AddRow(row);
+                return RedirectToLocal(ReturnUrl);
+            }
+            ViewBag.ReturnUrl = ReturnUrl;
+
+            return View(row);
+        }
         public virtual IActionResult RedirectToLocal(string ReturnURL)
         {
             if (Url.IsLocalUrl(ReturnURL))

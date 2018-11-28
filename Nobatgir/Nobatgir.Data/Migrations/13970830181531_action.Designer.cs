@@ -28,7 +28,7 @@ namespace Nobatgir.Data.Migrations
                         .ValueGeneratedOnAdd()
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<int>("ActionCategoryID");
+                    b.Property<int>("ActCategoryID");
 
                     b.Property<bool>("IsActive");
 
@@ -46,12 +46,12 @@ namespace Nobatgir.Data.Migrations
 
                     b.HasKey("ID");
 
-                    b.HasIndex("ActionCategoryID");
+                    b.HasIndex("ActCategoryID");
 
                     b.ToTable("Actions");
                 });
 
-            modelBuilder.Entity("Nobatgir.Model.ActionCategory", b =>
+            modelBuilder.Entity("Nobatgir.Model.ActCategory", b =>
                 {
                     b.Property<int>("ID")
                         .ValueGeneratedOnAdd()
@@ -387,9 +387,9 @@ namespace Nobatgir.Data.Migrations
 
             modelBuilder.Entity("Nobatgir.Model.Action", b =>
                 {
-                    b.HasOne("Nobatgir.Model.ActionCategory", "ActionCategory")
+                    b.HasOne("Nobatgir.Model.ActCategory", "ActCategory")
                         .WithMany("Actions")
-                        .HasForeignKey("ActionCategoryID")
+                        .HasForeignKey("ActCategoryID")
                         .OnDelete(DeleteBehavior.Cascade);
                 });
 

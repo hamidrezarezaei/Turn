@@ -5,7 +5,7 @@ using Microsoft.AspNetCore.Identity;
 
 namespace Nobatgir.Model
 {
-    public class Action : BaseClass
+    public class Act : BaseClass
     {
         public string ControllerName { get; set; }
 
@@ -13,6 +13,6 @@ namespace Nobatgir.Model
 
         public int ActionCategoryID { get; set; }
 
-        public ActionCategory ActionCategory { get; set; }
+        public ActCategory ActionCategory { get; set; }
     }
 }

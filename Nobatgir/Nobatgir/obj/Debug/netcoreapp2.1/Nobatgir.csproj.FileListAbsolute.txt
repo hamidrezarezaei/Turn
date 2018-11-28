@@ -137,9 +137,6 @@ D:\Turn\Nobatgir\Nobatgir\obj\Debug\netcoreapp2.1\Razor\Areas\Account\Views\User
 D:\Turn\Nobatgir\Nobatgir\obj\Debug\netcoreapp2.1\Razor\Areas\Account\Views\User\SignedOut.g.cshtml.cs
 D:\Turn\Nobatgir\Nobatgir\obj\Debug\netcoreapp2.1\Razor\Areas\Account\Views\_ViewImports.g.cshtml.cs
 D:\Turn\Nobatgir\Nobatgir\obj\Debug\netcoreapp2.1\Razor\Areas\Account\Views\_ViewStart.g.cshtml.cs
-D:\Turn\Nobatgir\Nobatgir\obj\Debug\netcoreapp2.1\Razor\Areas\Admin\Views\ActionCategory\Details.g.cshtml.cs
-D:\Turn\Nobatgir\Nobatgir\obj\Debug\netcoreapp2.1\Razor\Areas\Admin\Views\ActionCategory\Details_partial.g.cshtml.cs
-D:\Turn\Nobatgir\Nobatgir\obj\Debug\netcoreapp2.1\Razor\Areas\Admin\Views\ActionCategory\Index.g.cshtml.cs
 D:\Turn\Nobatgir\Nobatgir\obj\Debug\netcoreapp2.1\Razor\Areas\Admin\Views\Expert\Details_partial.g.cshtml.cs
 D:\Turn\Nobatgir\Nobatgir\obj\Debug\netcoreapp2.1\Razor\Areas\Admin\Views\Expert\Index.g.cshtml.cs
 D:\Turn\Nobatgir\Nobatgir\obj\Debug\netcoreapp2.1\Razor\Areas\Admin\Views\Home\Index.g.cshtml.cs
@@ -161,3 +158,8 @@ D:\Turn\Nobatgir\Nobatgir\obj\Debug\netcoreapp2.1\Nobatgir.Views.pdb
 D:\Turn\Nobatgir\Nobatgir\obj\Debug\netcoreapp2.1\Nobatgir.csproj.CopyComplete
 D:\Turn\Nobatgir\Nobatgir\obj\Debug\netcoreapp2.1\Nobatgir.dll
 D:\Turn\Nobatgir\Nobatgir\obj\Debug\netcoreapp2.1\Nobatgir.pdb
+D:\Turn\Nobatgir\Nobatgir\obj\Debug\netcoreapp2.1\Razor\Areas\Admin\Views\ActCategory\Details.g.cshtml.cs
+D:\Turn\Nobatgir\Nobatgir\obj\Debug\netcoreapp2.1\Razor\Areas\Admin\Views\ActCategory\Details_partial.g.cshtml.cs
+D:\Turn\Nobatgir\Nobatgir\obj\Debug\netcoreapp2.1\Razor\Areas\Admin\Views\ActCategory\Index.g.cshtml.cs
+D:\Turn\Nobatgir\Nobatgir\obj\Debug\netcoreapp2.1\Razor\Areas\Admin\Views\Act\Details_partial.g.cshtml.cs
+D:\Turn\Nobatgir\Nobatgir\obj\Debug\netcoreapp2.1\Razor\Areas\Admin\Views\Act\Index.g.cshtml.cs

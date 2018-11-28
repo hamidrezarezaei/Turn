@@ -10,8 +10,8 @@ using Nobatgir.Data;
 namespace Nobatgir.Data.Migrations
 {
     [DbContext(typeof(MyContext))]
-    [Migration("13970901115729_action2")]
-    partial class action2
+    [Migration("20181128142923_rename_action")]
+    partial class rename_action
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -22,13 +22,13 @@ namespace Nobatgir.Data.Migrations
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-            modelBuilder.Entity("Nobatgir.Model.Action", b =>
+            modelBuilder.Entity("Nobatgir.Model.Act", b =>
                 {
                     b.Property<int>("ID")
                         .ValueGeneratedOnAdd()
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<int>("ActCategoryID");
+                    b.Property<int>("ActionCategoryID");
 
                     b.Property<string>("ActionName");
 
@@ -50,9 +50,9 @@ namespace Nobatgir.Data.Migrations
 
                     b.HasKey("ID");
 
-                    b.HasIndex("ActCategoryID");
+                    b.HasIndex("ActionCategoryID");
 
-                    b.ToTable("Actions");
+                    b.ToTable("Acts");
                 });
 
             modelBuilder.Entity("Nobatgir.Model.ActCategory", b =>
@@ -77,7 +77,7 @@ namespace Nobatgir.Data.Migrations
 
                     b.HasKey("ID");
 
-                    b.ToTable("ActionCategories");
+                    b.ToTable("ActCategories");
                 });
 
             modelBuilder.Entity("Nobatgir.Model.Category", b =>
@@ -94,6 +94,8 @@ namespace Nobatgir.Data.Migrations
 
                     b.Property<int>("OrderIndex");
 
+                    b.Property<int>("SiteID");
+
                     b.Property<string>("Title");
 
                     b.Property<DateTime>("UpdateDateTime");
@@ -101,6 +103,8 @@ namespace Nobatgir.Data.Migrations
                     b.Property<int>("UserID");
 
                     b.HasKey("ID");
+
+                    b.HasIndex("SiteID");
 
                     b.ToTable("Categories");
                 });
@@ -179,7 +183,7 @@ namespace Nobatgir.Data.Migrations
 
                     b.Property<int>("OrderIndex");
 
-                    b.Property<int?>("SiteID");
+                    b.Property<int>("SiteID");
 
                     b.Property<string>("Title");
 
@@ -389,11 +393,19 @@ namespace Nobatgir.Data.Migrations
                     b.ToTable("SiteTimeTemplates");
                 });
 
-            modelBuilder.Entity("Nobatgir.Model.Action", b =>
+            modelBuilder.Entity("Nobatgir.Model.Act", b =>
                 {
-                    b.HasOne("Nobatgir.Model.ActCategory", "ActCategory")
-                        .WithMany("Actions")
-                        .HasForeignKey("ActCategoryID")
+                    b.HasOne("Nobatgir.Model.ActCategory", "ActionCategory")
+                        .WithMany("Acts")
+                        .HasForeignKey("ActionCategoryID")
+                        .OnDelete(DeleteBehavior.Cascade);
+                });
+
+            modelBuilder.Entity("Nobatgir.Model.Category", b =>
+                {
+                    b.HasOne("Nobatgir.Model.Site", "Site")
+                        .WithMany()
+                        .HasForeignKey("SiteID")
                         .OnDelete(DeleteBehavior.Cascade);
                 });
 
@@ -417,7 +429,8 @@ namespace Nobatgir.Data.Migrations
                 {
                     b.HasOne("Nobatgir.Model.Site", "Site")
                         .WithMany()
-                        .HasForeignKey("SiteID");
+                        .HasForeignKey("SiteID")
+                        .OnDelete(DeleteBehavior.Cascade);
                 });
 
             modelBuilder.Entity("Nobatgir.Model.ExpertSetting", b =>
@@ -446,7 +459,7 @@ namespace Nobatgir.Data.Migrations
 
             modelBuilder.Entity("Nobatgir.Model.RoleAction", b =>
                 {
-                    b.HasOne("Nobatgir.Model.Action", "Action")
+                    b.HasOne("Nobatgir.Model.Act", "Action")
                         .WithMany()
                         .HasForeignKey("ActionID")
                         .OnDelete(DeleteBehavior.Cascade);

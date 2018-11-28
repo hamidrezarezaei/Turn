@@ -1,6 +1,6 @@
-﻿@model PagedResult<ActionCategory>
+﻿@model PagedResult<Act>
 
-<partial name="_TitleBar" model="@{new TitleBarViewModel{ActionType = ActionTypes.Index, Title = "لیست دسته منوها", AddNewController="ActionCategory", AddNewTitle = "ایحاد دسته جدید"};}" />
+<partial name="_TitleBar" model="@{new TitleBarViewModel{ActionType = ActionTypes.Index, Title = "لیست منوهای پنل مدیریت", AddNewController="Action", AddNewTitle = "ایحاد منوی جدید"};}" />
 
 <div class="admin-data-box">
     <table class="table table-striped">
@@ -23,4 +23,4 @@
     </table>
 </div>
 
-<nav page-model="@Model.PagingData" page-action="index" page-contoller="ActionCategory" search-string="@ViewBag.SearchString"></nav>
+<nav page-model="@Model.PagingData" page-action="index" page-contoller="Act" search-string="@ViewBag.SearchString"></nav>

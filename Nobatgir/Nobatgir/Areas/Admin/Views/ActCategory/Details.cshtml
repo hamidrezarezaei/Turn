@@ -15,11 +15,11 @@
                 r++;
                 <tr>
                     <td>
-                        <a asp-action="Details" asp-route-id="@item.ID" asp-route-ReturnURL="@ViewBag.ReturnURL">@r -  @item.Title</a>
+                        <a asp-controller="Action" asp-action="Details" asp-route-id="@item.ID" asp-route-ReturnURL="@ViewBag.ReturnURL">@r -  @item.Title</a>
                     </td>
                     <td class="op-buttons">
-                        <a btn-type="Edit" asp-action="Edit" asp-route-id="@item.ID" asp-route-ReturnURL="@ViewBag.ReturnURL">ویرایش</a>
-                        <a btn-type="Delete" asp-action="Delete" asp-route-id="@item.ID" asp-route-ReturnURL="@ViewBag.ReturnURL">حذف </a>
+                        <a btn-type="Edit" asp-controller="Action" asp-action="Edit" asp-route-id="@item.ID" asp-route-ReturnURL="@ViewBag.ReturnURL">ویرایش</a>
+                        <a btn-type="Delete" asp-controller="Action" asp-action="Delete" asp-route-id="@item.ID" asp-route-ReturnURL="@ViewBag.ReturnURL">حذف </a>
                     </td>
                 </tr>
             }

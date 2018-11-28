@@ -1,4 +1,4 @@
-﻿@model IEnumerable<Nobatgir.Model.ActionCategory>
+﻿@model IEnumerable<Nobatgir.Model.ActCategory>
 
 <ul class="admin-menu">
     @foreach (var cat in Model)
@@ -16,7 +16,7 @@
                 @cat.Title
             </li>
             <ul>
-                @foreach (var act in cat.Actions)
+                @foreach (var act in cat.Acts)
                 {
                     <li class="@className">
                         <a asp-route-area="Admin" asp-controller="@act.ControllerName" asp-action="@act.ActionName">

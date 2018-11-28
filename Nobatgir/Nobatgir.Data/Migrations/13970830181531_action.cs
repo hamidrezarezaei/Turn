@@ -70,14 +70,14 @@ namespace Nobatgir.Data.Migrations
                     UserID = table.Column<int>(nullable: false),
                     UpdateDateTime = table.Column<DateTime>(nullable: false),
                     IsDeleted = table.Column<bool>(nullable: false),
-                    ActionCategoryID = table.Column<int>(nullable: false)
+                    ActCategoryID = table.Column<int>(nullable: false)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Actions", x => x.ID);
                     table.ForeignKey(
-                        name: "FK_Actions_ActionCategories_ActionCategoryID",
-                        column: x => x.ActionCategoryID,
+                        name: "FK_Actions_ActionCategories_ActCategoryID",
+                        column: x => x.ActCategoryID,
                         principalSchema: "dbo",
                         principalTable: "ActionCategories",
                         principalColumn: "ID",
@@ -118,10 +118,10 @@ namespace Nobatgir.Data.Migrations
                 });
 
             migrationBuilder.CreateIndex(
-                name: "IX_Actions_ActionCategoryID",
+                name: "IX_Actions_ActCategoryID",
                 schema: "dbo",
                 table: "Actions",
-                column: "ActionCategoryID");
+                column: "ActCategoryID");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Role_SiteID",
