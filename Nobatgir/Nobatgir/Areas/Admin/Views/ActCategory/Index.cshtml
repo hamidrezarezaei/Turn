@@ -1,8 +1,10 @@
 ﻿@model PagedResult<ActCategory>
 
-<partial name="_TitleBar" model="@{new TitleBarViewModel{ActionType = ActionTypes.Index, Title = "لیست دسته منوها", AddNewController="ActionCategory", AddNewTitle = "ایحاد دسته جدید"};}" />
+<partial name="_TitleBar" model="@{new TitleBarViewModel{ActionType = ActionTypes.Index, Title = "لیست دسته منوها", AddNewController="ActCategory", AddNewTitle = "ایحاد دسته جدید"};}" />
 
-<div class="admin-data-box">
+<partial name="_Grid" />
+
+@*<div class="admin-data-box">
     <table class="table table-striped">
         <tbody>
             @{int r = (Model.PagingData.CurrentPage - 1) * Model.PagingData.ItemsPerPage;}
@@ -21,6 +23,5 @@
             }
         </tbody>
     </table>
-</div>
+</div>*@
 
-<nav page-model="@Model.PagingData" page-action="index" page-contoller="ActCategory" search-string="@ViewBag.SearchString"></nav>

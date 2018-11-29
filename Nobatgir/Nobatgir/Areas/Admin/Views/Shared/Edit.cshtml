@@ -2,16 +2,16 @@
 
 <partial name="_TitleBar" model="@{new TitleBarViewModel {ActionType = ActionTypes.Edit,Title = "ویرایش "+ Model.Row.Title};}" />
 
-<form asp-route-ReturnURL="@ViewBag.ReturnURL" asp-action="Edit" enctype="multipart/form-data">
-   
+<form asp-route-ReturnURL="@ViewBag.BackURL" asp-action="Edit" enctype="multipart/form-data">
+
     <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-   
+
     <input type="hidden" asp-for="Row.ID" />
-  
+
     <partial name="Details_partial" model="Model" />
 
     <div class="op-buttons bottom">
-        <a btn-type="cancel" href="@ViewBag.ReturnURL">لغو</a>
+        <a btn-type="cancel" href="@ViewBag.BackURL">لغو</a>
         <input btn-type="save" type="submit" value="ذخیره" />
     </div>
 

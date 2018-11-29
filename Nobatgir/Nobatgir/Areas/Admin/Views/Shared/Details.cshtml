@@ -4,9 +4,9 @@
 
 @Html.Partial("Details_partial", Model)
 
-<form asp-route-ReturnURL="@ViewBag.ReturnURL" asp-action="Delete">
+<form asp-route-ReturnURL="@ViewBag.BackURL" asp-action="Delete">
     <input type="hidden" asp-for="Row.ID" />
     <div class="op-buttons bottom">
-        <a btn-type="cancel" href="@ViewBag.ReturnURL">بازگشت</a>
+        <a btn-type="cancel" href="@ViewBag.BackURL">بازگشت</a>
     </div>
 </form>

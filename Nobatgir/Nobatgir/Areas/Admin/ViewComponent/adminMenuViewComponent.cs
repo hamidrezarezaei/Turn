@@ -22,7 +22,7 @@ namespace Nobatgir.Areas.Admin
         #region Invoke
         public async Task<IViewComponentResult> InvokeAsync()
         {
-            var items = repository.GetActiveActionCategories();
+            var items = repository.GetActiveActCategories();
         
             return View("Default", items);
         }

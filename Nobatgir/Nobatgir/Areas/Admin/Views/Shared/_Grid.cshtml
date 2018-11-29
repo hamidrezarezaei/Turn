@@ -1,0 +1,38 @@
+﻿@*@model PagedResult<BaseClass>*@
+@{
+    if (Model.Controller == "")
+    {
+        Model.Controller = ViewContext.RouteData.Values["controller"].ToString();
+    }
+
+    var CurrentURL = Context.Request.Path;
+}
+
+<div class="admin-data-box">
+    <table class="table table-striped">
+        <tbody>
+            @{int r = (Model.PagingData.CurrentPage - 1) * Model.PagingData.ItemsPerPage;}
+            @foreach (var item in Model.Items)
+            {
+                r++;
+                <tr>
+                    <td>
+                        <a asp-action="Details" asp-controller="@Model.Controller" asp-route-id="@item.ID" asp-route-ReturnURL="@CurrentURL">@r</a>
+                    </td>
+                    @foreach (var dis in Model.DisplayColumns)
+                    {
+                        <td>
+                            <a asp-action="Details" asp-controller="@Model.Controller" asp-route-id="@item.ID" asp-route-ReturnURL="@CurrentURL">@item.GetType().GetProperty(dis).GetValue(item)</a>
+                        </td>
+                    }
+                    <td class="op-buttons">
+                        <a btn-type="Edit" asp-action="Edit" asp-controller="@Model.Controller" asp-route-id="@item.ID" asp-route-ReturnURL="@CurrentURL">ویرایش</a>
+                        <a btn-type="Delete" asp-action="Delete" asp-controller="@Model.Controller" asp-route-id="@item.ID" asp-route-ReturnURL="@CurrentURL">حذف </a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+
+<nav page-model="@Model.PagingData" search-string="@ViewBag.SearchString"></nav>

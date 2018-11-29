@@ -7,7 +7,7 @@ namespace Nobatgir.Model
 {
     public enum ActionTypes
     {
-        Index, Details, Edit, Create, Delete
+        Create = 0, Edit = 1, Index = 2, Details = 4, Delete = 8
     }
 
 }

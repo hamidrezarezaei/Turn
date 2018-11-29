@@ -1,8 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using Nobatgir.Model;
 
-namespace Nobatgir.Model
+namespace Nobatgir.ViewModel
 {
     
     public class TitleBarViewModel
@@ -14,6 +15,8 @@ namespace Nobatgir.Model
         public string AddNewTitle { get; set; }
 
         public string AddNewController { get; set; }
+
+        public int ParentID { get; set; }
     }
     
 }

@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using Nobatgir.Model;
 using Nobatgir.Services;
 
@@ -27,32 +28,29 @@ namespace Nobatgir.Areas.Admin.Controllers
             return View(data);
         }
 
+        public override IActionResult Details(int? id, int pageNumber, string searchString, string ReturnURL)
+        {
+            if (id == null)
+                return NotFound();
+
+            var row = this.repository.GetSite(id.Value);
+            ViewBag.Experts = this.repository.GetExperts(id.Value, pageNumber, searchString);
+
+            return View(new DetailsViewModel<BaseClass> { Row = row, ActionType = ActionTypes.Details });
+        }
+
         [HttpPost]
         [ValidateAntiForgeryToken]
         public IActionResult Edit(Site row, string returnURL)
         {
-            if (ModelState.IsValid)
-            {
-                this.repository.UpdateRow(row);
-                return RedirectToLocal(returnURL);
-            }
-
-            ViewBag.ReturnUrl = returnURL;
-            return View(row);
+            return this.EditBase(row, returnURL);
         }
 
         [HttpPost]
         [ValidateAntiForgeryToken]
         public IActionResult Create(Site row, string ReturnUrl)
         {
-            if (ModelState.IsValid)
-            {
-                repository.AddRow(row);
-                return RedirectToLocal(ReturnUrl);
-            }
-            ViewBag.ReturnUrl = ReturnUrl;
-
-            return View(row);
+            return this.CreateBase(row, ReturnUrl);
         }
     }
 }

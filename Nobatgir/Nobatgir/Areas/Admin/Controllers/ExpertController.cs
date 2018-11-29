@@ -5,7 +5,6 @@ using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
-using Nobatgir.Model;
 using Nobatgir.Services;
 
 namespace Nobatgir.Areas.Admin.Controllers
@@ -16,46 +15,30 @@ namespace Nobatgir.Areas.Admin.Controllers
         #region Constructor
         public ExpertController(Repository repository) : base(repository)
         {
-            this.type = typeof(Expert);
+            this.type = typeof(Model.Expert);
         }
         #endregion
 
-        public IActionResult Index(int pageNumber, string searchString)
+        public IActionResult Index(int SiteID,int pageNumber, string searchString)
         {
-            var data = this.repository.GetExperts(pageNumber, searchString);
+            var data = this.repository.GetExperts(SiteID, pageNumber, searchString);
             ViewBag.SearchString = searchString;
-
-            ViewBag.SiteList = new SelectList(this.repository.GetSites(), "ID", "Title");
 
             return View(data);
         }
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult Edit(Expert row, string returnURL)
+        public IActionResult Edit(Model.Expert row, string returnURL)
         {
-            if (ModelState.IsValid)
-            {
-                this.repository.UpdateRow(row);
-                return RedirectToLocal(returnURL);
-            }
-
-            ViewBag.ReturnUrl = returnURL;
-            return View(row);
+            return this.EditBase(row,returnURL);
         }
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult Create(Expert row, string ReturnUrl)
+        public IActionResult Create(Model.Expert row, string ReturnUrl, int ID)
         {
-            if (ModelState.IsValid)
-            {
-                repository.AddRow(row);
-                return RedirectToLocal(ReturnUrl);
-            }
-            ViewBag.ReturnUrl = ReturnUrl;
-
-            return View(row);
+            return this.CreateBase(row,ReturnUrl);
         }
     }
 }

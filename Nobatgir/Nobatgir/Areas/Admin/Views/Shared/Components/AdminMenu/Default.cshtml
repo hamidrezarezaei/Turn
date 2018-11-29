@@ -12,19 +12,19 @@
         //}
 
         <li>
-            <li class="admin-menu-item">
-                @cat.Title
-            </li>
-            <ul>
-                @foreach (var act in cat.Acts)
-                {
-                    <li class="@className">
-                        <a asp-route-area="Admin" asp-controller="@act.ControllerName" asp-action="@act.ActionName">
-                            @act.Title
-                        </a>
-                    </li>
-                }
-            </ul>
+        <li class="admin-menu-item">
+            @cat.Title
+        </li>
+        <ul>
+            @foreach (var act in cat.Acts.OrderBy(x => x.OrderIndex))
+            {
+                <li class="@className">
+                    <a asp-route-area="Admin" asp-controller="@act.ControllerName" asp-action="@act.ActName">
+                        @act.Title
+                    </a>
+                </li>
+            }
+        </ul>
         </li>
     }
 </ul>

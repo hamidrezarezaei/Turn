@@ -22,19 +22,19 @@ namespace Nobatgir.Areas.Admin.Controllers
 
         public IActionResult Index(int pageNumber, string searchString)
         {
-            var data = this.repository.GetActionCategories(pageNumber, searchString);
+            var data = this.repository.GetActCategories(pageNumber, searchString);
             ViewBag.SearchString = searchString;
 
             return View(data);
         }
 
-        public override IActionResult Details(int? id, int pageNumber, string searchString)
+        public override IActionResult Details(int? id, int pageNumber, string searchString, string ReturnURL)
         {
             if (id == null)
                 return NotFound();
 
-            var row = this.repository.GetActionCategory(id.Value);
-            ViewBag.Actions = this.repository.GetActions(id.Value, pageNumber, searchString);
+            var row = this.repository.GetActCategory(id.Value);
+            ViewBag.Actions = this.repository.GetActs(id.Value, pageNumber, searchString);
 
             return View(new DetailsViewModel<BaseClass> { Row = row, ActionType = ActionTypes.Details });
         }

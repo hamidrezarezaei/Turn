@@ -1,0 +1,17 @@
+﻿@model TableRowViewModel<BaseClass>
+
+<tr>
+    <td>
+        @Html.Label(Model.ColumnName, Html.DisplayName(Model.ColumnName) + ":")
+    </td>
+    <td>
+        @if (Model.ActionType == ActionTypes.Create || Model.ActionType == ActionTypes.Edit)
+        {
+            @Html.Editor(Model.ColumnName, new { htmlAttributes = new { @class = Model.ClassName + " form-control" } })
+        }
+        else
+        {
+            @Html.Display(Model.ColumnName)
+        }
+    </td>
+</tr>

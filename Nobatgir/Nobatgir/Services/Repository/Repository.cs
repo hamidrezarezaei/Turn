@@ -6,6 +6,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Internal;
 using Nobatgir.Data;
 using Nobatgir.Model;
+using Nobatgir.ViewModel;
 
 namespace Nobatgir.Services
 {
@@ -66,42 +67,16 @@ namespace Nobatgir.Services
         }
         public BaseClass AddRow<T>(T row) where T : BaseClass
         {
+            row.OrderIndex = this._myContext.Set<T>().Max(x => x.OrderIndex) + 1;
+
             this.Labeling(row);
             this._myContext.Add(row);
+
             this._myContext.SaveChanges();
             return row;
         }
 
         #endregion
-
-
-
-        public PagedResult<Expert> GetExperts(int pageNumber, string searchString = "")
-        {
-            if (pageNumber == 0)
-                pageNumber = 1;
-
-            IQueryable<Expert> query;
-
-            if (!string.IsNullOrEmpty(searchString))
-                query = _myContext.Experts.Where(e => e.Title.Contains(searchString) && !e.IsDeleted);
-            else
-                query = _myContext.Experts.Where(e => !e.IsDeleted);
-
-            var result = new PagedResult<Expert>
-            {
-                PagingData =
-                {
-                    CurrentPage = pageNumber,
-                    ItemsPerPage = pageSize,
-                    TotalItems = query.Count()
-                },
-                Items = query.OrderBy(e => e.OrderIndex).Skip((pageNumber - 1) * pageSize).Take(pageSize).ToList()
-            };
-
-            return result;
-        }
-
 
 
 

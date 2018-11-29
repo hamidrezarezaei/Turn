@@ -1,3 +1,5 @@
 ﻿@{
     Layout = "_Layout";
+    ViewBag.BackURL = Context.Request.Query["ReturnURL"];
+    ViewBag.CurrentURL = Context.Request.Path;
 }

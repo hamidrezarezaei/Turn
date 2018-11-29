@@ -4,26 +4,6 @@
 
 <partial name="Details_partial" model="Model" />
 
-<partial name="_TitleBar" model="@{new TitleBarViewModel{ActionType = ActionTypes.Index, Title = "لیست منوهای این دسته" , AddNewController = "Action", AddNewTitle = "ایحاد منوی جدید"};}" />
+<partial name="_TitleBar" model="@{new TitleBarViewModel{ActionType = ActionTypes.Index, Title = "لیست منوهای این دسته" , AddNewController = "Act", AddNewTitle = "ایحاد منوی جدید", ParentID = Model.Row.ID};}" />
 
-<div class="admin-data-box">
-    <table class="table table-striped">
-        <tbody>
-            @{int r = (ViewBag.Actions.PagingData.CurrentPage - 1) * ViewBag.Actions.PagingData.ItemsPerPage;}
-            @foreach (var item in ViewBag.Actions.Items)
-            {
-                r++;
-                <tr>
-                    <td>
-                        <a asp-controller="Action" asp-action="Details" asp-route-id="@item.ID" asp-route-ReturnURL="@ViewBag.ReturnURL">@r -  @item.Title</a>
-                    </td>
-                    <td class="op-buttons">
-                        <a btn-type="Edit" asp-controller="Action" asp-action="Edit" asp-route-id="@item.ID" asp-route-ReturnURL="@ViewBag.ReturnURL">ویرایش</a>
-                        <a btn-type="Delete" asp-controller="Action" asp-action="Delete" asp-route-id="@item.ID" asp-route-ReturnURL="@ViewBag.ReturnURL">حذف </a>
-                    </td>
-                </tr>
-            }
-        </tbody>
-    </table>
-</div>
-<nav page-model="@ViewBag.Actions.PagingData" page-action="index" page-contoller="ActionCategory" search-string="@ViewBag.SearchString"></nav>
+<partial name="_Grid" model="ViewBag.Actions"/>

@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 using Nobatgir.Data;
 using Nobatgir.Model;
+using Nobatgir.ViewModel;
 
 namespace Nobatgir.Services
 {

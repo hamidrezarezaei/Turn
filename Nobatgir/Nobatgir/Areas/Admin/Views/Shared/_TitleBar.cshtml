@@ -1,5 +1,10 @@
 ﻿@model TitleBarViewModel
 
+@{
+    var BackURL = Context.Request.Query["ReturnURL"];
+    var CurrentURL = Context.Request.Path;
+}
+
 @if (Model.ActionType == ActionTypes.Index)
 {
     <div class="row">
@@ -15,7 +20,8 @@
             </form>
         </div>
         <div class="col-6 col-md-3 op-buttons top">
-            <a btn-type="Create" asp-controller="@Model.AddNewController" asp-action="Create" asp-route-ReturnURL="@ViewBag.ReturnURL">
+            <a btn-type="Create" asp-controller="@Model.AddNewController" 
+               asp-action="Create" asp-route-ReturnURL="@CurrentURL" asp-route-id="@Model.ParentID">
                 @Model.AddNewTitle
             </a>
         </div>
@@ -28,7 +34,7 @@ else if (Model.ActionType == ActionTypes.Edit)
             @Model.Title
         </h1>
         <div class="col-md-3 op-buttons top">
-            <a btn-type="back" href="@ViewBag.ReturnURL">بازگشت </a>
+            <a btn-type="back" href="@BackURL">بازگشت </a>
         </div>
     </div>
 }
@@ -39,7 +45,7 @@ else if (Model.ActionType == ActionTypes.Create)
             @Model.Title
         </h1>
         <div class="col-md-3 op-buttons top">
-            <a btn-type="back" href="@ViewBag.ReturnURL"> بازگشت </a>
+            <a btn-type="back" href="@BackURL"> بازگشت </a>
         </div>
     </div>
 }
@@ -50,7 +56,7 @@ else if (Model.ActionType == ActionTypes.Delete)
             @Model.Title
         </h1>
         <div class="col-md-3 op-buttons top">
-            <a btn-type="back" href="@ViewBag.ReturnURL">بازگشت </a>
+            <a btn-type="back" href="@BackURL">بازگشت </a>
         </div>
     </div>
 }
@@ -61,7 +67,7 @@ else if (Model.ActionType == ActionTypes.Details)
             @Model.Title
         </h1>
         <div class="col-md-3 op-buttons top">
-            <a btn-type="back" href="@ViewBag.ReturnURL">بازگشت </a>
+            <a btn-type="back" href="@BackURL">بازگشت </a>
         </div>
     </div>
 }

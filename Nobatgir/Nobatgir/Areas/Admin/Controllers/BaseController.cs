@@ -14,7 +14,7 @@ namespace Nobatgir.Areas.Admin.Controllers
     public class BaseController : Controller
     {
 
-        
+
 
         #region Controller
         protected Type type;
@@ -35,7 +35,7 @@ namespace Nobatgir.Areas.Admin.Controllers
             ViewBag.ReturnURL = Url.Action("Index", this.ControllerContext.ActionDescriptor.ControllerName);
         }
 
-        public virtual IActionResult Details(int? id, int pageNumber, string searchString)
+        public virtual IActionResult Details(int? id, int pageNumber, string searchString, string ReturnURL)
         {
             if (id == null)
                 return NotFound();
@@ -47,7 +47,11 @@ namespace Nobatgir.Areas.Admin.Controllers
         public virtual IActionResult Create(string ReturnURL)
         {
             ViewBag.ReturnURL = ReturnURL;
-            return View(new DetailsViewModel<BaseClass> { ActionType = ActionTypes.Edit });
+
+            var m = new DetailsViewModel<BaseClass> {ActionType = ActionTypes.Create};
+            m.Row = new BaseClass();
+
+            return View(m);
         }
 
         public virtual IActionResult Edit(int? id, string ReturnURL)
@@ -94,7 +98,7 @@ namespace Nobatgir.Areas.Admin.Controllers
             ViewBag.ReturnUrl = returnURL;
             return View(row);
         }
-        protected IActionResult CreateBase(BaseClass row, string ReturnUrl)
+        protected IActionResult CreateBase<T>(T row, string ReturnUrl) where T : BaseClass
         {
             if (ModelState.IsValid)
             {
