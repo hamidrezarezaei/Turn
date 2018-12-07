@@ -4,6 +4,6 @@
 
 <partial name="Details_partial" model="Model" />
 
-<partial name="_TitleBar" model="@{new TitleBarViewModel{ActionType = ActionTypes.Index, Title = "لیست موارد این سایت" , AddNewController = "Expert", AddNewTitle = "ایحاد مورد جدید", ParentID = Model.Row.ID};}" />
+<partial name="_TitleBar" model="@{new TitleBarViewModel{ActionType = ActionTypes.Index, Title = "لیست بخش های این سایت" , AddNewController = "Category", AddNewTitle = "ایحاد بخش جدید", ParentID = Model.Row.ID};}" />
 
-<partial name="_Grid" model="ViewBag.Experts"/>
+<partial name="_Grid" model="ViewBag.Categories"/>

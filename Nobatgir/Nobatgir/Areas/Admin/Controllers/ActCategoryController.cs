@@ -22,7 +22,7 @@ namespace Nobatgir.Areas.Admin.Controllers
 
         public IActionResult Index(int pageNumber, string searchString)
         {
-            var data = this.repository.GetActCategories(pageNumber, searchString);
+            var data = this.repository.GetListWithPaging<ActCategory>(pageNumber, searchString);
             ViewBag.SearchString = searchString;
 
             return View(data);
@@ -33,8 +33,11 @@ namespace Nobatgir.Areas.Admin.Controllers
             if (id == null)
                 return NotFound();
 
-            var row = this.repository.GetActCategory(id.Value);
-            ViewBag.Actions = this.repository.GetActs(id.Value, pageNumber, searchString);
+            var row = this.repository.GetSingle<ActCategory>(id.Value);
+
+            var r  = this.repository.GetListByParentWithPaging<Act>(x => x.ActCategoryID, id.Value, pageNumber, searchString);
+            r.Controller = "Act";
+            ViewBag.Acts = r;
 
             return View(new DetailsViewModel<BaseClass> { Row = row, ActionType = ActionTypes.Details });
         }

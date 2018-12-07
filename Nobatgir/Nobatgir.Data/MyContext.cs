@@ -38,6 +38,12 @@ namespace Nobatgir.Data
         public DbSet<Model.ActCategory> ActCategories { get; set; }
         public DbSet<Model.RoleAction> RoleActions { get; set; }
 
+        public DbSet<SiteKind> SiteKinds { get; set; }
+
+        public DbSet<DictionaryTerm> DictionaryTerms { get; set; }
+        public DbSet<SiteDictionary> SiteDictionaries { get; set; }
+        public DbSet<SiteKindDictionary> SiteKindDictionaries { get; set; }
+
     }
 }
 

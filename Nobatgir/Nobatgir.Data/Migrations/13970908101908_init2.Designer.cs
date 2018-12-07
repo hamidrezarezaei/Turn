@@ -7,11 +7,11 @@ using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Nobatgir.Data;
 
-namespace _3Nobatgir.Data.Migrations
+namespace _3Nobatgir.Data.Migrations.Identity
 {
     [DbContext(typeof(IdentityContext))]
-    [Migration("13970830162909_schema")]
-    partial class schema
+    [Migration("13970908101908_init2")]
+    partial class init2
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {

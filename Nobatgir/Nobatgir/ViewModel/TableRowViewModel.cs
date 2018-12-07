@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq.Expressions;
 using System.Text;
+using Microsoft.AspNetCore.Mvc.Rendering;
 
 namespace Nobatgir.Model
 {
@@ -24,7 +25,16 @@ namespace Nobatgir.Model
             this.ClassName = classname;
         }
 
+        public TableRowViewModel(DetailsViewModel<T> dvm, string columnName, SelectList selectList, string selectListColumnName, string classname = "")
+        :this(dvm, columnName, classname)
+        {
+            this.SelectList = selectList;
+            this.SelectListColumnName = selectListColumnName;
+            this.IsList = true;
+        }
+
         private string _columnName;
+        private string _selectListColumnName = null;
 
         public T Row { get; set; }
 
@@ -35,6 +45,16 @@ namespace Nobatgir.Model
         }
 
         public string ClassName { get; set; }
+
+        public bool IsList { get; set; }
+
+        public SelectList SelectList { get; set; }
+
+        public string SelectListColumnName
+        {
+            get => "Row." + _selectListColumnName;
+            set => _selectListColumnName = value;
+        }
 
         public ActionTypes ActionType { get; set; }
     }

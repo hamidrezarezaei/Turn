@@ -5,11 +5,11 @@
 
 @if (Model.ActionType == ActionTypes.Create)
 {
-    <input type="hidden" asp-for="@Row.SiteID" value="@ViewContext.RouteData.Values["id"].ToString()" />
+    <input type="hidden" asp-for="@Row.CategoryID" value="@ViewContext.RouteData.Values["id"].ToString()" />
 }
 else if (Model.ActionType == ActionTypes.Edit)
 {
-    <input type="hidden" asp-for="@Row.SiteID" />
+    <input type="hidden" asp-for="@Row.CategoryID" />
 }
 
 <div class="admin-data-box">

@@ -103,6 +103,19 @@ namespace _3Nobatgir.Data.Migrations
                     b.ToTable("AspNetUserTokens");
                 });
 
+            modelBuilder.Entity("Nobatgir.Model.DictionaryTerm", b =>
+                {
+                    b.Property<int>("ID")
+                        .ValueGeneratedOnAdd()
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("Term");
+
+                    b.HasKey("ID");
+
+                    b.ToTable("DictionaryTerm");
+                });
+
             modelBuilder.Entity("Nobatgir.Model.Role", b =>
                 {
                     b.Property<int>("Id")
@@ -148,6 +161,8 @@ namespace _3Nobatgir.Data.Migrations
 
                     b.Property<int>("OrderIndex");
 
+                    b.Property<int>("SiteKindID");
+
                     b.Property<string>("Title");
 
                     b.Property<DateTime>("UpdateDateTime");
@@ -156,7 +171,55 @@ namespace _3Nobatgir.Data.Migrations
 
                     b.HasKey("ID");
 
-                    b.ToTable("Site");
+                    b.HasIndex("SiteKindID");
+
+                    b.ToTable("dbo.Sites");
+                });
+
+            modelBuilder.Entity("Nobatgir.Model.SiteKind", b =>
+                {
+                    b.Property<int>("ID")
+                        .ValueGeneratedOnAdd()
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<bool>("IsActive");
+
+                    b.Property<bool>("IsDeleted");
+
+                    b.Property<string>("Name");
+
+                    b.Property<int>("OrderIndex");
+
+                    b.Property<string>("Title");
+
+                    b.Property<DateTime>("UpdateDateTime");
+
+                    b.Property<int>("UserID");
+
+                    b.HasKey("ID");
+
+                    b.ToTable("SiteKind");
+                });
+
+            modelBuilder.Entity("Nobatgir.Model.SiteKindDictionary", b =>
+                {
+                    b.Property<int>("ID")
+                        .ValueGeneratedOnAdd()
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<int>("DictionaryTermID");
+
+                    b.Property<int>("SiteKindID");
+
+                    b.Property<string>("Value");
+
+                    b.HasKey("ID");
+
+                    b.HasIndex("DictionaryTermID");
+
+                    b.HasIndex("SiteKindID");
+
+                    b.ToTable("SiteKindDictionary");
                 });
 
             modelBuilder.Entity("Nobatgir.Model.SiteSetting", b =>
@@ -321,6 +384,27 @@ namespace _3Nobatgir.Data.Migrations
                     b.HasOne("Nobatgir.Model.Site", "Site")
                         .WithMany()
                         .HasForeignKey("SiteID")
+                        .OnDelete(DeleteBehavior.Cascade);
+                });
+
+            modelBuilder.Entity("Nobatgir.Model.Site", b =>
+                {
+                    b.HasOne("Nobatgir.Model.SiteKind", "SiteKind")
+                        .WithMany("Sites")
+                        .HasForeignKey("SiteKindID")
+                        .OnDelete(DeleteBehavior.Cascade);
+                });
+
+            modelBuilder.Entity("Nobatgir.Model.SiteKindDictionary", b =>
+                {
+                    b.HasOne("Nobatgir.Model.DictionaryTerm", "DictionaryTerm")
+                        .WithMany()
+                        .HasForeignKey("DictionaryTermID")
+                        .OnDelete(DeleteBehavior.Cascade);
+
+                    b.HasOne("Nobatgir.Model.SiteKind", "SiteKind")
+                        .WithMany("SiteKindDictionaries")
+                        .HasForeignKey("SiteKindID")
                         .OnDelete(DeleteBehavior.Cascade);
                 });
 

@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Nobatgir.Data;
 
-namespace Nobatgir.Data.Migrations
+namespace _3Nobatgir.Data.Migrations.My
 {
     [DbContext(typeof(MyContext))]
-    partial class ContextModelSnapshot : ModelSnapshot
+    [Migration("13970908131821_dicididentity")]
+    partial class dicididentity
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -167,11 +169,24 @@ namespace Nobatgir.Data.Migrations
                     b.ToTable("CategoryTimeTemplates");
                 });
 
+            modelBuilder.Entity("Nobatgir.Model.DictionaryTerm", b =>
+                {
+                    b.Property<int>("ID");
+
+                    b.Property<string>("Term");
+
+                    b.HasKey("ID");
+
+                    b.ToTable("DictionaryTerms");
+                });
+
             modelBuilder.Entity("Nobatgir.Model.Expert", b =>
                 {
                     b.Property<int>("ID")
                         .ValueGeneratedOnAdd()
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<int>("CategoryID");
 
                     b.Property<bool>("IsActive");
 
@@ -181,8 +196,6 @@ namespace Nobatgir.Data.Migrations
 
                     b.Property<int>("OrderIndex");
 
-                    b.Property<int>("SiteID");
-
                     b.Property<string>("Title");
 
                     b.Property<DateTime>("UpdateDateTime");
@@ -191,7 +204,7 @@ namespace Nobatgir.Data.Migrations
 
                     b.HasKey("ID");
 
-                    b.HasIndex("SiteID");
+                    b.HasIndex("CategoryID");
 
                     b.ToTable("Experts");
                 });
@@ -320,6 +333,8 @@ namespace Nobatgir.Data.Migrations
 
                     b.Property<int>("OrderIndex");
 
+                    b.Property<int>("SiteKindID");
+
                     b.Property<string>("Title");
 
                     b.Property<DateTime>("UpdateDateTime");
@@ -328,7 +343,76 @@ namespace Nobatgir.Data.Migrations
 
                     b.HasKey("ID");
 
+                    b.HasIndex("SiteKindID");
+
                     b.ToTable("Sites");
+                });
+
+            modelBuilder.Entity("Nobatgir.Model.SiteDictionary", b =>
+                {
+                    b.Property<int>("ID")
+                        .ValueGeneratedOnAdd()
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<int>("DictionaryTermID");
+
+                    b.Property<int>("SiteID");
+
+                    b.Property<string>("Value");
+
+                    b.HasKey("ID");
+
+                    b.HasIndex("DictionaryTermID");
+
+                    b.HasIndex("SiteID");
+
+                    b.ToTable("SiteDictionaries");
+                });
+
+            modelBuilder.Entity("Nobatgir.Model.SiteKind", b =>
+                {
+                    b.Property<int>("ID")
+                        .ValueGeneratedOnAdd()
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<bool>("IsActive");
+
+                    b.Property<bool>("IsDeleted");
+
+                    b.Property<string>("Name");
+
+                    b.Property<int>("OrderIndex");
+
+                    b.Property<string>("Title");
+
+                    b.Property<DateTime>("UpdateDateTime");
+
+                    b.Property<int>("UserID");
+
+                    b.HasKey("ID");
+
+                    b.ToTable("SiteKinds");
+                });
+
+            modelBuilder.Entity("Nobatgir.Model.SiteKindDictionary", b =>
+                {
+                    b.Property<int>("ID")
+                        .ValueGeneratedOnAdd()
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<int>("DictionaryTermID");
+
+                    b.Property<int>("SiteKindID");
+
+                    b.Property<string>("Value");
+
+                    b.HasKey("ID");
+
+                    b.HasIndex("DictionaryTermID");
+
+                    b.HasIndex("SiteKindID");
+
+                    b.ToTable("SiteKindDictionaries");
                 });
 
             modelBuilder.Entity("Nobatgir.Model.SiteSetting", b =>
@@ -425,9 +509,9 @@ namespace Nobatgir.Data.Migrations
 
             modelBuilder.Entity("Nobatgir.Model.Expert", b =>
                 {
-                    b.HasOne("Nobatgir.Model.Site", "Site")
+                    b.HasOne("Nobatgir.Model.Category", "Category")
                         .WithMany()
-                        .HasForeignKey("SiteID")
+                        .HasForeignKey("CategoryID")
                         .OnDelete(DeleteBehavior.Cascade);
                 });
 
@@ -465,6 +549,40 @@ namespace Nobatgir.Data.Migrations
                     b.HasOne("Nobatgir.Model.Role", "Role")
                         .WithMany()
                         .HasForeignKey("RoleID")
+                        .OnDelete(DeleteBehavior.Cascade);
+                });
+
+            modelBuilder.Entity("Nobatgir.Model.Site", b =>
+                {
+                    b.HasOne("Nobatgir.Model.SiteKind", "SiteKind")
+                        .WithMany("Sites")
+                        .HasForeignKey("SiteKindID")
+                        .OnDelete(DeleteBehavior.Cascade);
+                });
+
+            modelBuilder.Entity("Nobatgir.Model.SiteDictionary", b =>
+                {
+                    b.HasOne("Nobatgir.Model.DictionaryTerm", "DictionaryTerm")
+                        .WithMany()
+                        .HasForeignKey("DictionaryTermID")
+                        .OnDelete(DeleteBehavior.Cascade);
+
+                    b.HasOne("Nobatgir.Model.Site", "Site")
+                        .WithMany()
+                        .HasForeignKey("SiteID")
+                        .OnDelete(DeleteBehavior.Cascade);
+                });
+
+            modelBuilder.Entity("Nobatgir.Model.SiteKindDictionary", b =>
+                {
+                    b.HasOne("Nobatgir.Model.DictionaryTerm", "DictionaryTerm")
+                        .WithMany()
+                        .HasForeignKey("DictionaryTermID")
+                        .OnDelete(DeleteBehavior.Cascade);
+
+                    b.HasOne("Nobatgir.Model.SiteKind", "SiteKind")
+                        .WithMany("SiteKindDictionaries")
+                        .HasForeignKey("SiteKindID")
                         .OnDelete(DeleteBehavior.Cascade);
                 });
 

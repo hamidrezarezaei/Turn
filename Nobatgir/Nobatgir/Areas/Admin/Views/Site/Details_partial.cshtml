@@ -10,6 +10,7 @@
         <partial name="_TableRow" model="@(new TableRowViewModel<BaseClass>(Model, nameof(Site.Name), "ltr"))" />
         <partial name="_TableRow" model="@(new TableRowViewModel<BaseClass>(Model, nameof(Site.Title)))" />
         <partial name="_TableRow" model="@(new TableRowViewModel<BaseClass>(Model, nameof(Site.Domain), "ltr"))" />
+        <partial name="_TableRow" model="@(new TableRowViewModel<BaseClass>(Model, nameof(Site.SiteKindID), ViewBag.SiteKindsCombo, nameof(Site.SiteKind) + "." + nameof(SiteKind.Title)))" />
 
     </table>
 </div>

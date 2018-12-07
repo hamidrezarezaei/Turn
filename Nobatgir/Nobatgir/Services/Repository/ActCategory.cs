@@ -11,26 +11,26 @@ namespace Nobatgir.Services
 {
     public partial class Repository
     {
-        public Model.ActCategory GetActCategory(int id)
-        {
-            return FilterExist(_myContext.ActCategories).FirstOrDefault(x => x.ID == id);
-        }
+        //public IQueryable<ActCategory> GetActCategories()
+        //{
+        //    return FilterExist(_myContext.ActCategories);
+        //}
 
-        public IQueryable<Model.ActCategory> GetActiveActCategories()
-        {
-            var adminMenus = FilterActive(FilterExist(_myContext.ActCategories.Include(x => x.Acts)));
-            return adminMenus;
-        }
+        //public Model.ActCategory GetActCategory(int id)
+        //{
+        //    return GetActCategories().FirstOrDefault(x => x.ID == id);
+        //}
 
-        public IQueryable<ActCategory> GetActCategories()
-        {
-            return FilterExist(_myContext.ActCategories);
-        }
-
-        public PagedResult<ActCategory> GetActCategories(int pageNumber, string searchString = "")
-        {
-            var q = this.GetActCategories();
-            return GetPagedResult(q, pageNumber, searchString);
-        }
+        //public IQueryable<Model.ActCategory> GetActiveActCategories()
+        //{
+        //    var adminMenus = FilterActive(FilterExist(_myContext.ActCategories.Include(x => x.Acts)));
+        //    return adminMenus;
+        //}
+    
+        //public PagedResult<ActCategory> GetActCategories(int pageNumber, string searchString = "")
+        //{
+        //    var q = this.GetActCategories();
+        //    return GetPagedResult(q, pageNumber, searchString);
+        //}
     }
 }

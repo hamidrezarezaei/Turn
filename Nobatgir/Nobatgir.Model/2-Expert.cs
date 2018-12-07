@@ -7,10 +7,10 @@ namespace Nobatgir.Model
 {
     public class Expert : BaseClass
     {
-        [Display(Name = "سایت")]
-        public Site Site { get; set; }
+        [Display(Name = "بخش")]
+        public Category Category { get; set; }
 
-        public int SiteID { get; set; }
+        public int CategoryID { get; set; }
 
         public IEnumerable<ExpertSetting> ExpertSettings { get; set; }
 

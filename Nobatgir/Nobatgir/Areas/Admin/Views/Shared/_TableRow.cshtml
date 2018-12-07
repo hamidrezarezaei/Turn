@@ -7,11 +7,25 @@
     <td>
         @if (Model.ActionType == ActionTypes.Create || Model.ActionType == ActionTypes.Edit)
         {
-            @Html.Editor(Model.ColumnName, new { htmlAttributes = new { @class = Model.ClassName + " form-control" } })
+            if (Model.IsList)
+            {
+                @Html.DropDownList(Model.ColumnName, Model.SelectList)
+            }
+            else
+            {
+                @Html.Editor(Model.ColumnName, new { htmlAttributes = new { @class = Model.ClassName + " form-control" } })
+            }
         }
         else
         {
-            @Html.Display(Model.ColumnName)
+            if (Model.IsList)
+            {
+                @Html.Display(Model.SelectListColumnName)
+            }
+            else
+            {
+                @Html.Display(Model.ColumnName)
+            }
         }
     </td>
 </tr>

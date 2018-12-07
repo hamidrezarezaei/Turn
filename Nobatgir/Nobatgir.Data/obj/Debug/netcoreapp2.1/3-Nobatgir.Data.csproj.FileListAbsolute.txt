@@ -54,3 +54,5 @@ D:\Turn\Nobatgir\Nobatgir.Data\obj\Debug\netcoreapp2.1\3-Nobatgir.Data.AssemblyI
 D:\Turn\Nobatgir\Nobatgir.Data\obj\Debug\netcoreapp2.1\3-Nobatgir.Data.csproj.CopyComplete
 D:\Turn\Nobatgir\Nobatgir.Data\obj\Debug\netcoreapp2.1\3-Nobatgir.Data.dll
 D:\Turn\Nobatgir\Nobatgir.Data\obj\Debug\netcoreapp2.1\3-Nobatgir.Data.pdb
+E:\Projects\Nobatgir\GIT\Nobatgir\Nobatgir.Data\bin\Debug\netcoreapp2.1\Microsoft.Extensions.Logging.Console.dll
+E:\Projects\Nobatgir\GIT\Nobatgir\Nobatgir.Data\bin\Debug\netcoreapp2.1\Microsoft.Extensions.Logging.Console.xml

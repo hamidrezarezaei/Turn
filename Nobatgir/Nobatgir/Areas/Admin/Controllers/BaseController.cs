@@ -49,7 +49,7 @@ namespace Nobatgir.Areas.Admin.Controllers
             ViewBag.ReturnURL = ReturnURL;
 
             var m = new DetailsViewModel<BaseClass> {ActionType = ActionTypes.Create};
-            m.Row = new BaseClass();
+            m.Row = (BaseClass) Activator.CreateInstance(this.type);
 
             return View(m);
         }
