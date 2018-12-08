@@ -9,11 +9,9 @@ namespace Nobatgir.Model
     {
         public int ID { get; set; }
 
-        public Act Action { get; set; }
+        public Act Act { get; set; }
 
-        public int ActionID { get; set; }
-
-        public Role Role { get; set; }
+        public int ActID { get; set; }
 
         public int RoleID { get; set; }
 
@@ -24,5 +22,8 @@ namespace Nobatgir.Model
         public bool HasEdit { get; set; }
 
         public bool HasDelete { get; set; }
+
+        // نباید این وجود داشته باشد به دلیل ساخت جدول اضافی
+        //public Role Role { get; set; }
     }
 }

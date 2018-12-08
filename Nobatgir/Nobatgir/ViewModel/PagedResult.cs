@@ -5,11 +5,19 @@ using Nobatgir.Model;
 
 namespace Nobatgir.ViewModel
 {
-
     public class PagedResult<T> where T : BaseClass
     {
         public List<T> Items { get; set; } = new List<T>();
         public List<string> DisplayColumns { get; set; } = new List<string> { nameof(BaseClass.Title) };
+        public PagingData PagingData { get; set; } = new PagingData();
+
+        public string Controller { get; set; } = "";
+    }
+
+    public class PagedResultCustom<T>
+    {
+        public List<T> Items { get; set; } = new List<T>();
+        public List<string> DisplayColumns { get; set; } 
         public PagingData PagingData { get; set; } = new PagingData();
 
         public string Controller { get; set; } = "";

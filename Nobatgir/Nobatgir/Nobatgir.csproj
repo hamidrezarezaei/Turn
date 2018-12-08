@@ -87,6 +87,15 @@
     <Content Update="Areas\Admin\Views\Shared\_Grid.cshtml">
       <Pack>$(IncludeRazorContentInPack)</Pack>
     </Content>
+    <Content Update="Areas\Admin\Views\Role\Details_partial.cshtml">
+      <Pack>$(IncludeRazorContentInPack)</Pack>
+    </Content>
+    <Content Update="Areas\Admin\Views\Role\Index.cshtml">
+      <Pack>$(IncludeRazorContentInPack)</Pack>
+    </Content>
+    <Content Update="Areas\Admin\Views\User\Details_partial.cshtml">
+      <Pack>$(IncludeRazorContentInPack)</Pack>
+    </Content>
   </ItemGroup>
 
 </Project>

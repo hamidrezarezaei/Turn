@@ -9,7 +9,7 @@ using Nobatgir.Lib;
 
 namespace Nobatgir.Model
 {
-    public class BaseClass
+    public class BaseClass 
     {
         public BaseClass()
         {

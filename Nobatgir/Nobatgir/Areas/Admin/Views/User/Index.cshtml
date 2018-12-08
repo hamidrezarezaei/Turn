@@ -1,0 +1,6 @@
+﻿@model PagedResult<Nobatgir.Areas.Admin.ViewModel.UserViewModel>
+
+<partial name="_TitleBar" model="@{new TitleBarViewModel{ActionType = ActionTypes.Index, Title = "لیست کاربران", AddNewController="User", AddNewTitle = "ایحاد کاربر جدید"};}" />
+
+<partial name="_Grid" />
+

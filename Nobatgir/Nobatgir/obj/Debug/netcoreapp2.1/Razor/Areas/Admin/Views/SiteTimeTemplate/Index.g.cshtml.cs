@@ -43,8 +43,13 @@ using Nobatgir.Services;
 
 #line default
 #line hidden
+#line 7 "E:\Projects\Nobatgir\GIT\Nobatgir\Nobatgir\Areas\Admin\Views\_ViewImports.cshtml"
+using Nobatgir.Areas.Admin.ViewModel;
+
+#line default
+#line hidden
     [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"bf98b3dace337d267829fce0297d6c0d9b2cdb02", @"/Areas/Admin/Views/SiteTimeTemplate/Index.cshtml")]
-    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"70e697c540d7c4b87649b2b84ca19de636f802fb", @"/Areas/Admin/Views/_ViewImports.cshtml")]
+    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"9d57ee4652f325ebd4f07b5bf30285fdd9185c51", @"/Areas/Admin/Views/_ViewImports.cshtml")]
     public class Areas_Admin_Views_SiteTimeTemplate_Index : global::Microsoft.AspNetCore.Mvc.Razor.RazorPage<Nobatgir.ViewModel.PagedResult<SiteTimeTemplate>>
     {
         private static readonly global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute __tagHelperAttribute_0 = new global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute("name", "_TitleBar", global::Microsoft.AspNetCore.Razor.TagHelpers.HtmlAttributeValueStyle.DoubleQuotes);
@@ -75,7 +80,7 @@ using Nobatgir.Services;
             WriteLiteral("\r\n");
             EndContext();
             BeginContext(59, 177, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("partial", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "0326dd3cbde149779771227f34491aa7", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("partial", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "2fd3a7dd135d4f7d83daad21611fb31e", async() => {
             }
             );
             __Microsoft_AspNetCore_Mvc_TagHelpers_PartialTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.TagHelpers.PartialTagHelper>();
@@ -100,7 +105,7 @@ __Microsoft_AspNetCore_Mvc_TagHelpers_PartialTagHelper.Model = new TitleBarViewM
             WriteLiteral("\r\n\r\n");
             EndContext();
             BeginContext(240, 23, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("partial", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "6d509ad3e9bb4bcd9b089430ac29b940", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("partial", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "e59d76af3ed14daa833f797d85f9b0d1", async() => {
             }
             );
             __Microsoft_AspNetCore_Mvc_TagHelpers_PartialTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.TagHelpers.PartialTagHelper>();

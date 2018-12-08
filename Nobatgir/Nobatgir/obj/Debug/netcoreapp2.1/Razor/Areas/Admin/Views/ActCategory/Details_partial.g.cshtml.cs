@@ -43,8 +43,13 @@ using Nobatgir.Services;
 
 #line default
 #line hidden
+#line 7 "E:\Projects\Nobatgir\GIT\Nobatgir\Nobatgir\Areas\Admin\Views\_ViewImports.cshtml"
+using Nobatgir.Areas.Admin.ViewModel;
+
+#line default
+#line hidden
     [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"83f1e86c7a57a86cb63e6d161692c626390371d1", @"/Areas/Admin/Views/ActCategory/Details_partial.cshtml")]
-    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"70e697c540d7c4b87649b2b84ca19de636f802fb", @"/Areas/Admin/Views/_ViewImports.cshtml")]
+    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"9d57ee4652f325ebd4f07b5bf30285fdd9185c51", @"/Areas/Admin/Views/_ViewImports.cshtml")]
     public class Areas_Admin_Views_ActCategory_Details_partial : global::Microsoft.AspNetCore.Mvc.Razor.RazorPage<DetailsViewModel<BaseClass>>
     {
         private static readonly global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute __tagHelperAttribute_0 = new global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute("class", new global::Microsoft.AspNetCore.Html.HtmlString("form-control"), global::Microsoft.AspNetCore.Razor.TagHelpers.HtmlAttributeValueStyle.DoubleQuotes);
@@ -81,7 +86,7 @@ using Nobatgir.Services;
             WriteLiteral("\r\n<div class=\"admin-data-box\">\r\n    <table class=\"table detail table-striped\">\r\n        <tr>\r\n            <td>\r\n                ");
             EndContext();
             BeginContext(211, 84, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("label", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "16fed232095a4b1dbaf9b588a320546c", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("label", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "23ba077f9d45427bba649afba86a59a5", async() => {
                 BeginContext(242, 1, true);
                 WriteLiteral(" ");
                 EndContext();
@@ -126,7 +131,7 @@ __Microsoft_AspNetCore_Mvc_TagHelpers_LabelTagHelper.For = ModelExpressionProvid
             WriteLiteral("                <td>");
             EndContext();
             BeginContext(451, 33, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("input", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "d2a71c43fc4c45979ec31040eea263ed", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("input", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "9e8005bedf2941439ffb4b6cb40d21b6", async() => {
             }
             );
             __Microsoft_AspNetCore_Mvc_TagHelpers_InputTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.TagHelpers.InputTagHelper>();
@@ -177,7 +182,7 @@ __Microsoft_AspNetCore_Mvc_TagHelpers_InputTagHelper.For = ModelExpressionProvid
             WriteLiteral("        </tr>\r\n        <tr>\r\n            <td>\r\n                ");
             EndContext();
             BeginContext(723, 75, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("label", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "c4147680807e4c1286f958a89357d323", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("label", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "636dfad5ecc3455c8b435cc7e89b4701", async() => {
                 BeginContext(751, 38, false);
 #line 26 "E:\Projects\Nobatgir\GIT\Nobatgir\Nobatgir\Areas\Admin\Views\ActCategory\Details_partial.cshtml"
                                       Write(Html.DisplayNameFor(model => Row.Name));
@@ -219,7 +224,7 @@ __Microsoft_AspNetCore_Mvc_TagHelpers_LabelTagHelper.For = ModelExpressionProvid
             WriteLiteral("                <td class=\"ltr\">");
             EndContext();
             BeginContext(964, 50, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("input", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "ee3f55572504410483122649de6597a5", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("input", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "809a59d75efb44ffb620adb38487ef01", async() => {
             }
             );
             __Microsoft_AspNetCore_Mvc_TagHelpers_InputTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.TagHelpers.InputTagHelper>();
@@ -271,7 +276,7 @@ __Microsoft_AspNetCore_Mvc_TagHelpers_InputTagHelper.For = ModelExpressionProvid
             WriteLiteral("        </tr>\r\n        <tr>\r\n            <td>\r\n                ");
             EndContext();
             BeginContext(1249, 84, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("label", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "06e1f75c429041589a2b3906aa82b7df", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("label", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "462c5fc0c2644d59aa90856186f49f94", async() => {
                 BeginContext(1277, 1, true);
                 WriteLiteral(" ");
                 EndContext();
@@ -316,7 +321,7 @@ __Microsoft_AspNetCore_Mvc_TagHelpers_LabelTagHelper.For = ModelExpressionProvid
             WriteLiteral("                <td>");
             EndContext();
             BeginContext(1487, 50, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("input", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "edf699c00c67418186f4c7eefa0eb246", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("input", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "80f337dd5810413b8b2085bfe18dd281", async() => {
             }
             );
             __Microsoft_AspNetCore_Mvc_TagHelpers_InputTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.TagHelpers.InputTagHelper>();

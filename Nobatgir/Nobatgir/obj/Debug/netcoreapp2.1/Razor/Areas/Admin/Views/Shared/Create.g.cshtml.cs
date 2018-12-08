@@ -43,8 +43,13 @@ using Nobatgir.Services;
 
 #line default
 #line hidden
+#line 7 "E:\Projects\Nobatgir\GIT\Nobatgir\Nobatgir\Areas\Admin\Views\_ViewImports.cshtml"
+using Nobatgir.Areas.Admin.ViewModel;
+
+#line default
+#line hidden
     [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"d4cbb6eae82f34a14b36a16075594493e8098dd0", @"/Areas/Admin/Views/Shared/Create.cshtml")]
-    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"70e697c540d7c4b87649b2b84ca19de636f802fb", @"/Areas/Admin/Views/_ViewImports.cshtml")]
+    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"9d57ee4652f325ebd4f07b5bf30285fdd9185c51", @"/Areas/Admin/Views/_ViewImports.cshtml")]
     public class Areas_Admin_Views_Shared_Create : global::Microsoft.AspNetCore.Mvc.Razor.RazorPage<DetailsViewModel<BaseClass>>
     {
         private static readonly global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute __tagHelperAttribute_0 = new global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute("name", "_TitleBar", global::Microsoft.AspNetCore.Razor.TagHelpers.HtmlAttributeValueStyle.DoubleQuotes);
@@ -86,7 +91,7 @@ using Nobatgir.Services;
             WriteLiteral("\r\n");
             EndContext();
             BeginContext(38, 122, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("partial", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "c84149ab4e34485ebb0acec87c094b89", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("partial", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "28491b8ca7e24c438def61846bac3f25", async() => {
             }
             );
             __Microsoft_AspNetCore_Mvc_TagHelpers_PartialTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.TagHelpers.PartialTagHelper>();
@@ -111,12 +116,12 @@ __Microsoft_AspNetCore_Mvc_TagHelpers_PartialTagHelper.Model = new TitleBarViewM
             WriteLiteral("\r\n\r\n");
             EndContext();
             BeginContext(164, 416, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "e905cd82a5b444f2bc607f31fef65f79", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "a413332149164293845e096c12437aff", async() => {
                 BeginContext(261, 8, true);
                 WriteLiteral("\r\n\r\n    ");
                 EndContext();
                 BeginContext(269, 66, false);
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("div", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "88aec85ccf224be384d860483a4ee58c", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("div", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "3b2261306da24daa959b3be8c5426c4d", async() => {
                 }
                 );
                 __Microsoft_AspNetCore_Mvc_TagHelpers_ValidationSummaryTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.TagHelpers.ValidationSummaryTagHelper>();
@@ -140,7 +145,7 @@ __Microsoft_AspNetCore_Mvc_TagHelpers_ValidationSummaryTagHelper.ValidationSumma
                 WriteLiteral("\r\n\r\n    ");
                 EndContext();
                 BeginContext(343, 48, false);
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("partial", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "a07b8593b8ae41029562490b47140cec", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("partial", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "a665404b99bc43229be11a27532e64a1", async() => {
                 }
                 );
                 __Microsoft_AspNetCore_Mvc_TagHelpers_PartialTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.TagHelpers.PartialTagHelper>();
@@ -165,7 +170,7 @@ __Microsoft_AspNetCore_Mvc_TagHelpers_PartialTagHelper.Model = Model;
                 WriteLiteral("\r\n\r\n    <div class=\"op-buttons bottom\">\r\n        ");
                 EndContext();
                 BeginContext(440, 54, false);
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "ab38145b1ea04198ab3c6c2815bb3387", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "2083ef2146404617b6c73318025a51df", async() => {
                     BeginContext(487, 3, true);
                     WriteLiteral("لغو");
                     EndContext();
@@ -193,7 +198,7 @@ AddHtmlAttributeValue("", 467, ViewBag.ReturnURL, 467, 18, false);
                 WriteLiteral("\r\n        ");
                 EndContext();
                 BeginContext(504, 53, false);
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("input", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "853f772b270b424cb9ebb022fcd49309", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("input", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "06d99a18fc1a43f9823c3e432c26326a", async() => {
                 }
                 );
                 __Turn_Areas_Admin_AdminButton = CreateTagHelper<global::Turn.Areas.Admin.AdminButton>();

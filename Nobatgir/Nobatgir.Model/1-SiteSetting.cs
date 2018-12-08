@@ -7,10 +7,9 @@ namespace Nobatgir.Model
 {
     public class SiteSetting : BaseSetting
     {
-        [Display(Name = "سایت")]
-        public Site Site { get; set; }
-
         public int SiteID { get; set; }
 
+        [Display(Name = "سایت")]
+        public Site Site { get; set; }
     }
 }

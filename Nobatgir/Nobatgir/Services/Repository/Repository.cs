@@ -4,6 +4,8 @@ using System.Linq;
 using System.Linq.Expressions;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Routing;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Internal;
 using Nobatgir.Data;
@@ -17,29 +19,50 @@ namespace Nobatgir.Services
     {
         #region constructor
         private readonly MyContext _myContext;
+        private readonly UserManager<User> _usermanager;
+        private readonly RoleManager<Role> _rolemanager;
 
-        private int? SiteId;
+        private int SiteId;
+        private int UserId;
         private int pageSize = 2;
         IHttpContextAccessor httpContextAccessor;
 
         public Repository(MyContext myContext,
+            UserManager<User> usermanager,
+            RoleManager<Role> rolemanager,
             IHttpContextAccessor httpContextAccessor)
         {
             this._myContext = myContext;
+            _usermanager = usermanager;
+            _rolemanager = rolemanager;
 
             this.httpContextAccessor = httpContextAccessor;
 
-            this.SetSiteID();
+            this.SiteId = this.GetSiteID();
+            this.UserId = 1;
         }
 
-        private void SetSiteID()
+        private int GetSiteID()
         {
+            var routedata = this.httpContextAccessor.HttpContext.GetRouteData();
+            var sitenam = routedata.Values["sitename"];
+
+            if (sitenam != null)
+            {
+                var s = this._myContext.Sites.FirstOrDefault(x => x.Name.ToLower() == sitenam.ToString().ToLower());
+
+                if (s != null)
+                {
+                    return s.ID;
+                }
+            }
+
             var host = this.httpContextAccessor.HttpContext.Request.Host.ToString().ToLower();
 
             if (host.Contains("localhost"))
-                this.SiteId = 1;
+                return 1;
             else
-                this.SiteId = this._myContext.Sites.FirstOrDefault(x => x.Domain.ToLower() == host)?.ID;
+                return this._myContext.Sites.FirstOrDefault(x => x.Domain.ToLower() == host).ID;
         }
 
         #endregion
@@ -154,19 +177,19 @@ namespace Nobatgir.Services
         }
 
 
-        public IQueryable<T> GetList<T>(Expression<Func<T, object>> exp = null) where T : BaseClass
+        public IQueryable<T> GetList<T>(Expression<Func<T, object>> includeexp = null) where T : BaseClass
         {
             var q = FilterExist(_myContext.Set<T>());
 
-            if (exp != null)
-                q = FilterExist(_myContext.Set<T>()).Include(exp);
+            if (includeexp != null)
+                q = q.Include(includeexp);
 
             return q;
         }
 
-        public PagedResult<T> GetListWithPaging<T>(int pageNumber, string searchString = "", Expression<Func<T, object>> exp = null) where T : BaseClass
+        public PagedResult<T> GetListWithPaging<T>(int pageNumber, string searchString = "", Expression<Func<T, object>> includeexp = null) where T : BaseClass
         {
-            var q = GetList(exp);
+            var q = GetList(includeexp);
 
             return GetPagedResult(q, pageNumber, searchString);
         }

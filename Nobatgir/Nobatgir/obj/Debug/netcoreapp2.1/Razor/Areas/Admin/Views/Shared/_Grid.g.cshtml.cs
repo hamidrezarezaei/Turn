@@ -43,8 +43,13 @@ using Nobatgir.Services;
 
 #line default
 #line hidden
+#line 7 "E:\Projects\Nobatgir\GIT\Nobatgir\Nobatgir\Areas\Admin\Views\_ViewImports.cshtml"
+using Nobatgir.Areas.Admin.ViewModel;
+
+#line default
+#line hidden
     [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"37f7e8790a1172b6898d2ef7f6551b073b2dbf02", @"/Areas/Admin/Views/Shared/_Grid.cshtml")]
-    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"70e697c540d7c4b87649b2b84ca19de636f802fb", @"/Areas/Admin/Views/_ViewImports.cshtml")]
+    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"9d57ee4652f325ebd4f07b5bf30285fdd9185c51", @"/Areas/Admin/Views/_ViewImports.cshtml")]
     public class Areas_Admin_Views_Shared__Grid : global::Microsoft.AspNetCore.Mvc.Razor.RazorPage<dynamic>
     {
         private static readonly global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute __tagHelperAttribute_0 = new global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute("asp-action", "Details", global::Microsoft.AspNetCore.Razor.TagHelpers.HtmlAttributeValueStyle.DoubleQuotes);
@@ -112,7 +117,7 @@ using Nobatgir.Services;
             WriteLiteral("                <tr>\r\n                    <td>\r\n                        ");
             EndContext();
             BeginContext(557, 123, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "00b5412cea6645dfb4765a12e1c35239", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "4fa24fbd4b0e4f79b07f934fd3a1f095", async() => {
                 BeginContext(675, 1, false);
 #line 20 "E:\Projects\Nobatgir\GIT\Nobatgir\Nobatgir\Areas\Admin\Views\Shared\_Grid.cshtml"
                                                                                                                                         Write(r);
@@ -178,7 +183,7 @@ using Nobatgir.Services;
             WriteLiteral("                        <td>\r\n                            ");
             EndContext();
             BeginContext(854, 168, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "c68669020b31402dbe6c1e7ef55ef51b", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "a43fea9d07a24558a4f7c07e88621377", async() => {
                 BeginContext(972, 46, false);
 #line 25 "E:\Projects\Nobatgir\GIT\Nobatgir\Nobatgir\Areas\Admin\Views\Shared\_Grid.cshtml"
                                                                                                                                             Write(item.GetType().GetProperty(dis).GetValue(item));
@@ -243,7 +248,7 @@ using Nobatgir.Services;
             WriteLiteral("                    <td class=\"op-buttons\">\r\n                        ");
             EndContext();
             BeginContext(1147, 140, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "152834755a6545c6818cd8e3cea28219", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "01df0b65df9e40b498881c5041e7ef63", async() => {
                 BeginContext(1277, 6, true);
                 WriteLiteral("ویرایش");
                 EndContext();
@@ -299,7 +304,7 @@ using Nobatgir.Services;
             WriteLiteral("\r\n                        ");
             EndContext();
             BeginContext(1313, 142, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "abb92055d816484986c7629a451d4f02", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "72404b7108a14c62820424a3ba6d2294", async() => {
                 BeginContext(1447, 4, true);
                 WriteLiteral("حذف ");
                 EndContext();
@@ -363,7 +368,7 @@ using Nobatgir.Services;
             WriteLiteral("        </tbody>\r\n    </table>\r\n</div>\r\n\r\n");
             EndContext();
             BeginContext(1564, 80, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("nav", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "bed4447d25614e4e91b9de071ba4c834", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("nav", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "64959032c5f64bcca14b60b4c6c8b293", async() => {
             }
             );
             __Nobatgir_Areas_Admin_PagerTagHelper = CreateTagHelper<global::Nobatgir.Areas.Admin.PagerTagHelper>();

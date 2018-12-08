@@ -17,7 +17,7 @@ using WebApplication1.Models;
 using WebApplication1.Models.AccountViewModels;
 using WebApplication1.Services;
 
-namespace Nobatgir.Areas.Admin.Controllers
+namespace Nobatgir.Areas.Account.Controllers
 {
     [Authorize]
     //[Route("[controller]/[action]")]
@@ -28,13 +28,16 @@ namespace Nobatgir.Areas.Admin.Controllers
         private readonly SignInManager<Nobatgir.Model.User> _signInManager;
         private readonly IEmailSender _emailSender;
         private readonly ILogger _logger;
+        private readonly Repository _repository;
 
-        public UserController(UserManager<Nobatgir.Model.User> userManager, SignInManager<Nobatgir.Model.User> signInManager, IEmailSender emailSender, ILogger<UserController> logger)
+        public UserController(UserManager<Nobatgir.Model.User> userManager, SignInManager<Nobatgir.Model.User> signInManager,
+            IEmailSender emailSender, ILogger<UserController> logger, Repository repository)
         {
             _userManager = userManager;
             _signInManager = signInManager;
             _emailSender = emailSender;
             _logger = logger;
+            _repository = repository;
         }
 
         [TempData]
@@ -220,7 +223,7 @@ namespace Nobatgir.Areas.Admin.Controllers
             ViewData["ReturnUrl"] = returnUrl;
             if (ModelState.IsValid)
             {
-                var user = new Nobatgir.Model.User { UserName = model.Email, Email = model.Email };
+                var user = _repository.CreateUser(model);// new Nobatgir.Model.User { UserName = model.Email, Email = model.Email, SiteID =  _repository.GetSingle};
                 var result = await _userManager.CreateAsync(user, model.Password);
                 if (result.Succeeded)
                 {

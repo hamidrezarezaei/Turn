@@ -2,11 +2,14 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Hosting.Internal;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Mvc.Routing;
+using Microsoft.AspNetCore.Routing;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -23,6 +26,8 @@ namespace Nobatgir
 
     public class Startup
     {
+        public static string RRR = "aa";
+
         public Startup(IConfiguration configuration)
         {
             Configuration = configuration;
@@ -54,7 +59,32 @@ namespace Nobatgir
 
             services.AddTransient<IEmailSender, EmailSender>();
 
-            services.ConfigureApplicationCookie(c => c.LoginPath = "/Account/User/Login");
+            services.ConfigureApplicationCookie(delegate (CookieAuthenticationOptions c)
+            {
+                c.Events = new CookieAuthenticationEvents
+                {
+                    OnRedirectToLogin =
+                         ctx =>
+                         {
+                             var routedata = ctx.HttpContext.GetRouteData();
+
+                             string url;
+
+                             if (routedata.Values["sitename"] == null)
+                                 url = "/Account/User/Login";
+                             else
+                                 url = "/" + routedata.Values["sitename"] + "/Account/User/Login";
+
+                             url += "?" + c.ReturnUrlParameter + "=" + ctx.Request.Path;
+
+                             ctx.Response.Redirect(url);
+
+                             return Task.CompletedTask;
+                         }
+                };
+
+                //c.LoginPath = "/" + RRR + "/Account/User/Login";
+            });
 
             //services.Configure<CustomSection1>(Configuration);
 
@@ -91,11 +121,21 @@ namespace Nobatgir
             app.UseMvc(routes =>
             {
                 routes.MapRoute(
-                    name: "admin",
-                    template: "{area:exists}/{controller=Home}/{action=Index}/{id?}");
+                    name: "a1",
+                    template: "{sitename}/{area:exists}/{controller=Home}/{action=Index}/{id?}");
+
                 routes.MapRoute(
-                    name: "default",
-                    template: "{controller=Home}/{action=Index}/{id?}");
+                    name: "a2",
+                    template: "{area:exists}/{controller=Home}/{action=Index}/{id?}");
+
+                //template: "{sitename}/{area:exists}/{level}/{levelvalue}/{controller=Home}/{action=Index}/{id?}");
+
+                //routes.MapRoute(
+                //    name: "admin",
+                //    template: "{area:exists}/{controller=Home}/{action=Index}/{id?}");
+                //routes.MapRoute(
+                //    name: "default",
+                //    template: "{controller=Home}/{action=Index}/{id?}");
             });
         }
     }
