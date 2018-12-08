@@ -5,6 +5,7 @@ using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
+using Microsoft.Extensions.Options;
 using Nobatgir.Model;
 using Nobatgir.Services;
 
@@ -22,10 +23,10 @@ namespace Nobatgir.Areas.Admin.Controllers
 
         public IActionResult Index(int pageNumber, string searchString)
         {
-            var data = this.repository.GetListWithPaging<Site>(pageNumber, searchString);
+            var data = this.repository.GetListWithPaging<Site>(pageNumber, searchString, x=>x.SiteKind);
             ViewBag.SearchString = searchString;
 
-            var t = repository.Translate(Terms.Expert);
+            data.DisplayColumns.Add("SiteKindTitle");
 
             return View(data);
         }
@@ -36,7 +37,9 @@ namespace Nobatgir.Areas.Admin.Controllers
                 return NotFound();
 
             var row = this.repository.GetSingle<Site>(id.Value, x => x.SiteKind);
-            ViewBag.Categories = this.repository.GetListByParentWithPaging<Category>(x => x.SiteID, id.Value, pageNumber, searchString);
+            var r = this.repository.GetListByParentWithPaging<Category>(x => x.SiteID, id.Value, pageNumber, searchString);
+            r.Controller = "Category";
+            ViewBag.Categories = r;
 
             return View(new DetailsViewModel<BaseClass> { Row = row, ActionType = ActionTypes.Details });
         }

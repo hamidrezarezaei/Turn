@@ -20,5 +20,8 @@ namespace Nobatgir.Model
         public IEnumerable<SiteSetting> SiteSettings { get; set; }
 
         public IEnumerable<SiteTimeTemplate> SiteTimeTemplates { get; set; }
+
+        [NotMapped]
+        public string SiteKindTitle => this.SiteKind.Title;
     }
 }

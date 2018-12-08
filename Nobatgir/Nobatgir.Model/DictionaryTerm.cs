@@ -17,7 +17,15 @@ namespace Nobatgir.Model
 
     public enum Terms
     {
-        Expert = 1,
-        Experts = 2,
+        SinglularExpert = 1,
+        PluralExpert = 2,
+        AddNewExpert = 3,
+        EditExpert = 4,
+        DeleteExpert = 5,
+        SinglularCategory = 6,
+        PluralCategory = 7,
+        AddNewCategory = 8,
+        EditCategory = 9,
+        DeleteCategory = 10
     }
 }

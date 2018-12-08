@@ -1,0 +1,10 @@
+﻿@model DetailsViewModel<BaseClass>
+
+<partial name="_TitleBar" model="@{new TitleBarViewModel{ActionType = ActionTypes.Details, Title = "بخش " + Model.Row.Title};}" />
+
+<partial name="Details_partial" model="Model" />
+
+<partial name="_TitleBar" model="@{new TitleBarViewModel{ActionType = ActionTypes.Index,
+                                       Title = $"فهرست {repository.Translate(Terms.PluralExpert)} این {repository.Translate(Terms.SinglularCategory)}", AddNewController = "Expert", AddNewTitle = "ایحاد دکتر جدید", ParentID = Model.Row.ID};}" />
+
+<partial name="_Grid" model="ViewBag.Experts" />

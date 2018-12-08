@@ -15,6 +15,12 @@ using Nobatgir.Services;
 
 namespace Nobatgir
 {
+    public class CustomSection1
+    {
+        public string Hi { get; set; }
+        public string Hello { get; set; }
+    }
+
     public class Startup
     {
         public Startup(IConfiguration configuration)
@@ -49,6 +55,18 @@ namespace Nobatgir
             services.AddTransient<IEmailSender, EmailSender>();
 
             services.ConfigureApplicationCookie(c => c.LoginPath = "/Account/User/Login");
+
+            //services.Configure<CustomSection1>(Configuration);
+
+            //services.AddSingleton<CustomSection1>();
+
+            //var optionsBuilder = new DbContextOptionsBuilder<MyContext>();
+            //optionsBuilder.UseSqlServer(Configuration.GetConnectionString("DefaultConnection"));
+
+            //using (var db = new MyContext(optionsBuilder.Options))
+            //{
+            //    var lst = db.Acts.ToList();
+            //}
 
             services.AddMvc();
         }

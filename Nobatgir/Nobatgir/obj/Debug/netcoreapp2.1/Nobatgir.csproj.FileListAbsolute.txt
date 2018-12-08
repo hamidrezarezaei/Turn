@@ -168,3 +168,8 @@ E:\Projects\Nobatgir\GIT\Nobatgir\Nobatgir\obj\Debug\netcoreapp2.1\Razor\Areas\A
 E:\Projects\Nobatgir\GIT\Nobatgir\Nobatgir\obj\Debug\netcoreapp2.1\Razor\Areas\Admin\Views\Shared\_TableRow.g.cshtml.cs
 E:\Projects\Nobatgir\GIT\Nobatgir\Nobatgir\obj\Debug\netcoreapp2.1\Razor\Areas\Admin\Views\Expert\Details_partial.g.cshtml.cs
 E:\Projects\Nobatgir\GIT\Nobatgir\Nobatgir\obj\Debug\netcoreapp2.1\Razor\Areas\Admin\Views\Expert\Index.g.cshtml.cs
+E:\Projects\Nobatgir\GIT\Nobatgir\Nobatgir\obj\Debug\netcoreapp2.1\Razor\Areas\Admin\Views\Category\Details_partial.g.cshtml.cs
+E:\Projects\Nobatgir\GIT\Nobatgir\Nobatgir\obj\Debug\netcoreapp2.1\Razor\Areas\Admin\Views\Category\Index.g.cshtml.cs
+E:\Projects\Nobatgir\GIT\Nobatgir\Nobatgir\obj\Debug\netcoreapp2.1\Razor\Areas\Admin\Views\Category\Details.g.cshtml.cs
+E:\Projects\Nobatgir\GIT\Nobatgir\Nobatgir\obj\Debug\netcoreapp2.1\Razor\Areas\Admin\Views\SiteTimeTemplate\Details_partial.g.cshtml.cs
+E:\Projects\Nobatgir\GIT\Nobatgir\Nobatgir\obj\Debug\netcoreapp2.1\Razor\Areas\Admin\Views\SiteTimeTemplate\Index.g.cshtml.cs

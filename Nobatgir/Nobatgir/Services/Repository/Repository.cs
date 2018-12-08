@@ -98,11 +98,9 @@ namespace Nobatgir.Services
 
         #endregion
 
-
         public string Translate(Nobatgir.Model.Terms term)
         {
-            var sd = this._myContext.SiteDictionaries.FirstOrDefault(x =>
-                x.SiteID == this.SiteId && x.DictionaryTermID == (int)term);
+            var sd = this._myContext.SiteDictionaries.FirstOrDefault(x => x.SiteID == this.SiteId && x.DictionaryTermID == (int)term);
 
             if (sd != null)
                 return sd.Value;
@@ -113,7 +111,6 @@ namespace Nobatgir.Services
                                                                              && x.DictionaryTermID == (int)term);
             return f.Value;
         }
-
 
         public IQueryable<T> FilterExist<T>(IQueryable<T> db) where T : BaseClass
         {

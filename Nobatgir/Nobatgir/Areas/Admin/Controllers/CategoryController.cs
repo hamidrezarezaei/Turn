@@ -28,6 +28,19 @@ namespace Nobatgir.Areas.Admin.Controllers
             return View(data);
         }
 
+        public override IActionResult Details(int? id, int pageNumber, string searchString, string ReturnURL)
+        {
+            if (id == null)
+                return NotFound();
+
+            var row = this.repository.GetSingle<Category>(id.Value);
+            var r = this.repository.GetListByParentWithPaging<Expert>(x => x.CategoryID, id.Value, pageNumber, searchString);
+            r.Controller = "Expert";
+            ViewBag.Experts = r;
+
+            return View(new DetailsViewModel<BaseClass> { Row = row, ActionType = ActionTypes.Details });
+        }
+
         [HttpPost]
         [ValidateAntiForgeryToken]
         public IActionResult Edit(Model.Category row, string returnURL)

@@ -1,0 +1,26 @@
+﻿@model DetailsViewModel<BaseClass>
+@{
+    var Row = Model.Row as Category;
+}
+
+@if (Model.ActionType == ActionTypes.Create)
+{
+    <input type="hidden" asp-for="@Row.SiteID" value="@ViewContext.RouteData.Values["id"].ToString()" />
+}
+else if (Model.ActionType == ActionTypes.Edit)
+{
+    <input type="hidden" asp-for="@Row.SiteID" />
+}
+
+<div class="admin-data-box">
+    <table class="table detail table-striped">
+
+        <partial name="_TableRow" model="@(new TableRowViewModel<BaseClass>(Model, nameof(Category.IsActive)))" />
+        <partial name="_TableRow" model="@(new TableRowViewModel<BaseClass>(Model, nameof(Category.Name), "ltr"))" />
+        <partial name="_TableRow" model="@(new TableRowViewModel<BaseClass>(Model, nameof(Category.Title)))" />
+
+    </table>
+</div>
+
+
+

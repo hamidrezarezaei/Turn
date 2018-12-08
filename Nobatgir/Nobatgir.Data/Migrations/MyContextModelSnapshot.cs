@@ -132,7 +132,7 @@ namespace _3Nobatgir.Data.Migrations
                         .ValueGeneratedOnAdd()
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<string>("ActiveDayCount");
+                    b.Property<int>("ActiveDayCount");
 
                     b.Property<string>("ActiveTime");
 
@@ -140,7 +140,7 @@ namespace _3Nobatgir.Data.Migrations
 
                     b.Property<int>("DeactiveDayCount");
 
-                    b.Property<int>("DeactiveTime");
+                    b.Property<string>("DeactiveTime");
 
                     b.Property<bool>("IsActive");
 
@@ -232,13 +232,13 @@ namespace _3Nobatgir.Data.Migrations
                         .ValueGeneratedOnAdd()
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<string>("ActiveDayCount");
+                    b.Property<int>("ActiveDayCount");
 
                     b.Property<string>("ActiveTime");
 
                     b.Property<int>("DeactiveDayCount");
 
-                    b.Property<int>("DeactiveTime");
+                    b.Property<string>("DeactiveTime");
 
                     b.Property<int>("ExpertID");
 
@@ -438,13 +438,13 @@ namespace _3Nobatgir.Data.Migrations
                         .ValueGeneratedOnAdd()
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<string>("ActiveDayCount");
+                    b.Property<int>("ActiveDayCount");
 
                     b.Property<string>("ActiveTime");
 
                     b.Property<int>("DeactiveDayCount");
 
-                    b.Property<int>("DeactiveTime");
+                    b.Property<string>("DeactiveTime");
 
                     b.Property<bool>("IsActive");
 

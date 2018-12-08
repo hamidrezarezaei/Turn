@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Text;
 
 namespace Nobatgir.Model
@@ -14,7 +15,7 @@ namespace Nobatgir.Model
         public string Times { get; set; }
 
         [Display(Name = "از چند روز قبل")]
-        public string ActiveDayCount { get; set; }
+        public int ActiveDayCount { get; set; }
 
         [Display(Name = "شروع از ساعت")]
         public string ActiveTime { get; set; }
@@ -23,6 +24,9 @@ namespace Nobatgir.Model
         public int DeactiveDayCount { get; set; }
 
         [Display(Name = "تا ساعت")]
-        public int DeactiveTime { get; set; }
+        public string DeactiveTime { get; set; }
+
+        [NotMapped]
+        public string WeekDayName => Enum.GetName(typeof(DayOfWeekPersians), this.WeekDay);
     }
 }

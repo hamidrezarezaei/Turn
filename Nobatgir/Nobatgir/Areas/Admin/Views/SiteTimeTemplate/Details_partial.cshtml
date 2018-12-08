@@ -1,0 +1,35 @@
+﻿@model DetailsViewModel<BaseClass>
+@{
+    var Row = Model.Row as SiteTimeTemplate;
+}
+
+@if (Model.ActionType == ActionTypes.Create)
+{
+    <input type="hidden" asp-for="@Row.SiteID" value="@ViewContext.RouteData.Values["id"].ToString()" />
+}
+else if (Model.ActionType == ActionTypes.Edit)
+{
+    <input type="hidden" asp-for="@Row.SiteID" />
+}
+
+<div class="admin-data-box">
+    <table class="table detail table-striped">
+
+        <partial name="_TableRow" model="@(new TableRowViewModel<BaseClass>(Model, nameof(SiteTimeTemplate.IsActive)))" />
+
+        @*<partial name="_TableRow" model="@(new TableRowViewModel<BaseClass>(Model, nameof(SiteTimeTemplate.Name), "ltr"))" />
+        <partial name="_TableRow" model="@(new TableRowViewModel<BaseClass>(Model, nameof(SiteTimeTemplate.Title)))" />*@
+
+        <partial name="_TableRow" model="@(new TableRowViewModel<BaseClass>(Model, nameof(SiteTimeTemplate.WeekDay), ViewBag.WeekDayCombo, nameof(SiteTimeTemplate.WeekDayName)))" />
+
+        <partial name="_TableRow" model="@(new TableRowViewModel<BaseClass>(Model, nameof(SiteTimeTemplate.Times)))" />
+        <partial name="_TableRow" model="@(new TableRowViewModel<BaseClass>(Model, nameof(SiteTimeTemplate.ActiveDayCount)))" />
+        <partial name="_TableRow" model="@(new TableRowViewModel<BaseClass>(Model, nameof(SiteTimeTemplate.ActiveTime)))" />
+        <partial name="_TableRow" model="@(new TableRowViewModel<BaseClass>(Model, nameof(SiteTimeTemplate.DeactiveDayCount)))" />
+        <partial name="_TableRow" model="@(new TableRowViewModel<BaseClass>(Model, nameof(SiteTimeTemplate.DeactiveTime)))" />
+
+    </table>
+</div>
+
+
+
