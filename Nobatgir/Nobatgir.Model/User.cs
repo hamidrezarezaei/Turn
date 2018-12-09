@@ -10,6 +10,10 @@ namespace Nobatgir.Model
     {
         public int SiteID { get; set; }
 
+        public int Level { get; set; }
+
+        public int RootID { get; set; }
+
         // نباید این وجود داشته باشد به دلیل ساخت جدول اضافی
         //public Site Site { get; set; }
     }

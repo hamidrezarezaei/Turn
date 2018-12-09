@@ -1,0 +1,5 @@
+﻿@model Nobatgir.ViewModel.PagedResult<AdminMenu>
+
+<partial name="_TitleBar" model="@{new TitleBarViewModel{ActionType = ActionTypes.Index, Title = "لیست منوها", AddNewController="AdminMenu", AddNewTitle = "ایحاد منوی جدید"};}" />
+
+<partial name="_Grid"/>

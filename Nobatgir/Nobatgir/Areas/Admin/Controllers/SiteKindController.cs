@@ -12,18 +12,18 @@ using Nobatgir.Services;
 namespace Nobatgir.Areas.Admin.Controllers
 {
     [Area("Admin")]
-    public class ActCategoryController : BaseController
+    public class SiteKindController : BaseController
     {
         #region Constructor
-        public ActCategoryController(Repository repository) : base(repository)
+        public SiteKindController(Repository repository) : base(repository)
         {
-            this.type = typeof(ActCategory);
+            this.type = typeof(SiteKind);
         }
         #endregion
 
         public IActionResult Index(int pageNumber, string searchString)
         {
-            var data = this.repository.GetListWithPaging<ActCategory>(pageNumber, searchString);
+            var data = this.repository.GetListWithPaging<SiteKind>(pageNumber, searchString);
             ViewBag.SearchString = searchString;
 
             return View(data);
@@ -34,25 +34,25 @@ namespace Nobatgir.Areas.Admin.Controllers
             if (id == null)
                 return NotFound();
 
-            var row = this.repository.GetSingle<ActCategory>(id.Value);
+            var row = this.repository.GetSingle<SiteKind>(id.Value);
 
-            var r  = this.repository.GetListByParentWithPaging<Act>(x => x.ActCategoryID, id.Value, pageNumber, searchString);
-            r.Controller = "Act";
-            ViewBag.Acts = r;
+            var r  = this.repository.GetListByParentWithPaging<AdminMenu>(x => x.SiteKindID, id.Value, pageNumber, searchString);
+            r.Controller = "AdminMenu";
+            ViewBag.Menus = r;
 
             return View(new DetailsViewModel<BaseClass> { Row = row, ActionType = ActionTypes.Details });
         }
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult Edit(ActCategory row, string returnURL)
+        public IActionResult Edit(SiteKind row, string returnURL)
         {
             return this.EditBase(row, returnURL);
         }
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult Create(ActCategory row, string ReturnUrl)
+        public IActionResult Create(SiteKind row, string ReturnUrl)
         {
             return this.CreateBase(row, ReturnUrl);
         }

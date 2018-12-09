@@ -158,11 +158,6 @@ D:\Turn\Nobatgir\Nobatgir\obj\Debug\netcoreapp2.1\Razor\Areas\Admin\Views\ActCat
 D:\Turn\Nobatgir\Nobatgir\obj\Debug\netcoreapp2.1\Razor\Areas\Admin\Views\ActCategory\Index.g.cshtml.cs
 D:\Turn\Nobatgir\Nobatgir\obj\Debug\netcoreapp2.1\Razor\Areas\Admin\Views\Act\Details_partial.g.cshtml.cs
 D:\Turn\Nobatgir\Nobatgir\obj\Debug\netcoreapp2.1\Razor\Areas\Admin\Views\Act\Index.g.cshtml.cs
-E:\Projects\Nobatgir\GIT\Nobatgir\Nobatgir\obj\Debug\netcoreapp2.1\Razor\Areas\Admin\Views\ActCategory\Details.g.cshtml.cs
-E:\Projects\Nobatgir\GIT\Nobatgir\Nobatgir\obj\Debug\netcoreapp2.1\Razor\Areas\Admin\Views\ActCategory\Details_partial.g.cshtml.cs
-E:\Projects\Nobatgir\GIT\Nobatgir\Nobatgir\obj\Debug\netcoreapp2.1\Razor\Areas\Admin\Views\ActCategory\Index.g.cshtml.cs
-E:\Projects\Nobatgir\GIT\Nobatgir\Nobatgir\obj\Debug\netcoreapp2.1\Razor\Areas\Admin\Views\Act\Details_partial.g.cshtml.cs
-E:\Projects\Nobatgir\GIT\Nobatgir\Nobatgir\obj\Debug\netcoreapp2.1\Razor\Areas\Admin\Views\Act\Index.g.cshtml.cs
 E:\Projects\Nobatgir\GIT\Nobatgir\Nobatgir\obj\Debug\netcoreapp2.1\Razor\Areas\Admin\Views\Shared\_Grid.g.cshtml.cs
 E:\Projects\Nobatgir\GIT\Nobatgir\Nobatgir\obj\Debug\netcoreapp2.1\Razor\Areas\Admin\Views\Site\Details.g.cshtml.cs
 E:\Projects\Nobatgir\GIT\Nobatgir\Nobatgir\obj\Debug\netcoreapp2.1\Razor\Areas\Admin\Views\Shared\_TableRow.g.cshtml.cs
@@ -177,3 +172,8 @@ E:\Projects\Nobatgir\GIT\Nobatgir\Nobatgir\obj\Debug\netcoreapp2.1\Razor\Areas\A
 E:\Projects\Nobatgir\GIT\Nobatgir\Nobatgir\obj\Debug\netcoreapp2.1\Razor\Areas\Admin\Views\User\Details_partial.g.cshtml.cs
 E:\Projects\Nobatgir\GIT\Nobatgir\Nobatgir\obj\Debug\netcoreapp2.1\Razor\Areas\Admin\Views\Role\Details_partial.g.cshtml.cs
 E:\Projects\Nobatgir\GIT\Nobatgir\Nobatgir\obj\Debug\netcoreapp2.1\Razor\Areas\Admin\Views\Role\Index.g.cshtml.cs
+E:\Projects\Nobatgir\GIT\Nobatgir\Nobatgir\obj\Debug\netcoreapp2.1\Razor\Areas\Admin\Views\AdminMenu\Details_partial.g.cshtml.cs
+E:\Projects\Nobatgir\GIT\Nobatgir\Nobatgir\obj\Debug\netcoreapp2.1\Razor\Areas\Admin\Views\AdminMenu\Index.g.cshtml.cs
+E:\Projects\Nobatgir\GIT\Nobatgir\Nobatgir\obj\Debug\netcoreapp2.1\Razor\Areas\Admin\Views\SiteKind\Details.g.cshtml.cs
+E:\Projects\Nobatgir\GIT\Nobatgir\Nobatgir\obj\Debug\netcoreapp2.1\Razor\Areas\Admin\Views\SiteKind\Details_partial.g.cshtml.cs
+E:\Projects\Nobatgir\GIT\Nobatgir\Nobatgir\obj\Debug\netcoreapp2.1\Razor\Areas\Admin\Views\SiteKind\Index.g.cshtml.cs

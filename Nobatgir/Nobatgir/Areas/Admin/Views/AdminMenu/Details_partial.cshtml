@@ -1,0 +1,29 @@
+﻿@model DetailsViewModel<BaseClass>
+@{
+    var Row = Model.Row as AdminMenu;
+}
+
+@if (Model.ActionType == ActionTypes.Create)
+{
+    <input type="hidden" asp-for="@Row.SiteKindID" value="@ViewContext.RouteData.Values["id"].ToString()" />
+}
+else if (Model.ActionType == ActionTypes.Edit)
+{
+    <input type="hidden" asp-for="@Row.SiteKindID" />
+}
+
+<div class="admin-data-box">
+    <table class="table detail table-striped">
+
+        <partial name="_TableRow" model="@(new TableRowViewModel<BaseClass>(Model, nameof(AdminMenu.IsActive)))" />
+        <partial name="_TableRow" model="@(new TableRowViewModel<BaseClass>(Model, nameof(AdminMenu.Name), "ltr"))" />
+        <partial name="_TableRow" model="@(new TableRowViewModel<BaseClass>(Model, nameof(AdminMenu.Title)))" />
+        <partial name="_TableRow" model="@(new TableRowViewModel<BaseClass>(Model, nameof(AdminMenu.ControllerName), "ltr"))" />
+        <partial name="_TableRow" model="@(new TableRowViewModel<BaseClass>(Model, nameof(AdminMenu.ActionName), "ltr"))" />
+        <partial name="_TableRow" model="@(new TableRowViewModel<BaseClass>(Model, nameof(AdminMenu.LevelID)))" />
+
+    </table>
+</div>
+
+
+

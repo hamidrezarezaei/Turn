@@ -1,30 +1,30 @@
-﻿@model IEnumerable<Nobatgir.Model.ActCategory>
+﻿@model IEnumerable<Nobatgir.Model.AdminMenu>
 
 <ul class="admin-menu">
-    @foreach (var cat in Model)
-    {
+
+    @{
         string className = "admin-menu-item";
+    }
 
-        //if (item.Controller.ToLower() == currentController.ToLower())
-        //{
-        //    className += " active";
+    //if (item.Controller.ToLower() == currentController.ToLower())
+    //{
+    //    className += " active";
 
-        //}
+    //}
 
-        <li>
-        <li class="admin-menu-item">
-            @cat.Title
-        </li>
+    <li>
+        @*<li class="admin-menu-item">
+                @cat.Title
+            </li>*@
         <ul>
-            @foreach (var act in cat.Acts.OrderBy(x => x.OrderIndex))
+            @foreach (var menu in Model)
             {
                 <li class="@className">
-                    <a asp-route-area="Admin" asp-controller="@act.ControllerName" asp-action="@act.ActName">
-                        @act.Title
+                    <a asp-route-area="Admin" asp-controller="@menu.ControllerName" asp-action="@menu.ActionName">
+                        @menu.Title
                     </a>
                 </li>
             }
         </ul>
-        </li>
-    }
+    </li>
 </ul>

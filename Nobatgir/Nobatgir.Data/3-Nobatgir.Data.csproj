@@ -6,6 +6,7 @@
 
   <ItemGroup>
     <Compile Remove="Migrations\13970917110835_deletesiteid2.cs" />
+    <Compile Remove="Migrations\13970918165303_adminmenu.cs" />
   </ItemGroup>
 
   <ItemGroup>

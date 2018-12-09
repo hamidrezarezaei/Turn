@@ -4,22 +4,24 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 using Nobatgir.Data;
+using Nobatgir.Model;
 using Nobatgir.ViewModel;
 
 namespace Nobatgir.Services
 {
     public partial class Repository
     {
-        //public IQueryable<Model.Category> GetCategories()
-        //{
-        //    return FilterExist(_myContext.Categories);
-        //}
+        public PagedResult<Model.Category> GetCategories(int pageNumber, string searchString = "")
+        {
+            var data = GetListByParentWithPaging<Category>(x => x.SiteID, SiteID, pageNumber, searchString);
+            return data;
+        }
 
         //public Model.Category GetCategory(int id)
         //{
         //    return this.GetCategories().FirstOrDefault(x => x.ID == id);
         //}
-  
+
         //public IQueryable<Model.Category> GetActiveCategorys()
         //{
         //    var r = FilterActive(this.GetCategories());

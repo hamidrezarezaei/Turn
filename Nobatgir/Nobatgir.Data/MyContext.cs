@@ -34,11 +34,8 @@ namespace Nobatgir.Data
         public DbSet<ExpertSetting> ExpertSettings { get; set; }
         public DbSet<ExpertTimeTemplate> ExpertTimeTemplates { get; set; }
 
-        public DbSet<Model.Act> Acts { get; set; }
-        public DbSet<Model.ActCategory> ActCategories { get; set; }
-        public DbSet<Model.RoleAction> RoleActions { get; set; }
-
         public DbSet<SiteKind> SiteKinds { get; set; }
+        public DbSet<AdminMenu> AdminMenus { get; set; }
 
         public DbSet<DictionaryTerm> DictionaryTerms { get; set; }
         public DbSet<SiteDictionary> SiteDictionaries { get; set; }

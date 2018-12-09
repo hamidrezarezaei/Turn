@@ -66,19 +66,19 @@
     <Content Update="Areas\Admin\Views\Site\Index.cshtml">
       <Pack>$(IncludeRazorContentInPack)</Pack>
     </Content>
-    <Content Update="Areas\Admin\Views\Act\Details_partial.cshtml">
+    <Content Update="Areas\Admin\Views\AdminMenu\Details_partial.cshtml">
       <Pack>$(IncludeRazorContentInPack)</Pack>
     </Content>
-    <Content Update="Areas\Admin\Views\Act\Index.cshtml">
+    <Content Update="Areas\Admin\Views\AdminMenu\Index.cshtml">
       <Pack>$(IncludeRazorContentInPack)</Pack>
     </Content>
-    <Content Update="Areas\Admin\Views\ActCategory\Details.cshtml">
+    <Content Update="Areas\Admin\Views\SiteKind\Details.cshtml">
       <Pack>$(IncludeRazorContentInPack)</Pack>
     </Content>
-    <Content Update="Areas\Admin\Views\ActCategory\Details_partial.cshtml">
+    <Content Update="Areas\Admin\Views\SiteKind\Details_partial.cshtml">
       <Pack>$(IncludeRazorContentInPack)</Pack>
     </Content>
-    <Content Update="Areas\Admin\Views\ActCategory\Index.cshtml">
+    <Content Update="Areas\Admin\Views\SiteKind\Index.cshtml">
       <Pack>$(IncludeRazorContentInPack)</Pack>
     </Content>
     <Content Update="Areas\Admin\Views\Shared\Details.cshtml">

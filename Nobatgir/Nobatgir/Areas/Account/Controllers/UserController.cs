@@ -68,6 +68,9 @@ namespace Nobatgir.Areas.Account.Controllers
                 if (result.Succeeded)
                 {
                     _logger.LogInformation("User logged in.");
+
+                    _repository.SetUserParams(_signInManager.UserManager.Users.First());
+
                     return RedirectToLocal(returnUrl);
                 }
                 if (result.RequiresTwoFactor)

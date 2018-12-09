@@ -20,15 +20,13 @@ namespace _3Nobatgir.Data.Migrations
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-            modelBuilder.Entity("Nobatgir.Model.Act", b =>
+            modelBuilder.Entity("Nobatgir.Model.AdminMenu", b =>
                 {
                     b.Property<int>("ID")
                         .ValueGeneratedOnAdd()
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<int>("ActCategoryID");
-
-                    b.Property<string>("ActName");
+                    b.Property<string>("ActionName");
 
                     b.Property<string>("ControllerName");
 
@@ -36,9 +34,13 @@ namespace _3Nobatgir.Data.Migrations
 
                     b.Property<bool>("IsDeleted");
 
+                    b.Property<int>("LevelID");
+
                     b.Property<string>("Name");
 
                     b.Property<int>("OrderIndex");
+
+                    b.Property<int>("SiteKindID");
 
                     b.Property<string>("Title");
 
@@ -48,34 +50,9 @@ namespace _3Nobatgir.Data.Migrations
 
                     b.HasKey("ID");
 
-                    b.HasIndex("ActCategoryID");
+                    b.HasIndex("SiteKindID");
 
-                    b.ToTable("Acts");
-                });
-
-            modelBuilder.Entity("Nobatgir.Model.ActCategory", b =>
-                {
-                    b.Property<int>("ID")
-                        .ValueGeneratedOnAdd()
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<bool>("IsActive");
-
-                    b.Property<bool>("IsDeleted");
-
-                    b.Property<string>("Name");
-
-                    b.Property<int>("OrderIndex");
-
-                    b.Property<string>("Title");
-
-                    b.Property<DateTime>("UpdateDateTime");
-
-                    b.Property<int>("UserID");
-
-                    b.HasKey("ID");
-
-                    b.ToTable("ActCategories");
+                    b.ToTable("AdminMenus");
                 });
 
             modelBuilder.Entity("Nobatgir.Model.Category", b =>
@@ -267,54 +244,6 @@ namespace _3Nobatgir.Data.Migrations
                     b.ToTable("ExpertTimeTemplates");
                 });
 
-            modelBuilder.Entity("Nobatgir.Model.Role", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<string>("ConcurrencyStamp");
-
-                    b.Property<string>("Name");
-
-                    b.Property<string>("NormalizedName");
-
-                    b.Property<int>("SiteID");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("SiteID");
-
-                    b.ToTable("Role");
-                });
-
-            modelBuilder.Entity("Nobatgir.Model.RoleAction", b =>
-                {
-                    b.Property<int>("ID")
-                        .ValueGeneratedOnAdd()
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<int>("ActionID");
-
-                    b.Property<bool>("HasAdd");
-
-                    b.Property<bool>("HasDelete");
-
-                    b.Property<bool>("HasEdit");
-
-                    b.Property<bool>("HasView");
-
-                    b.Property<int>("RoleID");
-
-                    b.HasKey("ID");
-
-                    b.HasIndex("ActionID");
-
-                    b.HasIndex("RoleID");
-
-                    b.ToTable("RoleActions");
-                });
-
             modelBuilder.Entity("Nobatgir.Model.Site", b =>
                 {
                     b.Property<int>("ID")
@@ -473,11 +402,11 @@ namespace _3Nobatgir.Data.Migrations
                     b.ToTable("SiteTimeTemplates");
                 });
 
-            modelBuilder.Entity("Nobatgir.Model.Act", b =>
+            modelBuilder.Entity("Nobatgir.Model.AdminMenu", b =>
                 {
-                    b.HasOne("Nobatgir.Model.ActCategory", "ActCategory")
-                        .WithMany("Acts")
-                        .HasForeignKey("ActCategoryID")
+                    b.HasOne("Nobatgir.Model.SiteKind", "SiteKind")
+                        .WithMany()
+                        .HasForeignKey("SiteKindID")
                         .OnDelete(DeleteBehavior.Cascade);
                 });
 
@@ -526,27 +455,6 @@ namespace _3Nobatgir.Data.Migrations
                     b.HasOne("Nobatgir.Model.Expert", "Expert")
                         .WithMany("ExpertTimeTemplates")
                         .HasForeignKey("ExpertID")
-                        .OnDelete(DeleteBehavior.Cascade);
-                });
-
-            modelBuilder.Entity("Nobatgir.Model.Role", b =>
-                {
-                    b.HasOne("Nobatgir.Model.Site", "Site")
-                        .WithMany()
-                        .HasForeignKey("SiteID")
-                        .OnDelete(DeleteBehavior.Cascade);
-                });
-
-            modelBuilder.Entity("Nobatgir.Model.RoleAction", b =>
-                {
-                    b.HasOne("Nobatgir.Model.Act", "Action")
-                        .WithMany()
-                        .HasForeignKey("ActionID")
-                        .OnDelete(DeleteBehavior.Cascade);
-
-                    b.HasOne("Nobatgir.Model.Role", "Role")
-                        .WithMany()
-                        .HasForeignKey("RoleID")
                         .OnDelete(DeleteBehavior.Cascade);
                 });
 

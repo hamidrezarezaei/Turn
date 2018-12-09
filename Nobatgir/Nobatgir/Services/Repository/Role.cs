@@ -14,7 +14,7 @@ namespace Nobatgir.Services
     {
         public IEnumerable<Role> GetRoleList()
         {
-            return this._rolemanager.Roles.Where(x => x.SiteID == this.SiteId);
+            return this._rolemanager.Roles.Where(x => x.SiteID == this.SiteID);
         }
 
         public Role GetRole(int ID)
@@ -28,8 +28,8 @@ namespace Nobatgir.Services
             {
                 Name = roleName,
                 Title = title,
-                SiteID = this.SiteId,
-                UserID = this.UserId
+                SiteID = this.SiteID,
+                UserID = this.UserID
             }).Result;
 
             return r.Succeeded;

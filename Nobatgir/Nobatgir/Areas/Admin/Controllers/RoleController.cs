@@ -63,12 +63,12 @@ namespace Nobatgir.Areas.Admin.Controllers
         }
 
 
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public IActionResult Edit(ActCategory row, string returnURL)
-        {
-            return this.EditBase(row, returnURL);
-        }
+        //[HttpPost]
+        //[ValidateAntiForgeryToken]
+        //public IActionResult Edit(ActCategory row, string returnURL)
+        //{
+        //    return this.EditBase(row, returnURL);
+        //}
 
         public override IActionResult Create(string ReturnURL)
         {

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
+using System.Security.Claims;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
@@ -22,9 +23,22 @@ namespace Nobatgir.Services
         private readonly UserManager<User> _usermanager;
         private readonly RoleManager<Role> _rolemanager;
 
-        private int SiteId;
-        private int UserId;
+        public int SiteID;
+        private int SiteKindID;
+
+        private int UserID => int.Parse(httpContextAccessor.HttpContext.User.FindFirst(ClaimTypes.NameIdentifier).Value);
+
+        private int userLevelID
+        {
+            get
+            {
+                var user = _usermanager.GetUserAsync(httpContextAccessor.HttpContext.User).Result;
+                return user.Level;
+            }
+        }
+
         private int pageSize = 2;
+
         IHttpContextAccessor httpContextAccessor;
 
         public Repository(MyContext myContext,
@@ -38,11 +52,10 @@ namespace Nobatgir.Services
 
             this.httpContextAccessor = httpContextAccessor;
 
-            this.SiteId = this.GetSiteID();
-            this.UserId = 1;
+            this.SetSiteParams();
         }
 
-        private int GetSiteID()
+        private void SetSiteParams()
         {
             var routedata = this.httpContextAccessor.HttpContext.GetRouteData();
             var sitenam = routedata.Values["sitename"];
@@ -53,16 +66,31 @@ namespace Nobatgir.Services
 
                 if (s != null)
                 {
-                    return s.ID;
+                    this.SiteID = s.ID;
+                    this.SiteKindID = s.SiteKindID;
+                    return;
                 }
+                else
+                    throw new Exception("این سایت وجود ندارد.");
             }
 
             var host = this.httpContextAccessor.HttpContext.Request.Host.ToString().ToLower();
 
             if (host.Contains("localhost"))
-                return 1;
+            {
+                this.SiteID = 1;
+                this.SiteKindID = 1;
+            }
             else
-                return this._myContext.Sites.FirstOrDefault(x => x.Domain.ToLower() == host).ID;
+            {
+                var site = this._myContext.Sites.FirstOrDefault(x => x.Domain.ToLower() == host);
+
+                if (site == null)
+                    throw new Exception("این سایت وجود ندارد.");
+
+                this.SiteID = site.ID;
+                this.SiteKindID = site.SiteKindID;
+            }
         }
 
         #endregion
@@ -123,12 +151,12 @@ namespace Nobatgir.Services
 
         public string Translate(Nobatgir.Model.Terms term)
         {
-            var sd = this._myContext.SiteDictionaries.FirstOrDefault(x => x.SiteID == this.SiteId && x.DictionaryTermID == (int)term);
+            var sd = this._myContext.SiteDictionaries.FirstOrDefault(x => x.SiteID == this.SiteID && x.DictionaryTermID == (int)term);
 
             if (sd != null)
                 return sd.Value;
 
-            var sitekindid = this._myContext.Sites.Where(x => x.ID == this.SiteId).Select(x => x.SiteKindID).First();
+            var sitekindid = this._myContext.Sites.Where(x => x.ID == this.SiteID).Select(x => x.SiteKindID).First();
 
             var f = this._myContext.SiteKindDictionaries.FirstOrDefault(x => x.SiteKindID == sitekindid
                                                                              && x.DictionaryTermID == (int)term);

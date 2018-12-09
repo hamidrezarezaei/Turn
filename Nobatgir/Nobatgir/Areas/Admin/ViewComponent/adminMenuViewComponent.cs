@@ -24,36 +24,10 @@ namespace Nobatgir.Areas.Admin
         #region Invoke
         public async Task<IViewComponentResult> InvokeAsync()
         {
-            //var items = repository.GetListActive<ActCategory>(x => x.Acts);
-            //var items = from x in repository._myContext.ActCategories
-            //            join y in repository._myContext.Acts on x.ID equals y.ActCategoryID
-            //            select x;
-
-            //var items = repository.GetListActive<ActCategory>(x => x.Acts).Select(aaa);
-
-
-            var items = repository.GetListActive<ActCategory>().Select(x => new ActCategory
-            {
-                ID = x.ID,
-                Title = x.Title,
-                //Name = x.Acts.GetType().FullName,
-                //Acts = repository.FilterExistEnum(x.Acts)
-                Acts = x.Acts.Where(y => !y.IsDeleted)
-            }).ToList();
+            var items = repository.GetAdminMenuList();
 
             return View("Default", items);
         }
-
-        //private ActCategory aaa(ActCategory x)
-        //{
-        //    return new ActCategory
-        //    {
-        //        ID = x.ID,
-        //        Title = x.Title,
-        //        Name = x.Name,
-        //        Acts = repository.FilterExistEnum(x.Acts)
-        //    };
-        //}
 
         #endregion 
     }

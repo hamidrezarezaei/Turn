@@ -158,6 +158,8 @@ namespace _3Nobatgir.Data.Migrations
 
                     b.Property<bool>("EmailConfirmed");
 
+                    b.Property<int>("Level");
+
                     b.Property<bool>("LockoutEnabled");
 
                     b.Property<DateTimeOffset?>("LockoutEnd");
@@ -173,6 +175,8 @@ namespace _3Nobatgir.Data.Migrations
                     b.Property<string>("PhoneNumber");
 
                     b.Property<bool>("PhoneNumberConfirmed");
+
+                    b.Property<int>("RootID");
 
                     b.Property<string>("SecurityStamp");
 

@@ -11,18 +11,18 @@ using Nobatgir.Services;
 namespace Nobatgir.Areas.Admin.Controllers
 {
     [Area("Admin")]
-    public class ActController : BaseController
+    public class AdminMenuController : BaseController
     {
         #region Constructor
-        public ActController(Repository repository) : base(repository)
+        public AdminMenuController(Repository repository) : base(repository)
         {
-            this.type = typeof(Model.Act);
+            this.type = typeof(Model.AdminMenu);
         }
         #endregion
 
-        public IActionResult Index(int ActionCategoryID, int pageNumber, string searchString)
+        public IActionResult Index(int SiteKindID, int pageNumber, string searchString)
         {
-            var data = this.repository.GetListByParentWithPaging<Act>(x => x.ActCategoryID, ActionCategoryID, pageNumber, searchString);
+            var data = this.repository.GetListByParentWithPaging<AdminMenu>(x => x.SiteKindID, SiteKindID, pageNumber, searchString);
             ViewBag.SearchString = searchString;
 
             return View(data);
@@ -30,14 +30,14 @@ namespace Nobatgir.Areas.Admin.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult Edit(Model.Act row, string returnURL)
+        public IActionResult Edit(Model.AdminMenu row, string returnURL)
         {
             return this.EditBase(row, returnURL);
         }
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult Create(Model.Act row, string ReturnUrl, int ID)
+        public IActionResult Create(Model.AdminMenu row, string ReturnUrl, int ID)
         {
             return this.CreateBase(row, ReturnUrl);
         }

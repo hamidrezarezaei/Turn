@@ -1,0 +1,9 @@
+﻿@model DetailsViewModel<BaseClass>
+
+<partial name="_TitleBar" model="@{new TitleBarViewModel{ActionType = ActionTypes.Details, Title = "نوع سایت " + Model.Row.Title};}" />
+
+<partial name="Details_partial" model="Model" />
+
+<partial name="_TitleBar" model="@{new TitleBarViewModel{ActionType = ActionTypes.Index, Title = "لیست منوهای این سایت" , AddNewController = "AdminMenu", AddNewTitle = "ایحاد منوی جدید", ParentID = Model.Row.ID};}" />
+
+<partial name="_Grid" model="ViewBag.Menus"/>
