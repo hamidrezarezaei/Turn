@@ -20,12 +20,24 @@ namespace Nobatgir.Areas.Admin.Controllers
         }
         #endregion
 
-        public IActionResult Index(int CategoryID, int pageNumber, string searchString)
+        public IActionResult Index(int pageNumber, string searchString)
         {
-            var data = this.repository.GetListByParentWithPaging<Expert>(x => x.CategoryID, CategoryID, pageNumber, searchString);
+            var data = this.repository.GetListByParentWithPaging<Expert>(x => x.CategoryID, this.repository.CategoryID, pageNumber, searchString);
             ViewBag.SearchString = searchString;
 
             return View(data);
+        }
+
+        public override IActionResult Details(int? id, int pageNumber, string searchString, string ReturnURL)
+        {
+            if (id == null)
+                return NotFound();
+
+            var row = this.repository.GetSingle<Expert>(id.Value);
+
+            var catadminurl = Url.RouteUrl(nameof(MyRoutes.SiteCatExpert), new { expertname = row.Name, controller = "", action = "", id = "" });
+
+            return Redirect(catadminurl);
         }
 
         [HttpPost]

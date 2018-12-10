@@ -41,6 +41,8 @@ namespace Nobatgir.Data
         public DbSet<SiteDictionary> SiteDictionaries { get; set; }
         public DbSet<SiteKindDictionary> SiteKindDictionaries { get; set; }
 
+        public DbSet<Level> Levels { get; set; }
+
     }
 }
 

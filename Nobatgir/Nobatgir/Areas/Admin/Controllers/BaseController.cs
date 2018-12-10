@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 using Nobatgir.Services;
 using Microsoft.AspNetCore.Mvc.Filters;
 using Nobatgir.Model;
@@ -11,6 +12,7 @@ using Nobatgir.Model;
 namespace Nobatgir.Areas.Admin.Controllers
 {
     [Area("Admin")]
+    [Authorize(Policy = "nobatpolicy")]
     public class BaseController : Controller
     {
 

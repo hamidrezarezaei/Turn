@@ -244,6 +244,19 @@ namespace _3Nobatgir.Data.Migrations
                     b.ToTable("ExpertTimeTemplates");
                 });
 
+            modelBuilder.Entity("Nobatgir.Model.Level", b =>
+                {
+                    b.Property<int>("ID")
+                        .ValueGeneratedOnAdd()
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("LevelName");
+
+                    b.HasKey("ID");
+
+                    b.ToTable("Levels");
+                });
+
             modelBuilder.Entity("Nobatgir.Model.Site", b =>
                 {
                     b.Property<int>("ID")

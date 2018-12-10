@@ -14,7 +14,8 @@ namespace Nobatgir.Services
     {
         public IEnumerable<AdminMenu> GetAdminMenuList()
         {
-            return GetListActive<AdminMenu>().Where(x => x.LevelID == userLevelID && x.SiteKindID == this.SiteKindID);
+            //return GetListActive<AdminMenu>().Where(x => x.LevelID == UserLevelID && x.SiteKindID == this.SiteKindID);
+            return GetListActive<AdminMenu>().Where(x => x.LevelID == this.CurrentLevel && x.SiteKindID == this.SiteKindID);
         }
     }
 }

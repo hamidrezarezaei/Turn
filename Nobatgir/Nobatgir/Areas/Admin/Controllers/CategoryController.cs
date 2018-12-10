@@ -32,15 +32,23 @@ namespace Nobatgir.Areas.Admin.Controllers
 
         public override IActionResult Details(int? id, int pageNumber, string searchString, string ReturnURL)
         {
+            //        http://localhost:63899/milad/cat-matab/Admin
+
             if (id == null)
                 return NotFound();
 
             var row = this.repository.GetSingle<Category>(id.Value);
-            var r = this.repository.GetListByParentWithPaging<Expert>(x => x.CategoryID, id.Value, pageNumber, searchString);
-            r.Controller = "Expert";
-            ViewBag.Experts = r;
 
-            return View(new DetailsViewModel<BaseClass> { Row = row, ActionType = ActionTypes.Details });
+            var catadminurl = Url.RouteUrl(nameof(MyRoutes.SiteCat), new {catname = row.Name, controller = "", action = "", id = ""});
+
+            return Redirect(catadminurl);
+
+            //var row = this.repository.GetSingle<Category>(id.Value);
+            //var r = this.repository.GetListByParentWithPaging<Expert>(x => x.CategoryID, id.Value, pageNumber, searchString);
+            //r.Controller = "Expert";
+            //ViewBag.Experts = r;
+
+            //return View(new DetailsViewModel<BaseClass> { Row = row, ActionType = ActionTypes.Details });
         }
 
         [HttpPost]

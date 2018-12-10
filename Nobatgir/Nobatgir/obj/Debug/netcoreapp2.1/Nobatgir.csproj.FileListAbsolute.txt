@@ -177,3 +177,6 @@ E:\Projects\Nobatgir\GIT\Nobatgir\Nobatgir\obj\Debug\netcoreapp2.1\Razor\Areas\A
 E:\Projects\Nobatgir\GIT\Nobatgir\Nobatgir\obj\Debug\netcoreapp2.1\Razor\Areas\Admin\Views\SiteKind\Details.g.cshtml.cs
 E:\Projects\Nobatgir\GIT\Nobatgir\Nobatgir\obj\Debug\netcoreapp2.1\Razor\Areas\Admin\Views\SiteKind\Details_partial.g.cshtml.cs
 E:\Projects\Nobatgir\GIT\Nobatgir\Nobatgir\obj\Debug\netcoreapp2.1\Razor\Areas\Admin\Views\SiteKind\Index.g.cshtml.cs
+E:\Projects\Nobatgir\GIT\Nobatgir\Nobatgir\obj\Debug\netcoreapp2.1\Razor\Views\Home\Index.g.cshtml.cs
+E:\Projects\Nobatgir\GIT\Nobatgir\Nobatgir\obj\Debug\netcoreapp2.1\Razor\Areas\Admin\Views\ExpertTimeTemplate\Details_partial.g.cshtml.cs
+E:\Projects\Nobatgir\GIT\Nobatgir\Nobatgir\obj\Debug\netcoreapp2.1\Razor\Areas\Admin\Views\ExpertTimeTemplate\Index.g.cshtml.cs

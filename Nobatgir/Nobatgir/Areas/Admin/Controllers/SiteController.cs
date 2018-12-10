@@ -36,12 +36,22 @@ namespace Nobatgir.Areas.Admin.Controllers
             if (id == null)
                 return NotFound();
 
-            var row = this.repository.GetSingle<Site>(id.Value, x => x.SiteKind);
-            var r = this.repository.GetListByParentWithPaging<Category>(x => x.SiteID, id.Value, pageNumber, searchString);
-            r.Controller = "Category";
-            ViewBag.Categories = r;
+            var row = this.repository.GetSingle<Site>(id.Value);
 
-            return View(new DetailsViewModel<BaseClass> { Row = row, ActionType = ActionTypes.Details });
+            var url = Url.RouteUrl(nameof(MyRoutes.Site), new { sitename = row.Name, controller = "", action = "", id = "" });
+
+            return Redirect(url);
+
+
+            //if (id == null)
+            //    return NotFound();
+
+            //var row = this.repository.GetSingle<Site>(id.Value, x => x.SiteKind);
+            //var r = this.repository.GetListByParentWithPaging<Category>(x => x.SiteID, id.Value, pageNumber, searchString);
+            //r.Controller = "Category";
+            //ViewBag.Categories = r;
+
+            //return View(new DetailsViewModel<BaseClass> { Row = row, ActionType = ActionTypes.Details });
         }
 
         public override IActionResult Create(string ReturnURL)

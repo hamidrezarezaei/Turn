@@ -11,7 +11,7 @@ using Nobatgir.Services;
 
 namespace Nobatgir.Areas.Admin.Controllers
 {
-    [Area("Admin")]
+    //[Area("Admin")]
     public class SiteKindController : BaseController
     {
         #region Constructor

@@ -24,16 +24,36 @@ namespace Nobatgir.Services
         private readonly RoleManager<Role> _rolemanager;
 
         public int SiteID;
-        private int SiteKindID;
+        public int SiteKindID;
 
-        private int UserID => int.Parse(httpContextAccessor.HttpContext.User.FindFirst(ClaimTypes.NameIdentifier).Value);
+        public int CategoryID;
+        public int ExpertID;
 
-        private int userLevelID
+        public int UserID => int.Parse(httpContextAccessor.HttpContext.User.FindFirst(ClaimTypes.NameIdentifier).Value);
+
+        public int UserLevelID
         {
             get
             {
                 var user = _usermanager.GetUserAsync(httpContextAccessor.HttpContext.User).Result;
                 return user.Level;
+            }
+        }
+
+        public int CurrentLevel
+        {
+            get
+            {
+                if (ExpertID != 0)
+                    return 4;
+
+                if (this.CategoryID != 0)
+                    return 3;
+
+                if (SiteID == 1)
+                    return 1;
+
+                return 2;
             }
         }
 
@@ -53,6 +73,25 @@ namespace Nobatgir.Services
             this.httpContextAccessor = httpContextAccessor;
 
             this.SetSiteParams();
+
+            this.SetLevelParams();
+        }
+
+        private void SetLevelParams()
+        {
+            var routedata = this.httpContextAccessor.HttpContext.GetRouteData();
+
+            var catname = routedata.Values["catname"];
+
+            if (catname != null)
+                this.CategoryID = this._myContext.Categories.FirstOrDefault(x =>
+                                      x.Name.ToLower() == catname.ToString().ToLower() && x.SiteID == this.SiteID)?.ID ?? 0;
+
+            var expertname = routedata.Values["expertname"];
+
+            if (expertname != null)
+                this.ExpertID = this._myContext.Experts.FirstOrDefault(x =>
+                                    x.Name.ToLower() == expertname.ToString().ToLower() && x.CategoryID == this.CategoryID)?.ID ?? 0;
         }
 
         private void SetSiteParams()

@@ -23,7 +23,7 @@ namespace Nobatgir.Areas.Admin.Controllers
 
         public IActionResult Index(int pageNumber, string searchString)
         {
-            var data = this.repository.GetListWithPaging<SiteTimeTemplate>(pageNumber, searchString);
+            var data = this.repository.GetListByParentWithPaging<SiteTimeTemplate>(x=>x.SiteID, repository.SiteID, pageNumber, searchString);
             ViewBag.SearchString = searchString;
 
             data.DisplayColumns.Add("WeekDayName");

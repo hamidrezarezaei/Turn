@@ -8,7 +8,7 @@ using Microsoft.AspNetCore.Mvc;
 namespace Nobatgir.Areas.Admin.Controllers
 {
     [Area("admin")]
-    [Authorize]
+    [Authorize(Policy = "nobatpolicy")]
     public class HomeController : Controller
     {
         public IActionResult Index()

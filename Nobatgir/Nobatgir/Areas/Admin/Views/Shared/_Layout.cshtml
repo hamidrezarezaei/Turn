@@ -32,6 +32,23 @@
                 <div class="close-container">
                     <i class="fas fa-times close-btn" onclick="hideMenu()"></i>
                 </div>
+                
+                <div style="color: white;" class="ltr">
+                    CurrentLevel = @repository.CurrentLevel
+                    <br />
+                    SiteID = @repository.SiteID
+                    <br />
+                    SiteKindID = @repository.SiteKindID
+                    <br />
+                    CatID = @repository.CategoryID
+                    <br />
+                    ExpertID = @repository.ExpertID
+                    <br />
+                    UserID = @repository.UserID
+                    <br />
+                    UserLevelID = @repository.UserLevelID
+                </div>
+                <br/>
 
                 @await Component.InvokeAsync("AdminMenu")
             </div>

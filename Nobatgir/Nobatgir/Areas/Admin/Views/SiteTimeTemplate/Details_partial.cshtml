@@ -5,7 +5,7 @@
 
 @if (Model.ActionType == ActionTypes.Create)
 {
-    <input type="hidden" asp-for="@Row.SiteID" value="@ViewContext.RouteData.Values["id"].ToString()" />
+    <input type="hidden" asp-for="@Row.SiteID" value="@repository.SiteID" />
 }
 else if (Model.ActionType == ActionTypes.Edit)
 {

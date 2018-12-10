@@ -42,6 +42,12 @@
     <Content Update="Areas\Admin\Views\Category\Index.cshtml">
       <Pack>$(IncludeRazorContentInPack)</Pack>
     </Content>
+    <Content Update="Areas\Admin\Views\ExpertTimeTemplate\Details_partial.cshtml">
+      <Pack>$(IncludeRazorContentInPack)</Pack>
+    </Content>
+    <Content Update="Areas\Admin\Views\ExpertTimeTemplate\Index.cshtml">
+      <Pack>$(IncludeRazorContentInPack)</Pack>
+    </Content>
     <Content Update="Areas\Admin\Views\SiteTimeTemplate\Details_partial.cshtml">
       <Pack>$(IncludeRazorContentInPack)</Pack>
     </Content>
