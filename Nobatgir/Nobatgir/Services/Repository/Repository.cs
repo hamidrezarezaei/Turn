@@ -202,6 +202,20 @@ namespace Nobatgir.Services
             return f.Value;
         }
 
+        public string GetSiteKindSetting(Settings setting)
+        {
+            var sd = this._myContext.SiteKindSettings.FirstOrDefault(x => x.SiteKindID == this.SiteKindID && x.Key == setting.ToString());
+
+            return sd?.Value;
+        }
+
+        public string GetSiteSetting(Settings setting)
+        {
+            var sd = this._myContext.SiteSettings.FirstOrDefault(x => x.SiteID == this.SiteID && x.Key == setting.ToString());
+
+            return sd?.Value;
+        }
+
         public IQueryable<T> FilterExist<T>(IQueryable<T> db) where T : BaseClass
         {
             return db.Where(am => !am.IsDeleted).OrderBy(am => am.OrderIndex);

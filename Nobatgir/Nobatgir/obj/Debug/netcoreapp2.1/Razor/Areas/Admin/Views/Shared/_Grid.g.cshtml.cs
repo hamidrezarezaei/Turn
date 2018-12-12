@@ -117,7 +117,7 @@ using Nobatgir.Areas.Admin.ViewModel;
             WriteLiteral("                <tr>\r\n                    <td>\r\n                        ");
             EndContext();
             BeginContext(557, 123, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "3fc1e41cfce045c8837d355f475ff847", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "1635f1a05e354626965eee3042fbe767", async() => {
                 BeginContext(675, 1, false);
 #line 20 "E:\Projects\Nobatgir\GIT\Nobatgir\Nobatgir\Areas\Admin\Views\Shared\_Grid.cshtml"
                                                                                                                                         Write(r);
@@ -183,7 +183,7 @@ using Nobatgir.Areas.Admin.ViewModel;
             WriteLiteral("                        <td>\r\n                            ");
             EndContext();
             BeginContext(854, 168, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "888a03b5804142369ce67e68c94ecf1b", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "3277127bc610404e90810f8c2d89b63a", async() => {
                 BeginContext(972, 46, false);
 #line 25 "E:\Projects\Nobatgir\GIT\Nobatgir\Nobatgir\Areas\Admin\Views\Shared\_Grid.cshtml"
                                                                                                                                             Write(item.GetType().GetProperty(dis).GetValue(item));
@@ -248,7 +248,7 @@ using Nobatgir.Areas.Admin.ViewModel;
             WriteLiteral("                    <td class=\"op-buttons\">\r\n                        ");
             EndContext();
             BeginContext(1147, 140, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "e1e97ace1d764efc9f87ddf4d95cfbc6", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "59add6d53f5a460bbde7b255d1aebe1d", async() => {
                 BeginContext(1277, 6, true);
                 WriteLiteral("ویرایش");
                 EndContext();
@@ -304,7 +304,7 @@ using Nobatgir.Areas.Admin.ViewModel;
             WriteLiteral("\r\n                        ");
             EndContext();
             BeginContext(1313, 142, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "8a81b61e07c1465b965f50f3e713f3f5", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "4b0ba954b17f45ee8220278c0bbcd75e", async() => {
                 BeginContext(1447, 4, true);
                 WriteLiteral("حذف ");
                 EndContext();
@@ -368,7 +368,7 @@ using Nobatgir.Areas.Admin.ViewModel;
             WriteLiteral("        </tbody>\r\n    </table>\r\n</div>\r\n\r\n");
             EndContext();
             BeginContext(1564, 80, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("nav", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "947ee784704b49d284074254fb1b80f2", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("nav", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "900d25016dc14dde93a725f5b5be75c2", async() => {
             }
             );
             __Nobatgir_Areas_Admin_PagerTagHelper = CreateTagHelper<global::Nobatgir.Areas.Admin.PagerTagHelper>();

@@ -1,0 +1,51 @@
+﻿@model List<TimeTemplateViewModel>
+
+@{
+    int index = 1;
+}
+
+<div class="row">
+
+    <ul class="nav nav-tabs col-12" id="myTab" role="tablist">
+
+        @foreach (var item in Model)
+        {
+            string c = "";
+            if (index == 1)
+            {
+                c = "active";
+            }
+
+            <li class="nav-item">
+                <a class="nav-link @c" id="home-tab" data-toggle="tab" href="#tab_@index" role="tab" aria-controls="home" aria-selected="true">@item.FullDay</a>
+            </li>
+
+            index++;
+        }
+
+    </ul>
+    <div class="tab-content col-12" id="myTabContent">
+
+        @{ index = 1; }
+
+        @foreach (var item in Model)
+        {
+            string c = "";
+            if (index == 1)
+            {
+                c = "active";
+            }
+
+            <div class="tab-pane fade show row p-2 @c" id="tab_@index" role="tabpanel" aria-labelledby="home-tab">
+
+                @foreach (var turn in item.Turns)
+                {
+                    <a class="btn btn-success col-2 m-2">@turn.Time</a>
+                }
+
+            </div>
+
+            index++;
+        }
+    </div>
+</div>

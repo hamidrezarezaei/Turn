@@ -166,8 +166,6 @@ E:\Projects\Nobatgir\GIT\Nobatgir\Nobatgir\obj\Debug\netcoreapp2.1\Razor\Areas\A
 E:\Projects\Nobatgir\GIT\Nobatgir\Nobatgir\obj\Debug\netcoreapp2.1\Razor\Areas\Admin\Views\Category\Details_partial.g.cshtml.cs
 E:\Projects\Nobatgir\GIT\Nobatgir\Nobatgir\obj\Debug\netcoreapp2.1\Razor\Areas\Admin\Views\Category\Index.g.cshtml.cs
 E:\Projects\Nobatgir\GIT\Nobatgir\Nobatgir\obj\Debug\netcoreapp2.1\Razor\Areas\Admin\Views\Category\Details.g.cshtml.cs
-E:\Projects\Nobatgir\GIT\Nobatgir\Nobatgir\obj\Debug\netcoreapp2.1\Razor\Areas\Admin\Views\SiteTimeTemplate\Details_partial.g.cshtml.cs
-E:\Projects\Nobatgir\GIT\Nobatgir\Nobatgir\obj\Debug\netcoreapp2.1\Razor\Areas\Admin\Views\SiteTimeTemplate\Index.g.cshtml.cs
 E:\Projects\Nobatgir\GIT\Nobatgir\Nobatgir\obj\Debug\netcoreapp2.1\Razor\Areas\Admin\Views\User\Index.g.cshtml.cs
 E:\Projects\Nobatgir\GIT\Nobatgir\Nobatgir\obj\Debug\netcoreapp2.1\Razor\Areas\Admin\Views\User\Details_partial.g.cshtml.cs
 E:\Projects\Nobatgir\GIT\Nobatgir\Nobatgir\obj\Debug\netcoreapp2.1\Razor\Areas\Admin\Views\Role\Details_partial.g.cshtml.cs
@@ -177,6 +175,12 @@ E:\Projects\Nobatgir\GIT\Nobatgir\Nobatgir\obj\Debug\netcoreapp2.1\Razor\Areas\A
 E:\Projects\Nobatgir\GIT\Nobatgir\Nobatgir\obj\Debug\netcoreapp2.1\Razor\Areas\Admin\Views\SiteKind\Details.g.cshtml.cs
 E:\Projects\Nobatgir\GIT\Nobatgir\Nobatgir\obj\Debug\netcoreapp2.1\Razor\Areas\Admin\Views\SiteKind\Details_partial.g.cshtml.cs
 E:\Projects\Nobatgir\GIT\Nobatgir\Nobatgir\obj\Debug\netcoreapp2.1\Razor\Areas\Admin\Views\SiteKind\Index.g.cshtml.cs
-E:\Projects\Nobatgir\GIT\Nobatgir\Nobatgir\obj\Debug\netcoreapp2.1\Razor\Views\Home\Index.g.cshtml.cs
 E:\Projects\Nobatgir\GIT\Nobatgir\Nobatgir\obj\Debug\netcoreapp2.1\Razor\Areas\Admin\Views\ExpertTimeTemplate\Details_partial.g.cshtml.cs
 E:\Projects\Nobatgir\GIT\Nobatgir\Nobatgir\obj\Debug\netcoreapp2.1\Razor\Areas\Admin\Views\ExpertTimeTemplate\Index.g.cshtml.cs
+E:\Projects\Nobatgir\GIT\Nobatgir\Nobatgir\obj\Debug\netcoreapp2.1\Razor\Views\ClinicView\Index.g.cshtml.cs
+E:\Projects\Nobatgir\GIT\Nobatgir\Nobatgir\obj\Debug\netcoreapp2.1\Razor\Views\SuperAdminView\Index.g.cshtml.cs
+E:\Projects\Nobatgir\GIT\Nobatgir\Nobatgir\obj\Debug\netcoreapp2.1\Razor\Views\DoctorView\Index.g.cshtml.cs
+E:\Projects\Nobatgir\GIT\Nobatgir\Nobatgir\obj\Debug\netcoreapp2.1\Razor\Views\Shared\_Layout.g.cshtml.cs
+E:\Projects\Nobatgir\GIT\Nobatgir\Nobatgir\obj\Debug\netcoreapp2.1\Razor\Views\_ViewImports.g.cshtml.cs
+E:\Projects\Nobatgir\GIT\Nobatgir\Nobatgir\obj\Debug\netcoreapp2.1\Razor\Views\_ViewStart.g.cshtml.cs
+E:\Projects\Nobatgir\GIT\Nobatgir\Nobatgir\obj\Debug\netcoreapp2.1\Razor\Views\Shared\Components\TimeTemplate\Default.g.cshtml.cs

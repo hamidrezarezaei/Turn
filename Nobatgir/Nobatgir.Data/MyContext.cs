@@ -24,17 +24,18 @@ namespace Nobatgir.Data
 
         public DbSet<Site> Sites { get; set; }
         public DbSet<SiteSetting> SiteSettings { get; set; }
-        public DbSet<SiteTimeTemplate> SiteTimeTemplates { get; set; }
 
         public DbSet<Category> Categories { get; set; }
         public DbSet<CategorySetting> CategorySettings { get; set; }
-        public DbSet<CategoryTimeTemplate> CategoryTimeTemplates { get; set; }
 
         public DbSet<Expert> Experts { get; set; }
         public DbSet<ExpertSetting> ExpertSettings { get; set; }
         public DbSet<ExpertTimeTemplate> ExpertTimeTemplates { get; set; }
 
         public DbSet<SiteKind> SiteKinds { get; set; }
+        public DbSet<SiteKindSetting> SiteKindSettings { get; set; }
+
+
         public DbSet<AdminMenu> AdminMenus { get; set; }
 
         public DbSet<DictionaryTerm> DictionaryTerms { get; set; }

@@ -13,7 +13,5 @@ namespace Nobatgir.Model
         public int SiteID { get; set; }
 
         public IEnumerable<CategorySetting> CategorySettings { get; set; }
-
-        public IEnumerable<CategoryTimeTemplate> CategoryTimeTemplates { get; set; }
     }
 }

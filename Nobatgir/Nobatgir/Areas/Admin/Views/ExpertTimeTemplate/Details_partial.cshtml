@@ -15,18 +15,18 @@ else if (Model.ActionType == ActionTypes.Edit)
 <div class="admin-data-box">
     <table class="table detail table-striped">
 
-        <partial name="_TableRow" model="@(new TableRowViewModel<BaseClass>(Model, nameof(SiteTimeTemplate.IsActive)))" />
+        <partial name="_TableRow" model="@(new TableRowViewModel<BaseClass>(Model, nameof(ExpertTimeTemplate.IsActive)))" />
 
         @*<partial name="_TableRow" model="@(new TableRowViewModel<BaseClass>(Model, nameof(SiteTimeTemplate.Name), "ltr"))" />
         <partial name="_TableRow" model="@(new TableRowViewModel<BaseClass>(Model, nameof(SiteTimeTemplate.Title)))" />*@
 
-        <partial name="_TableRow" model="@(new TableRowViewModel<BaseClass>(Model, nameof(SiteTimeTemplate.WeekDay), ViewBag.WeekDayCombo, nameof(SiteTimeTemplate.WeekDayName)))" />
+        <partial name="_TableRow" model="@(new TableRowViewModel<BaseClass>(Model, nameof(ExpertTimeTemplate.WeekDay), ViewBag.WeekDayCombo, nameof(ExpertTimeTemplate.WeekDayName)))" />
 
-        <partial name="_TableRow" model="@(new TableRowViewModel<BaseClass>(Model, nameof(SiteTimeTemplate.Times)))" />
-        <partial name="_TableRow" model="@(new TableRowViewModel<BaseClass>(Model, nameof(SiteTimeTemplate.ActiveDayCount)))" />
-        <partial name="_TableRow" model="@(new TableRowViewModel<BaseClass>(Model, nameof(SiteTimeTemplate.ActiveTime)))" />
-        <partial name="_TableRow" model="@(new TableRowViewModel<BaseClass>(Model, nameof(SiteTimeTemplate.DeactiveDayCount)))" />
-        <partial name="_TableRow" model="@(new TableRowViewModel<BaseClass>(Model, nameof(SiteTimeTemplate.DeactiveTime)))" />
+        <partial name="_TableRow" model="@(new TableRowViewModel<BaseClass>(Model, nameof(ExpertTimeTemplate.Times)))" />
+        <partial name="_TableRow" model="@(new TableRowViewModel<BaseClass>(Model, nameof(ExpertTimeTemplate.ActiveDayCount)))" />
+        <partial name="_TableRow" model="@(new TableRowViewModel<BaseClass>(Model, nameof(ExpertTimeTemplate.ActiveTime)))" />
+        <partial name="_TableRow" model="@(new TableRowViewModel<BaseClass>(Model, nameof(ExpertTimeTemplate.DeactiveDayCount)))" />
+        <partial name="_TableRow" model="@(new TableRowViewModel<BaseClass>(Model, nameof(ExpertTimeTemplate.DeactiveTime)))" />
 
     </table>
 </div>

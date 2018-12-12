@@ -22,7 +22,9 @@ namespace Nobatgir
 {
     public enum MyRoutes
     {
-        SiteCatExpert, SiteCat, Site, CatExpert, Cat, Admin
+        SiteCatExpert, SiteCat, Site, CatExpert, Cat, Admin,
+
+        SiteWithDomain, SiteWithoutDomain
     }
 
     public class Startup
@@ -176,8 +178,13 @@ namespace Nobatgir
                 //    name: "admin",
                 //    template: "{area:exists}/{controller=Home}/{action=Index}/{id?}");
                 routes.MapRoute(
-                    name: "default",
+                    name: nameof(MyRoutes.SiteWithoutDomain),
+                    template: "{sitename}/{controller=Home}/{action=Index}/{id?}");
+
+                routes.MapRoute(
+                    name: nameof(MyRoutes.SiteWithDomain),
                     template: "{controller=Home}/{action=Index}/{id?}");
+
             });
         }
     }
