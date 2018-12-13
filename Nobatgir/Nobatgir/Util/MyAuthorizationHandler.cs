@@ -7,7 +7,7 @@ using Microsoft.AspNetCore.Identity;
 using Nobatgir.Model;
 using Nobatgir.Services;
 
-namespace Nobatgir
+namespace Nobatgir.Util
 {
     public class MyRequirement : IAuthorizationRequirement
     {
@@ -18,12 +18,12 @@ namespace Nobatgir
 
     public class MyAuthorizationHandler : AuthorizationHandler<MyRequirement>
     {
-        public Repository _repository;
+        public Repository Repository;
         private readonly UserManager<User> _usermanager;
 
         public MyAuthorizationHandler(Repository repository, UserManager<User> usermanager)
         {
-            this._repository = repository;
+            this.Repository = repository;
             this._usermanager = usermanager;
         }
 
@@ -34,7 +34,7 @@ namespace Nobatgir
             if (!context.User.Identity.IsAuthenticated)
                 return Task.CompletedTask;
 
-            if (_repository.UserLevelID == 1)
+            if (Repository.UserLevelID == 1)
             {
                 context.Succeed(requirement);
 
@@ -42,18 +42,18 @@ namespace Nobatgir
             }
 
             // if level is low
-            if (_repository.UserLevelID > _repository.CurrentLevel)
+            if (Repository.UserLevelID > Repository.CurrentLevel)
                 return Task.CompletedTask;
 
             var usersiteid = this._usermanager.GetUserAsync(context.User).Result.SiteID;
 
             // if user is not for this site
-            if (_repository.SiteID != usersiteid)
+            if (Repository.SiteID != usersiteid)
                 return Task.CompletedTask;
 
             var userrootid = this._usermanager.GetUserAsync(context.User).Result.RootID;
 
-            if (_repository.UserLevelID == 2)
+            if (Repository.UserLevelID == 2)
             {
                 context.Succeed(requirement);
 
@@ -61,10 +61,10 @@ namespace Nobatgir
             }
 
             // if UserLevelID > 2 and is not for this site
-            if (_repository.CategoryID != userrootid)
+            if (Repository.CategoryID != userrootid)
                 return Task.CompletedTask;
 
-            if (_repository.UserLevelID == 3)
+            if (Repository.UserLevelID == 3)
             {
                 context.Succeed(requirement);
 
@@ -72,7 +72,7 @@ namespace Nobatgir
             }
 
             // if UserLevelID > 3 and is not for this site
-            if (_repository.ExpertID != userrootid)
+            if (Repository.ExpertID != userrootid)
                 return Task.CompletedTask;
 
             context.Succeed(requirement);

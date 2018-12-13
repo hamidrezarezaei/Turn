@@ -23,7 +23,7 @@ namespace Nobatgir.Areas.Admin.Controllers
 
         public IActionResult Index(int pageNumber, string searchString)
         {
-            var data = this.repository.GetListWithPaging<Site>(pageNumber, searchString, x=>x.SiteKind);
+            var data = this.Repository.GetListWithPaging<Site>(pageNumber, searchString, x=>x.SiteKind);
             ViewBag.SearchString = searchString;
 
             data.DisplayColumns.Add("SiteKindTitle");
@@ -36,7 +36,7 @@ namespace Nobatgir.Areas.Admin.Controllers
             if (id == null)
                 return NotFound();
 
-            var row = this.repository.GetSingle<Site>(id.Value);
+            var row = this.Repository.GetSingle<Site>(id.Value);
 
             var url = Url.RouteUrl(nameof(MyRoutes.Site), new { sitename = row.Name, controller = "", action = "", id = "" });
 
@@ -46,8 +46,8 @@ namespace Nobatgir.Areas.Admin.Controllers
             //if (id == null)
             //    return NotFound();
 
-            //var row = this.repository.GetSingle<Site>(id.Value, x => x.SiteKind);
-            //var r = this.repository.GetListByParentWithPaging<Category>(x => x.SiteID, id.Value, pageNumber, searchString);
+            //var row = this.Repository.GetSingle<Site>(id.Value, x => x.SiteKind);
+            //var r = this.Repository.GetListByParentWithPaging<Category>(x => x.SiteID, id.Value, pageNumber, searchString);
             //r.Controller = "Category";
             //ViewBag.Categories = r;
 
@@ -58,7 +58,7 @@ namespace Nobatgir.Areas.Admin.Controllers
         {
             var r = base.Create(ReturnURL);
 
-            ViewBag.SiteKindsCombo = new SelectList(this.repository.GetListActive<SiteKind>(), "ID", "Title");
+            ViewBag.SiteKindsCombo = new SelectList(this.Repository.GetListActive<SiteKind>(), "ID", "Title");
 
             return r;
         }
@@ -67,7 +67,7 @@ namespace Nobatgir.Areas.Admin.Controllers
         {
             var r = base.Edit(id, ReturnURL);
 
-            ViewBag.SiteKindsCombo = new SelectList(this.repository.GetListActive<SiteKind>(), "ID", "Title");
+            ViewBag.SiteKindsCombo = new SelectList(this.Repository.GetListActive<SiteKind>(), "ID", "Title");
 
             return r;
         }

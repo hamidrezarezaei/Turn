@@ -17,6 +17,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Nobatgir.Data;
 using Nobatgir.Services;
+using Nobatgir.Util;
 
 namespace Nobatgir
 {
@@ -177,6 +178,7 @@ namespace Nobatgir
                 //routes.MapRoute(
                 //    name: "admin",
                 //    template: "{area:exists}/{controller=Home}/{action=Index}/{id?}");
+
                 routes.MapRoute(
                     name: nameof(MyRoutes.SiteWithoutDomain),
                     template: "{sitename}/{controller=Home}/{action=Index}/{id?}");

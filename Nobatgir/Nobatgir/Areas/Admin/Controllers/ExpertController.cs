@@ -22,7 +22,7 @@ namespace Nobatgir.Areas.Admin.Controllers
 
         public IActionResult Index(int pageNumber, string searchString)
         {
-            var data = this.repository.GetListByParentWithPaging<Expert>(x => x.CategoryID, this.repository.CategoryID, pageNumber, searchString);
+            var data = this.Repository.GetListByParentWithPaging<Expert, int>(x => x.CategoryID, this.Repository.CategoryID, pageNumber, searchString);
             ViewBag.SearchString = searchString;
 
             return View(data);
@@ -33,7 +33,7 @@ namespace Nobatgir.Areas.Admin.Controllers
             if (id == null)
                 return NotFound();
 
-            var row = this.repository.GetSingle<Expert>(id.Value);
+            var row = this.Repository.GetSingle<Expert>(id.Value);
 
             var catadminurl = Url.RouteUrl(nameof(MyRoutes.SiteCatExpert), new { expertname = row.Name, controller = "", action = "", id = "" });
 

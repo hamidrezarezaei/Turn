@@ -36,13 +36,19 @@
                 c = "active";
             }
 
-            <div class="tab-pane fade show row p-2 @c" id="tab_@index" role="tabpanel" aria-labelledby="home-tab">
+            <div class="tab-pane fade show @c" id="tab_@index" role="tabpanel" aria-labelledby="home-tab">
 
-                @foreach (var turn in item.Turns)
-                {
-                    <a class="btn btn-success col-2 m-2">@turn.Time</a>
-                }
+                <div class="row p-2">
+                    @foreach (var turn in item.Turns)
+                    {
+                        <form asp-action="AddTurn" method="post" class="col-2 p-1">
+                            <input type="hidden" name="turndate" value="@item.Day">
+                            <input type="hidden" name="time" value="@turn.Time">
 
+                            <button type="submit" class="btn btn-success btn-block">@turn.Time</button>
+                        </form>
+                    }
+                </div>
             </div>
 
             index++;

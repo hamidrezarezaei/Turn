@@ -22,7 +22,7 @@ namespace Nobatgir.Areas.Admin.Controllers
 
         public ActionResult Index(int pageNumber, string searchString)
         {
-            var userlist = this.repository.GetUserList().Select(x => new UserViewModel
+            var userlist = this.Repository.GetUserList().Select(x => new UserViewModel
             {
                 ID = x.Id,
                 IsActive = true,
@@ -33,7 +33,7 @@ namespace Nobatgir.Areas.Admin.Controllers
                 User = x
             });
 
-            var data = this.repository.GetPagedResult(userlist.AsQueryable(), pageNumber, searchString);
+            var data = this.Repository.GetPagedResult(userlist.AsQueryable(), pageNumber, searchString);
             ViewBag.SearchString = searchString;
 
             return View(data);
@@ -44,7 +44,7 @@ namespace Nobatgir.Areas.Admin.Controllers
             if (id == null)
                 return NotFound();
 
-            var row = this.repository.GetUser(id.Value);
+            var row = this.Repository.GetUser(id.Value);
 
             if (row == null)
                 return NotFound();
@@ -68,7 +68,7 @@ namespace Nobatgir.Areas.Admin.Controllers
             if (id == null)
                 return NotFound();
 
-            var row = this.repository.GetUser(id.Value);
+            var row = this.Repository.GetUser(id.Value);
 
             if (row == null)
                 return NotFound();

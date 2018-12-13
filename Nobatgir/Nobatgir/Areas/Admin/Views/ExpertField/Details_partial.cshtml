@@ -1,0 +1,20 @@
+﻿@model DetailsViewModel<BaseClass>
+@{
+    var Row = Model.Row as ExpertField;
+}
+
+
+<div class="admin-data-box">
+    <table class="table detail table-striped">
+
+        <partial name="_TableRow" model="@(new TableRowViewModel<BaseClass>(Model, nameof(ExpertField.IsActive)))" />
+        <partial name="_TableRow" model="@(new TableRowViewModel<BaseClass>(Model, nameof(ExpertField.Name), "ltr"))" />
+        <partial name="_TableRow" model="@(new TableRowViewModel<BaseClass>(Model, nameof(ExpertField.Title)))" />
+        <partial name="_TableRow" model="@(new TableRowViewModel<BaseClass>(Model, nameof(ExpertField.FieldType), ViewBag.FieldTypesCombo, nameof(ExpertField.FieldTypeName)))" />
+        <partial name="_TableRow" model="@(new TableRowViewModel<BaseClass>(Model, nameof(ExpertField.SourceTypeID), ViewBag.SourceTypesCombo, nameof(ExpertField.SourceTypeTitle)))" />
+
+    </table>
+</div>
+
+
+

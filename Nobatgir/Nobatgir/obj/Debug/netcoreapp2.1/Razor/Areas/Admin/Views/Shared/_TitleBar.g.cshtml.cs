@@ -49,7 +49,7 @@ using Nobatgir.Areas.Admin.ViewModel;
 #line default
 #line hidden
     [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"f365a52469f2ea5835529ed3d8fb230b8c81fb94", @"/Areas/Admin/Views/Shared/_TitleBar.cshtml")]
-    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"9d57ee4652f325ebd4f07b5bf30285fdd9185c51", @"/Areas/Admin/Views/_ViewImports.cshtml")]
+    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"6070da3a106ce176a3725f683aab549e20ce4c3c", @"/Areas/Admin/Views/_ViewImports.cshtml")]
     public class Areas_Admin_Views_Shared__TitleBar : global::Microsoft.AspNetCore.Mvc.Razor.RazorPage<TitleBarViewModel>
     {
         private static readonly global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute __tagHelperAttribute_0 = new global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute("btn-type", new global::Microsoft.AspNetCore.Html.HtmlString("Create"), global::Microsoft.AspNetCore.Razor.TagHelpers.HtmlAttributeValueStyle.DoubleQuotes);
@@ -113,7 +113,7 @@ using Nobatgir.Areas.Admin.ViewModel;
             WriteLiteral("\r\n        </h1>\r\n        <div class=\"col-md-5 admin-title\">\r\n            ");
             EndContext();
             BeginContext(353, 227, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "2f883e8ef96f4b57b77e2babfaa1e83f", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "0b2b77a8b9e44dfca14719bea87eef96", async() => {
                 BeginContext(359, 68, true);
                 WriteLiteral("\r\n                <p>\r\n                    فیلتر: <input type=\"text\"");
                 EndContext();
@@ -145,7 +145,7 @@ WriteAttributeValue("", 435, ViewBag.SearchString, 435, 21, false);
             WriteLiteral("\r\n        </div>\r\n        <div class=\"col-6 col-md-3 op-buttons top\">\r\n            ");
             EndContext();
             BeginContext(663, 218, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "92418f278b6147f3abe6f6aafa30b713", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "e964b5588f654a7db6265d6418ee5cac", async() => {
                 BeginContext(827, 18, true);
                 WriteLiteral("\r\n                ");
                 EndContext();
@@ -231,7 +231,7 @@ else if (Model.ActionType == ActionTypes.Edit)
             WriteLiteral("\r\n        </h1>\r\n        <div class=\"col-md-3 op-buttons top\">\r\n            ");
             EndContext();
             BeginContext(1131, 46, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "961601bef7c44d84a2d0b24da6628a5a", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "65fa2e20b6844ea8865128d609bb5a40", async() => {
                 BeginContext(1166, 7, true);
                 WriteLiteral("بازگشت ");
                 EndContext();
@@ -279,7 +279,7 @@ else if (Model.ActionType == ActionTypes.Create)
             WriteLiteral("\r\n        </h1>\r\n        <div class=\"col-md-3 op-buttons top\">\r\n            ");
             EndContext();
             BeginContext(1429, 47, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "846a683da42f4622907110f8bf5c9ffd", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "c5a178bcb5e3444abb2756a71c92d71c", async() => {
                 BeginContext(1464, 8, true);
                 WriteLiteral(" بازگشت ");
                 EndContext();
@@ -327,7 +327,7 @@ else if (Model.ActionType == ActionTypes.Delete)
             WriteLiteral("\r\n        </h1>\r\n        <div class=\"col-md-3 op-buttons top\">\r\n            ");
             EndContext();
             BeginContext(1728, 46, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "7c5ac5c99eb54f6f84895f1631cbbc19", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "e4a82eb786cd407aa38f7f80e5b4cce7", async() => {
                 BeginContext(1763, 7, true);
                 WriteLiteral("بازگشت ");
                 EndContext();
@@ -375,7 +375,7 @@ else if (Model.ActionType == ActionTypes.Details)
             WriteLiteral("\r\n        </h1>\r\n        <div class=\"col-md-3 op-buttons top\">\r\n            ");
             EndContext();
             BeginContext(2027, 46, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "2cfdfa5b2d5f4aa7ae8f13f859b0c0b6", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "8aec54f928254bb4a679ba6007bf6410", async() => {
                 BeginContext(2062, 7, true);
                 WriteLiteral("بازگشت ");
                 EndContext();
@@ -410,7 +410,7 @@ AddHtmlAttributeValue("", 2052, BackURL, 2052, 8, false);
         }
         #pragma warning restore 1998
         [global::Microsoft.AspNetCore.Mvc.Razor.Internal.RazorInjectAttribute]
-        public Repository repository { get; private set; }
+        public Repository Repository { get; private set; }
         [global::Microsoft.AspNetCore.Mvc.Razor.Internal.RazorInjectAttribute]
         public global::Microsoft.AspNetCore.Mvc.ViewFeatures.IModelExpressionProvider ModelExpressionProvider { get; private set; }
         [global::Microsoft.AspNetCore.Mvc.Razor.Internal.RazorInjectAttribute]

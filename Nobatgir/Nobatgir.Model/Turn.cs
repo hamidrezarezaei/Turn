@@ -7,10 +7,23 @@ namespace Nobatgir.Model
 {
     public class Turn
     {
-        public int ID { get; set; }
+        public Guid ID { get; set; }
+
+        public int ExpertID { get; set; }
+
+        public DateTime TurnDate { get; set; }
+
+        public string Time { get; set; }
+
+        public TurnStatuses Status { get; set; }
 
         public DateTime RegDate { get; set; }
 
-        public string Time { get; set; }
+        public Expert Expert { get; set; }
+    }
+
+    public enum TurnStatuses
+    {
+        Reserve, Completed, Deleted
     }
 }

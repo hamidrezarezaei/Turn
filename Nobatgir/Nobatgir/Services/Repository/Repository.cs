@@ -24,7 +24,7 @@ namespace Nobatgir.Services
         private readonly RoleManager<Role> _rolemanager;
 
         public int SiteID;
-        public int SiteKindID;
+        public SiteKinds SiteKindID;
 
         public int CategoryID;
         public int ExpertID;
@@ -44,16 +44,31 @@ namespace Nobatgir.Services
         {
             get
             {
-                if (ExpertID != 0)
-                    return 4;
+                var routedata = this.httpContextAccessor.HttpContext.GetRouteData();
 
-                if (this.CategoryID != 0)
+                if (routedata.Values["catname"] != null)
+                {
+                    if (routedata.Values["expertname"] != null)
+                        return 4;
+
                     return 3;
+                }
 
                 if (SiteID == 1)
                     return 1;
 
                 return 2;
+
+                //if (ExpertID != 0)
+                //    return 4;
+
+                //if (this.CategoryID != 0)
+                //    return 3;
+
+                //if (SiteID == 1)
+                //    return 1;
+
+                //return 2;
             }
         }
 
@@ -79,6 +94,26 @@ namespace Nobatgir.Services
 
         private void SetLevelParams()
         {
+            // اگر برای تک دکتر یا آرایشگر است
+            if (this.SiteKindID == SiteKinds.Doctor || this.SiteKindID == SiteKinds.Barber)
+            {
+                var drcat = this._myContext.Categories.Include(x => x.Experts).FirstOrDefault(x => x.SiteID == this.SiteID);
+
+                if (drcat == null)
+                    throw new Exception("نداریم");
+
+                this.CategoryID = drcat.ID;
+
+                var expert = drcat.Experts.FirstOrDefault();
+
+                if (expert == null)
+                    throw new Exception("نداریم");
+
+                this.ExpertID = expert.ID;
+
+                return;
+            }
+
             var routedata = this.httpContextAccessor.HttpContext.GetRouteData();
 
             var catname = routedata.Values["catname"];
@@ -106,7 +141,7 @@ namespace Nobatgir.Services
                 if (s != null)
                 {
                     this.SiteID = s.ID;
-                    this.SiteKindID = s.SiteKindID;
+                    this.SiteKindID = (SiteKinds) s.SiteKindID;
                     return;
                 }
                 else
@@ -118,7 +153,7 @@ namespace Nobatgir.Services
             if (host.Contains("localhost"))
             {
                 this.SiteID = 1;
-                this.SiteKindID = 1;
+                this.SiteKindID = SiteKinds.SuperAdmin;
             }
             else
             {
@@ -128,7 +163,7 @@ namespace Nobatgir.Services
                     throw new Exception("این سایت وجود ندارد.");
 
                 this.SiteID = site.ID;
-                this.SiteKindID = site.SiteKindID;
+                this.SiteKindID = site.SiteKindEnum;
             }
         }
 
@@ -204,7 +239,7 @@ namespace Nobatgir.Services
 
         public string GetSiteKindSetting(Settings setting)
         {
-            var sd = this._myContext.SiteKindSettings.FirstOrDefault(x => x.SiteKindID == this.SiteKindID && x.Key == setting.ToString());
+            var sd = this._myContext.SiteKindSettings.FirstOrDefault(x => x.SiteKindID == (int) this.SiteKindID && x.Key == setting.ToString());
 
             return sd?.Value;
         }
@@ -296,39 +331,38 @@ namespace Nobatgir.Services
             return GetPagedResult(q, pageNumber, searchString);
         }
 
-        public IQueryable<T> GetListByParent<T>(Expression<Func<T, int>> ParentColumn, int ParentID, Expression<Func<T, object>> exp = null) where T : BaseClass
+        public IQueryable<T> GetListByParent<T,K>(Expression<Func<T, K>> ParentColumn, K ParentID, Expression<Func<T, object>> exp = null) where T : BaseClass
         {
             var expression = (MemberExpression)ParentColumn.Body;
             string name = expression.Member.Name;
 
-            var q = GetList(exp).Where(x => (int)x.GetValue(name) == ParentID);
+            var q = GetList(exp).Where(x => ((K)x.GetValue(name)).Equals(ParentID));
 
             return q;
         }
 
-        public PagedResult<T> GetListByParentWithPaging<T>(Expression<Func<T, int>> ParentColumn, int ParentID, int pageNumber, string searchString = "", Expression<Func<T, object>> exp = null) where T : BaseClass
+        public PagedResult<T> GetListByParentWithPaging<T, K>(Expression<Func<T, K>> ParentColumn, K ParentID, int pageNumber, string searchString = "", Expression<Func<T, object>> exp = null) where T : BaseClass
         {
             var q = GetListByParent(ParentColumn, ParentID, exp);
 
             return GetPagedResult(q, pageNumber, searchString);
         }
 
-        public IQueryable<T> GetListActiveByParent<T>(Expression<Func<T, int>> ParentColumn, int ParentID, Expression<Func<T, object>> exp = null) where T : BaseClass
+        public IQueryable<T> GetListActiveByParent<T, K>(Expression<Func<T, K>> ParentColumn, K ParentID, Expression<Func<T, object>> exp = null) where T : BaseClass
         {
             var expression = (MemberExpression)ParentColumn.Body;
             string name = expression.Member.Name;
 
-            var q = GetListActive(exp).Where(x => (int)x.GetValue(name) == ParentID);
+            var q = GetListActive(exp).Where(x => ((K)x.GetValue(name)).Equals(ParentID));
 
             return q;
         }
 
-        public PagedResult<T> GetListActiveByParentWithPaging<T>(Expression<Func<T, int>> ParentColumn, int ParentID, int pageNumber, string searchString = "", Expression<Func<T, object>> exp = null) where T : BaseClass
+        public PagedResult<T> GetListActiveByParentWithPaging<T, K>(Expression<Func<T, K>> ParentColumn, K ParentID, int pageNumber, string searchString = "", Expression<Func<T, object>> exp = null) where T : BaseClass
         {
             var q = GetListActiveByParent(ParentColumn, ParentID, exp);
 
             return GetPagedResult(q, pageNumber, searchString);
         }
-
     }
 }

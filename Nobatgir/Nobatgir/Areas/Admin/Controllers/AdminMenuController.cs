@@ -20,9 +20,9 @@ namespace Nobatgir.Areas.Admin.Controllers
         }
         #endregion
 
-        public IActionResult Index(int SiteKindID, int pageNumber, string searchString)
+        public IActionResult Index(SiteKinds SiteKindID, int pageNumber, string searchString)
         {
-            var data = this.repository.GetListByParentWithPaging<AdminMenu>(x => x.SiteKindID, SiteKindID, pageNumber, searchString);
+            var data = this.Repository.GetListByParentWithPaging<AdminMenu, SiteKinds>(x => x.SiteKindEnum, SiteKindID, pageNumber, searchString);
             ViewBag.SearchString = searchString;
 
             return View(data);

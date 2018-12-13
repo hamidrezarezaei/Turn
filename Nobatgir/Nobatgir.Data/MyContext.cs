@@ -44,6 +44,13 @@ namespace Nobatgir.Data
 
         public DbSet<Level> Levels { get; set; }
 
+        public DbSet<Turn> Turns { get; set; }
+
+        public DbSet<SourceType> SourceTypes { get; set; }
+
+        public DbSet<SourceValue> SourceValues { get; set; }
+        public DbSet<ExpertField> ExpertFields { get; set; }
+
     }
 }
 

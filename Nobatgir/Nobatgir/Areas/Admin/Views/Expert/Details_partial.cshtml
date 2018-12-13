@@ -5,7 +5,7 @@
 
 @if (Model.ActionType == ActionTypes.Create)
 {
-    <input type="hidden" asp-for="@Row.CategoryID" value="@repository.CategoryID" />
+    <input type="hidden" asp-for="@Row.CategoryID" value="@Repository.CategoryID" />
 }
 else if (Model.ActionType == ActionTypes.Edit)
 {

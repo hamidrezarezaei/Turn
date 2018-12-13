@@ -143,6 +143,43 @@ namespace _3Nobatgir.Data.Migrations
                     b.ToTable("Experts");
                 });
 
+            modelBuilder.Entity("Nobatgir.Model.ExpertField", b =>
+                {
+                    b.Property<int>("ID")
+                        .ValueGeneratedOnAdd()
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<int>("ExpertID");
+
+                    b.Property<int>("FieldType");
+
+                    b.Property<bool>("IsActive");
+
+                    b.Property<bool>("IsDeleted");
+
+                    b.Property<string>("Name");
+
+                    b.Property<int>("OrderIndex");
+
+                    b.Property<int>("SourceTypeID");
+
+                    b.Property<string>("Title");
+
+                    b.Property<DateTime>("UpdateDateTime");
+
+                    b.Property<int>("UserID");
+
+                    b.Property<string>("Value");
+
+                    b.HasKey("ID");
+
+                    b.HasIndex("ExpertID");
+
+                    b.HasIndex("SourceTypeID");
+
+                    b.ToTable("ExpertFields");
+                });
+
             modelBuilder.Entity("Nobatgir.Model.ExpertSetting", b =>
                 {
                     b.Property<int>("ID")
@@ -352,6 +389,82 @@ namespace _3Nobatgir.Data.Migrations
                     b.ToTable("SiteSettings");
                 });
 
+            modelBuilder.Entity("Nobatgir.Model.SourceType", b =>
+                {
+                    b.Property<int>("ID")
+                        .ValueGeneratedOnAdd()
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<bool>("IsActive");
+
+                    b.Property<bool>("IsDeleted");
+
+                    b.Property<string>("Name");
+
+                    b.Property<int>("OrderIndex");
+
+                    b.Property<string>("Title");
+
+                    b.Property<DateTime>("UpdateDateTime");
+
+                    b.Property<int>("UserID");
+
+                    b.HasKey("ID");
+
+                    b.ToTable("SourceTypes");
+                });
+
+            modelBuilder.Entity("Nobatgir.Model.SourceValue", b =>
+                {
+                    b.Property<int>("ID")
+                        .ValueGeneratedOnAdd()
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<bool>("IsActive");
+
+                    b.Property<bool>("IsDeleted");
+
+                    b.Property<string>("Name");
+
+                    b.Property<int>("OrderIndex");
+
+                    b.Property<int>("SourceTypeID");
+
+                    b.Property<string>("Title");
+
+                    b.Property<DateTime>("UpdateDateTime");
+
+                    b.Property<int>("UserID");
+
+                    b.HasKey("ID");
+
+                    b.HasIndex("SourceTypeID");
+
+                    b.ToTable("SourceValues");
+                });
+
+            modelBuilder.Entity("Nobatgir.Model.Turn", b =>
+                {
+                    b.Property<Guid>("ID")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<int>("ExpertID");
+
+                    b.Property<DateTime>("RegDate");
+
+                    b.Property<int>("Status");
+
+                    b.Property<string>("Time");
+
+                    b.Property<DateTime>("TurnDate");
+
+                    b.HasKey("ID");
+
+                    b.HasIndex("ExpertID");
+
+                    b.ToTable("Turns");
+                });
+
             modelBuilder.Entity("Nobatgir.Model.AdminMenu", b =>
                 {
                     b.HasOne("Nobatgir.Model.SiteKind", "SiteKind")
@@ -379,8 +492,21 @@ namespace _3Nobatgir.Data.Migrations
             modelBuilder.Entity("Nobatgir.Model.Expert", b =>
                 {
                     b.HasOne("Nobatgir.Model.Category", "Category")
-                        .WithMany()
+                        .WithMany("Experts")
                         .HasForeignKey("CategoryID")
+                        .OnDelete(DeleteBehavior.Cascade);
+                });
+
+            modelBuilder.Entity("Nobatgir.Model.ExpertField", b =>
+                {
+                    b.HasOne("Nobatgir.Model.Expert", "Expert")
+                        .WithMany()
+                        .HasForeignKey("ExpertID")
+                        .OnDelete(DeleteBehavior.Cascade);
+
+                    b.HasOne("Nobatgir.Model.SourceType", "SourceType")
+                        .WithMany()
+                        .HasForeignKey("SourceTypeID")
                         .OnDelete(DeleteBehavior.Cascade);
                 });
 
@@ -447,6 +573,22 @@ namespace _3Nobatgir.Data.Migrations
                     b.HasOne("Nobatgir.Model.Site", "Site")
                         .WithMany("SiteSettings")
                         .HasForeignKey("SiteID")
+                        .OnDelete(DeleteBehavior.Cascade);
+                });
+
+            modelBuilder.Entity("Nobatgir.Model.SourceValue", b =>
+                {
+                    b.HasOne("Nobatgir.Model.SourceType", "SourceType")
+                        .WithMany("SourceValues")
+                        .HasForeignKey("SourceTypeID")
+                        .OnDelete(DeleteBehavior.Cascade);
+                });
+
+            modelBuilder.Entity("Nobatgir.Model.Turn", b =>
+                {
+                    b.HasOne("Nobatgir.Model.Expert", "Expert")
+                        .WithMany()
+                        .HasForeignKey("ExpertID")
                         .OnDelete(DeleteBehavior.Cascade);
                 });
 #pragma warning restore 612, 618

@@ -21,5 +21,13 @@ namespace Nobatgir.Model
 
         [NotMapped]
         public string SiteKindTitle => this.SiteKind?.Title;
+
+        [NotMapped]
+        public SiteKinds SiteKindEnum
+        {
+            get => (SiteKinds)this.SiteKindID;
+
+            set => this.SiteKindID = (int)value;
+        }
     }
 }

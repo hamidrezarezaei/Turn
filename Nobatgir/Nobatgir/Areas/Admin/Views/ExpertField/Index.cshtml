@@ -1,0 +1,5 @@
+﻿@model PagedResult<ExpertField>
+
+<partial name="_TitleBar" model="@{new TitleBarViewModel{ActionType = ActionTypes.Index, Title = "لیست پارامترها", AddNewController="ExpertField", AddNewTitle = "ایحاد پارامتر جدید"};}" />
+
+<partial name="_Grid" />

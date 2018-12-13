@@ -23,13 +23,14 @@ namespace Nobatgir.Areas.Admin.Controllers
 
         public IActionResult Index(int pageNumber, string searchString)
         {
-            var data = this.repository.GetListByParentWithPaging<ExpertTimeTemplate>(x=>x.ExpertID, repository.ExpertID, pageNumber, searchString);
+            var data = this.Repository.GetListByParentWithPaging<ExpertTimeTemplate, int>(x=>x.ExpertID, Repository.ExpertID, pageNumber, searchString);
             ViewBag.SearchString = searchString;
 
             data.DisplayColumns.Add("WeekDayName");
 
             return View(data);
         }
+
         public override IActionResult Create(string ReturnURL)
         {
             var r = base.Create(ReturnURL);

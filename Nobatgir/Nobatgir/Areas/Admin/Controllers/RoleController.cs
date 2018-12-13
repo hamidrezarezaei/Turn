@@ -22,9 +22,9 @@ namespace Nobatgir.Areas.Admin.Controllers
 
         public ActionResult Index(int pageNumber, string searchString)
         {
-            var rolelist = this.repository.GetRoleList().Select(x => new RoleViewModel(x));
+            var rolelist = this.Repository.GetRoleList().Select(x => new RoleViewModel(x));
 
-            var data = this.repository.GetPagedResult(rolelist.AsQueryable(), pageNumber, searchString);
+            var data = this.Repository.GetPagedResult(rolelist.AsQueryable(), pageNumber, searchString);
             ViewBag.SearchString = searchString;
 
             return View(data);
@@ -35,7 +35,7 @@ namespace Nobatgir.Areas.Admin.Controllers
             if (id == null)
                 return NotFound();
 
-            var row = this.repository.GetRole(id.Value);
+            var row = this.Repository.GetRole(id.Value);
 
             if (row == null)
                 return NotFound();
@@ -50,7 +50,7 @@ namespace Nobatgir.Areas.Admin.Controllers
             if (id == null)
                 return NotFound();
 
-            var row = this.repository.GetRole(id.Value);
+            var row = this.Repository.GetRole(id.Value);
 
             if (row == null)
                 return NotFound();
@@ -88,7 +88,7 @@ namespace Nobatgir.Areas.Admin.Controllers
         {
             if (ModelState.IsValid)
             {
-                this.repository.CreateRole(row.Name, row.Title);
+                this.Repository.CreateRole(row.Name, row.Title);
 
                 return RedirectToLocal(ReturnUrl);
             }

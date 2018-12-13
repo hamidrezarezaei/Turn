@@ -1,9 +1,19 @@
-﻿DoctorView
+﻿<div class="container">
 
-<br />
+    <div class="row"><partial name="_Header.cshtml" /></div>
 
-<div class="container">
+    <div class="row">
 
-    @await Component.InvokeAsync("TimeTemplate", new { ExpertID = 3, ViewName = "Default" })
+        <partial name="_Right.cshtml" />
+
+        <div class="col">
+            @await Component.InvokeAsync("TimeTemplate", new { ViewName = "Default" })
+        </div>
+
+        <partial name="_Left.cshtml" />
+
+    </div>
+
+    <div class="row"><partial name="_Footer.cshtml" /></div>
+
 </div>
-

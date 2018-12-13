@@ -13,18 +13,18 @@ namespace Nobatgir.Areas.Admin
     public class AdminMenuViewComponent : ViewComponent
     {
         #region Constructor
-        private readonly Repository repository;
+        private readonly Repository _repository;
 
         public AdminMenuViewComponent(Repository repository)
         {
-            this.repository = repository;
+            this._repository = repository;
         }
         #endregion
 
         #region Invoke
         public async Task<IViewComponentResult> InvokeAsync()
         {
-            var items = repository.GetAdminMenuList();
+            var items = _repository.GetAdminMenuList();
 
             return View("Default", items);
         }

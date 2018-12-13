@@ -13,7 +13,7 @@ namespace Nobatgir.Services
     {
         public PagedResult<Model.Category> GetCategories(int pageNumber, string searchString = "")
         {
-            var data = GetListByParentWithPaging<Category>(x => x.SiteID, SiteID, pageNumber, searchString);
+            var data = GetListByParentWithPaging<Category, int>(x => x.SiteID, SiteID, pageNumber, searchString);
             return data;
         }
 

@@ -12,4 +12,13 @@ namespace Nobatgir.Model
 
         public IEnumerable<SiteKindDictionary> SiteKindDictionaries { get; set; }
     }
+
+    public enum SiteKinds
+    {
+        SuperAdmin = 1,
+        Clinic = 2,
+        Doctor = 3,
+        BarberShop = 4,
+        Barber = 5
+    }
 }

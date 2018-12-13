@@ -9,9 +9,9 @@ namespace Nobatgir.Lib
     {
         public static string PersianDateStringFormat(DateTime dateTime)
         {
+            var pc = new PersianCalendar();
             try
             {
-                PersianCalendar pc = new PersianCalendar();
                 int y = pc.GetYear(dateTime);
                 int m = pc.GetMonth(dateTime);
                 int d = pc.GetDayOfMonth(dateTime);
@@ -42,7 +42,7 @@ namespace Nobatgir.Lib
                         res = "چهارشنبه";
                         break;
                 }
-                res += " " + d.ToString() + " ";
+                res += " " + d + " ";
 
                 switch (m)
                 {
@@ -83,7 +83,7 @@ namespace Nobatgir.Lib
                         res += "اسفند";
                         break;
                 }
-                res += " " + y.ToString();
+                res += " " + y;
                 return res;
             }
             catch
@@ -94,13 +94,13 @@ namespace Nobatgir.Lib
 
         public static string PersianTimeStringFormat(DateTime dateTime)
         {
+            var pc = new PersianCalendar();
             try
             {
-                PersianCalendar pc = new PersianCalendar();
                 int h = pc.GetHour(dateTime);
                 int m = pc.GetMinute(dateTime);
 
-                string res = "ساعت";
+                var res = "ساعت";
                 res += " " + h.ToString().PadLeft(2, '0') + ":" + m.ToString().PadLeft(2, '0');
                 return res;
             }

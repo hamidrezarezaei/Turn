@@ -11,14 +11,20 @@ namespace Nobatgir.Model
     {
         public int SiteKindID { get; set; }
 
-        [Display(Name = "نام کنترلر")]
-        public string ControllerName { get; set; }
+        [Display(Name = "نام کنترلر")] public string ControllerName { get; set; }
 
-        [Display(Name = "نام اکشن")]
-        public string ActionName { get; set; }
+        [Display(Name = "نام اکشن")] public string ActionName { get; set; }
 
         public int LevelID { get; set; }
 
         public SiteKind SiteKind { get; set; }
+
+        [NotMapped]
+        public SiteKinds SiteKindEnum
+        {
+            get => (SiteKinds)this.SiteKindID;
+
+            set => this.SiteKindID = (int)value;
+        }
     }
 }

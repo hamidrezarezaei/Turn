@@ -21,10 +21,10 @@ namespace Nobatgir.Areas.Admin.Controllers
         #region Controller
         protected Type type;
 
-        protected readonly Repository repository;
+        protected readonly Repository Repository;
         public BaseController(Repository repository)
         {
-            this.repository = repository;
+            this.Repository = repository;
         }
         #endregion
 
@@ -42,7 +42,7 @@ namespace Nobatgir.Areas.Admin.Controllers
             if (id == null)
                 return NotFound();
 
-            var row = this.repository.GetRow(id, this.type);
+            var row = this.Repository.GetRow(id, this.type);
             return View(new DetailsViewModel<BaseClass> { Row = row, ActionType = ActionTypes.Details });
         }
 
@@ -58,7 +58,7 @@ namespace Nobatgir.Areas.Admin.Controllers
 
         public virtual IActionResult Edit(int? id, string ReturnURL)
         {
-            var row = this.repository.GetRow(id, this.type);
+            var row = this.Repository.GetRow(id, this.type);
             if (row == null)
             {
                 return NotFound();
@@ -70,7 +70,7 @@ namespace Nobatgir.Areas.Admin.Controllers
 
         public virtual IActionResult Delete(int? id, string ReturnURL)
         {
-            var row = this.repository.GetRow(id, this.type);
+            var row = this.Repository.GetRow(id, this.type);
             if (row == null)
             {
                 return NotFound();
@@ -84,8 +84,8 @@ namespace Nobatgir.Areas.Admin.Controllers
         [ValidateAntiForgeryToken]
         public virtual IActionResult DeleteConfirmed(int id, string ReturnURL)
         {
-            var row = this.repository.GetRow(id, type);
-            this.repository.DeleteRow(row);
+            var row = this.Repository.GetRow(id, type);
+            this.Repository.DeleteRow(row);
             return RedirectToLocal(ReturnURL);
         }
 
@@ -93,7 +93,7 @@ namespace Nobatgir.Areas.Admin.Controllers
         {
             if (ModelState.IsValid)
             {
-                this.repository.UpdateRow(row);
+                this.Repository.UpdateRow(row);
                 return RedirectToLocal(returnURL);
             }
 
@@ -104,7 +104,7 @@ namespace Nobatgir.Areas.Admin.Controllers
         {
             if (ModelState.IsValid)
             {
-                repository.AddRow(row);
+                Repository.AddRow(row);
                 return RedirectToLocal(ReturnUrl);
             }
             ViewBag.ReturnUrl = ReturnUrl;

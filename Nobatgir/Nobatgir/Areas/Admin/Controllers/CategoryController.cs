@@ -22,9 +22,9 @@ namespace Nobatgir.Areas.Admin.Controllers
 
         public IActionResult Index(int pageNumber, string searchString)
         {
-            //var data = this.repository.GetListByParentWithPaging<Category>(x => x.SiteID, SiteID, pageNumber, searchString);
+            //var data = this.Repository.GetListByParentWithPaging<Category>(x => x.SiteID, SiteID, pageNumber, searchString);
 
-            var data = this.repository.GetCategories(pageNumber, searchString);
+            var data = this.Repository.GetCategories(pageNumber, searchString);
             ViewBag.SearchString = searchString;
 
             return View(data);
@@ -37,14 +37,14 @@ namespace Nobatgir.Areas.Admin.Controllers
             if (id == null)
                 return NotFound();
 
-            var row = this.repository.GetSingle<Category>(id.Value);
+            var row = this.Repository.GetSingle<Category>(id.Value);
 
             var catadminurl = Url.RouteUrl(nameof(MyRoutes.SiteCat), new {catname = row.Name, controller = "", action = "", id = ""});
 
             return Redirect(catadminurl);
 
-            //var row = this.repository.GetSingle<Category>(id.Value);
-            //var r = this.repository.GetListByParentWithPaging<Expert>(x => x.CategoryID, id.Value, pageNumber, searchString);
+            //var row = this.Repository.GetSingle<Category>(id.Value);
+            //var r = this.Repository.GetListByParentWithPaging<Expert>(x => x.CategoryID, id.Value, pageNumber, searchString);
             //r.Controller = "Expert";
             //ViewBag.Experts = r;
 

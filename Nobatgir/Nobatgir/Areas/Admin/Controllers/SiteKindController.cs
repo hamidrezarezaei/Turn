@@ -23,7 +23,7 @@ namespace Nobatgir.Areas.Admin.Controllers
 
         public IActionResult Index(int pageNumber, string searchString)
         {
-            var data = this.repository.GetListWithPaging<SiteKind>(pageNumber, searchString);
+            var data = this.Repository.GetListWithPaging<SiteKind>(pageNumber, searchString);
             ViewBag.SearchString = searchString;
 
             return View(data);
@@ -34,9 +34,9 @@ namespace Nobatgir.Areas.Admin.Controllers
             if (id == null)
                 return NotFound();
 
-            var row = this.repository.GetSingle<SiteKind>(id.Value);
+            var row = this.Repository.GetSingle<SiteKind>(id.Value);
 
-            var r  = this.repository.GetListByParentWithPaging<AdminMenu>(x => x.SiteKindID, id.Value, pageNumber, searchString);
+            var r  = this.Repository.GetListByParentWithPaging<AdminMenu, SiteKinds>(x => x.SiteKindEnum, (SiteKinds) id.Value, pageNumber, searchString);
             r.Controller = "AdminMenu";
             ViewBag.Menus = r;
 
