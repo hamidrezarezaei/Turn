@@ -1,0 +1,17 @@
+﻿@model DetailsViewModel<BaseClass>
+@{
+    var Row = Model.Row as SourceValue;
+}
+
+<div class="admin-data-box">
+    <table class="table detail table-striped">
+
+        <partial name="_TableRow" model="@(new TableRowViewModel<BaseClass>(Model, nameof(SourceValue.IsActive)))" />
+        <partial name="_TableRow" model="@(new TableRowViewModel<BaseClass>(Model, nameof(SourceValue.Name), "ltr"))" />
+        <partial name="_TableRow" model="@(new TableRowViewModel<BaseClass>(Model, nameof(SourceValue.Title)))" />
+
+    </table>
+</div>
+
+
+

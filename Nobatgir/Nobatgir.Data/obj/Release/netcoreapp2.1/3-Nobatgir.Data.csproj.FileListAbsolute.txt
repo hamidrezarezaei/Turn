@@ -14,3 +14,9 @@ E:\Projects\Nobatgir\GIT\Nobatgir\Nobatgir.Data\obj\Release\netcoreapp2.1\3-Noba
 E:\Projects\Nobatgir\GIT\Nobatgir\Nobatgir.Data\obj\Release\netcoreapp2.1\3-Nobatgir.Data.csproj.CopyComplete
 E:\Projects\Nobatgir\GIT\Nobatgir\Nobatgir.Data\obj\Release\netcoreapp2.1\3-Nobatgir.Data.dll
 E:\Projects\Nobatgir\GIT\Nobatgir\Nobatgir.Data\obj\Release\netcoreapp2.1\3-Nobatgir.Data.pdb
+E:\Projects\Nobatgir\GIT\Nobatgir\Nobatgir.Data\bin\Release\netcoreapp2.1\Microsoft.AspNetCore.Identity.EntityFrameworkCore.dll
+E:\Projects\Nobatgir\GIT\Nobatgir\Nobatgir.Data\bin\Release\netcoreapp2.1\Microsoft.Extensions.Identity.Stores.dll
+E:\Projects\Nobatgir\GIT\Nobatgir\Nobatgir.Data\bin\Release\netcoreapp2.1\Microsoft.Extensions.Logging.Console.dll
+E:\Projects\Nobatgir\GIT\Nobatgir\Nobatgir.Data\bin\Release\netcoreapp2.1\Microsoft.AspNetCore.Identity.EntityFrameworkCore.xml
+E:\Projects\Nobatgir\GIT\Nobatgir\Nobatgir.Data\bin\Release\netcoreapp2.1\Microsoft.Extensions.Identity.Stores.xml
+E:\Projects\Nobatgir\GIT\Nobatgir\Nobatgir.Data\bin\Release\netcoreapp2.1\Microsoft.Extensions.Logging.Console.xml

@@ -27,5 +27,12 @@ namespace Nobatgir.Services
 
             return t.Entity;
         }
+
+        public Model.Turn GetTurn(Guid id)
+        {
+            var t = _myContext.Turns.FirstOrDefault(x => x.ID == id);
+
+            return t;
+        }
     }
 }

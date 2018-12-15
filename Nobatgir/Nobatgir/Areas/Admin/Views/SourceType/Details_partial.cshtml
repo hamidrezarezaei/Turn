@@ -1,0 +1,24 @@
+﻿@model DetailsViewModel<BaseClass>
+@{
+    var Row = Model.Row as SourceType;
+}
+
+@if (Model.ActionType == ActionTypes.Create)
+{
+    <input type="hidden" asp-for="@Row.ExpertID" value="@Repository.ExpertID" />
+}
+else if (Model.ActionType == ActionTypes.Edit)
+{
+    <input type="hidden" asp-for="@Row.ExpertID" />
+}
+
+<div class="admin-data-box">
+    <table class="table detail table-striped">
+
+        <partial name="_TableRow" model="@(new TableRowViewModel<BaseClass>(Model, nameof(SourceType.IsActive)))" />
+        <partial name="_TableRow" model="@(new TableRowViewModel<BaseClass>(Model, nameof(SourceType.Name), "ltr"))" />
+        <partial name="_TableRow" model="@(new TableRowViewModel<BaseClass>(Model, nameof(SourceType.Title)))" />
+
+    </table>
+</div>
+

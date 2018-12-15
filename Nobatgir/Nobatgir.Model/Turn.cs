@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Text;
+using Nobatgir.Lib;
 
 namespace Nobatgir.Model
 {
@@ -20,6 +22,9 @@ namespace Nobatgir.Model
         public DateTime RegDate { get; set; }
 
         public Expert Expert { get; set; }
+
+        [NotMapped]
+        public string TurnDatePersian => persianDateTime.PersianDateStringFormat(this.TurnDate);
     }
 
     public enum TurnStatuses

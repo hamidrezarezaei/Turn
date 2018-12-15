@@ -149,7 +149,11 @@ namespace _3Nobatgir.Data.Migrations
                         .ValueGeneratedOnAdd()
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
+                    b.Property<string>("CssClass");
+
                     b.Property<int>("ExpertID");
+
+                    b.Property<string>("FieldText");
 
                     b.Property<int>("FieldType");
 
@@ -161,7 +165,9 @@ namespace _3Nobatgir.Data.Migrations
 
                     b.Property<int>("OrderIndex");
 
-                    b.Property<int>("SourceTypeID");
+                    b.Property<string>("Placeholder");
+
+                    b.Property<int?>("SourceTypeID");
 
                     b.Property<string>("Title");
 
@@ -395,6 +401,8 @@ namespace _3Nobatgir.Data.Migrations
                         .ValueGeneratedOnAdd()
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
+                    b.Property<int>("ExpertID");
+
                     b.Property<bool>("IsActive");
 
                     b.Property<bool>("IsDeleted");
@@ -410,6 +418,8 @@ namespace _3Nobatgir.Data.Migrations
                     b.Property<int>("UserID");
 
                     b.HasKey("ID");
+
+                    b.HasIndex("ExpertID");
 
                     b.ToTable("SourceTypes");
                 });
@@ -435,6 +445,8 @@ namespace _3Nobatgir.Data.Migrations
                     b.Property<DateTime>("UpdateDateTime");
 
                     b.Property<int>("UserID");
+
+                    b.Property<string>("Value");
 
                     b.HasKey("ID");
 
@@ -506,8 +518,7 @@ namespace _3Nobatgir.Data.Migrations
 
                     b.HasOne("Nobatgir.Model.SourceType", "SourceType")
                         .WithMany()
-                        .HasForeignKey("SourceTypeID")
-                        .OnDelete(DeleteBehavior.Cascade);
+                        .HasForeignKey("SourceTypeID");
                 });
 
             modelBuilder.Entity("Nobatgir.Model.ExpertSetting", b =>
@@ -573,6 +584,14 @@ namespace _3Nobatgir.Data.Migrations
                     b.HasOne("Nobatgir.Model.Site", "Site")
                         .WithMany("SiteSettings")
                         .HasForeignKey("SiteID")
+                        .OnDelete(DeleteBehavior.Cascade);
+                });
+
+            modelBuilder.Entity("Nobatgir.Model.SourceType", b =>
+                {
+                    b.HasOne("Nobatgir.Model.Expert", "Expert")
+                        .WithMany()
+                        .HasForeignKey("ExpertID")
                         .OnDelete(DeleteBehavior.Cascade);
                 });
 

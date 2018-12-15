@@ -1,0 +1,35 @@
+﻿@model TurnFieldsViewModel
+
+<div class="row">
+
+    <form asp-action="VerifyTurn" method="post" class="col-12" id="verifyform">
+
+        <div class="row">
+            <div class="col-12">زمان: ساعت @Model.Turn.Time روز @Model.Turn.TurnDatePersian</div>
+
+            @for (int i = 0; i < Model.ExpertFields.Count; i++)
+            {
+                if (Model.ExpertFields[i].FieldType == FieldTypes.TextBox)
+                {
+                    <input type="hidden" asp-for="@Model.ExpertFields[i].Name" />
+                    <input asp-for="@Model.ExpertFields[i].Value" placeholder="@Model.ExpertFields[i].Placeholder" class="@Model.ExpertFields[i].CssClass mt-2" />
+                }
+            }
+
+        </div>
+    </form>
+
+</div>
+
+<div class="row mt-2 flex-row-reverse">
+    
+    <button class="col-6 col-md-3 btn btn-success btn-block" onclick="$('#verifyform').submit();">تایید</button>
+
+    <form asp-action="CancelTurn" method="post" class="col-6 col-md-3">
+        
+        <input type="hidden" asp-for="@Model.Turn.ID" />
+
+        <button type="submit" class="btn btn-success btn-block">بازگشت</button>
+    </form>
+
+</div>

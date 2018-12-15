@@ -141,11 +141,11 @@ namespace Nobatgir.Services
                 if (s != null)
                 {
                     this.SiteID = s.ID;
-                    this.SiteKindID = (SiteKinds) s.SiteKindID;
+                    this.SiteKindID = (SiteKinds)s.SiteKindID;
                     return;
                 }
                 else
-                    throw new Exception("این سایت وجود ندارد.");
+                    throw new Exception(sitenam + " 1111این سایت   ندارد.");
             }
 
             var host = this.httpContextAccessor.HttpContext.Request.Host.ToString().ToLower();
@@ -160,7 +160,7 @@ namespace Nobatgir.Services
                 var site = this._myContext.Sites.FirstOrDefault(x => x.Domain.ToLower() == host);
 
                 if (site == null)
-                    throw new Exception("این سایت وجود ندارد.");
+                    throw new Exception(host + " 222این سایت   ندارد.");
 
                 this.SiteID = site.ID;
                 this.SiteKindID = site.SiteKindEnum;
@@ -239,7 +239,7 @@ namespace Nobatgir.Services
 
         public string GetSiteKindSetting(Settings setting)
         {
-            var sd = this._myContext.SiteKindSettings.FirstOrDefault(x => x.SiteKindID == (int) this.SiteKindID && x.Key == setting.ToString());
+            var sd = this._myContext.SiteKindSettings.FirstOrDefault(x => x.SiteKindID == (int)this.SiteKindID && x.Key == setting.ToString());
 
             return sd?.Value;
         }
@@ -314,7 +314,7 @@ namespace Nobatgir.Services
         {
             var q = GetList(exp);
 
-            return q.FirstOrDefault(x => x.ID == ID);
+            return q.FirstOrDefault(x => x.ID.Equals(ID));
         }
 
         public IQueryable<T> GetListActive<T>(Expression<Func<T, object>> exp = null) where T : BaseClass
@@ -331,7 +331,7 @@ namespace Nobatgir.Services
             return GetPagedResult(q, pageNumber, searchString);
         }
 
-        public IQueryable<T> GetListByParent<T,K>(Expression<Func<T, K>> ParentColumn, K ParentID, Expression<Func<T, object>> exp = null) where T : BaseClass
+        public IQueryable<T> GetListByParent<T, K>(Expression<Func<T, K>> ParentColumn, K ParentID, Expression<Func<T, object>> exp = null) where T : BaseClass
         {
             var expression = (MemberExpression)ParentColumn.Body;
             string name = expression.Member.Name;

@@ -1,0 +1,6 @@
+﻿@model PagedResult<SourceType>
+
+<partial name="_TitleBar" model="@{new TitleBarViewModel{ActionType = ActionTypes.Index, Title = "لیست انواع فهرست", AddNewController=nameof(SourceType), AddNewTitle = "ایحاد فهرست جدید"};}" />
+
+<partial name="_Grid" />
+

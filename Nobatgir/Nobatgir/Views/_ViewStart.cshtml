@@ -1,5 +1,8 @@
 ﻿@{
-    Layout = "_Layout";
+    // Layout = "_Layout";
+
+    Layout = "/Views/" + ViewBag.ViewName + "/_Layout.cshtml";
+
     ViewBag.BackURL = Context.Request.Query["ReturnURL"];
     ViewBag.CurrentURL = Context.Request.Path;
 }

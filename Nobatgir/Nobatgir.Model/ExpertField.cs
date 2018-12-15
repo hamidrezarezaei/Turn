@@ -13,13 +13,25 @@ namespace Nobatgir.Model
 
         public Expert Expert { get; set; }
 
+        [Display(Name = "نوع پارامتر")]
         public FieldTypes FieldType { get; set; }
 
+        [Display(Name = "مقدار اولیه")]
         public string Value { get; set; }
 
-        public int SourceTypeID { get; set; }
+        [Display(Name = "برچسب")]
+        public string Placeholder { get; set; }
+
+        [Display(Name = "نوع فهرست")]
+        public int? SourceTypeID { get; set; }
 
         public SourceType SourceType { get; set; }
+
+        [Display(Name = "متن HTML")]
+        public string FieldText { get; set; }
+
+        [Display(Name = "کلاس css")]
+        public string CssClass { get; set; }
 
         [NotMapped]
         public string FieldTypeName => Enum.GetName(typeof(FieldTypes), this.FieldType);
@@ -35,8 +47,8 @@ namespace Nobatgir.Model
 
         public static List<FieldType> GetList()
         {
-            var r = ((int[]) Enum.GetValues(typeof(FieldTypes)))
-                .Select(x => new FieldType {ID = x, Name = Enum.GetName(typeof(FieldTypes), x)});
+            var r = ((int[])Enum.GetValues(typeof(FieldTypes)))
+                .Select(x => new FieldType { ID = x, Name = Enum.GetName(typeof(FieldTypes), x) });
 
             return r.ToList();
         }
@@ -44,7 +56,7 @@ namespace Nobatgir.Model
 
     public enum FieldTypes
     {
-        TextBox = 1, CheckBox = 2, ComboBox = 3, TextArea = 4, RadioButton = 5
+        TextBox = 1, CheckBox = 2, ComboBox = 3, TextArea = 4, RadioButton = 5, HTML = 6
     }
 }
 

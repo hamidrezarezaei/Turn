@@ -1,19 +1,11 @@
-﻿<div class="container">
+﻿
+@section Right{
 
-    <div class="row"><partial name="_Header.cshtml" /></div>
+}
 
-    <div class="row">
+@section Left{
 
-        <partial name="_Right.cshtml" />
+}
 
-        <div class="col">
-            @await Component.InvokeAsync("TimeTemplate", new { ViewName = "Default" })
-        </div>
+@await Component.InvokeAsync("TimeTemplate", new { ViewName = "Default" })
 
-        <partial name="_Left.cshtml" />
-
-    </div>
-
-    <div class="row"><partial name="_Footer.cshtml" /></div>
-
-</div>

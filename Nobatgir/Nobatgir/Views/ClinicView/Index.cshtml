@@ -1,8 +1,11 @@
 ﻿
-@{
-    ViewData["Title"] = "Index";
+@section Right{
+
 }
 
-<h2>Index</h2>
+@section Left{
 
-ClinicView
+}
+
+@await Component.InvokeAsync("Categories", new { ViewName = "Default" })
+

@@ -7,6 +7,10 @@ namespace Nobatgir.Model
 {
     public class SourceType : BaseClass
     {
+        public int ExpertID { get; set; }
+
+        public Expert Expert { get; set; }
+
         public IEnumerable<SourceValue> SourceValues { get; set; }
     }
 }

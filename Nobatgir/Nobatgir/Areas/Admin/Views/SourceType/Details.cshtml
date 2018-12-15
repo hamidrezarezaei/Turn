@@ -1,0 +1,9 @@
+﻿@model DetailsViewModel<BaseClass>
+
+<partial name="_TitleBar" model="@{new TitleBarViewModel{ActionType = ActionTypes.Details, Title = "نوع فهرست " + Model.Row.Title};}" />
+
+<partial name="Details_partial" model="Model" />
+
+<partial name="_TitleBar" model="@{new TitleBarViewModel{ActionType = ActionTypes.Index, Title = "لیست مقادیر این فهرست" , AddNewController = "SourceValue", AddNewTitle = "ایحاد مقدار جدید", ParentID = Model.Row.ID};}" />
+
+<partial name="_Grid" model="ViewBag.SourceValues"/>

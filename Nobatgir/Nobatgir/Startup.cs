@@ -1,10 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Builder;
+using Microsoft.AspNetCore.Diagnostics;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Hosting.Internal;
 using Microsoft.AspNetCore.Http;
@@ -25,7 +27,9 @@ namespace Nobatgir
     {
         SiteCatExpert, SiteCat, Site, CatExpert, Cat, Admin,
 
-        SiteWithDomain, SiteWithoutDomain
+        SiteWithDomain, SiteWithoutDomain,
+        SiteCatDomain, SiteCatWithoutDomain,
+        SiteCatExpertDomain, SiteCatExpertWithoutDomain,
     }
 
     public class Startup
@@ -141,8 +145,27 @@ namespace Nobatgir
             }
             else
             {
-                app.UseExceptionHandler("/Home/Error");
+                //app.UseExceptionHandler("/Home/Error");
+
             }
+
+            app.UseExceptionHandler(errorApp =>
+            {
+                errorApp.Run(async context =>
+                {
+                    //context.Response.StatusCode = 500; // or another Status accordingly to Exception Type
+                    //context.Response.ContentType = "application/json";
+
+                    var error = context.Features.Get<IExceptionHandlerFeature>();
+                    if (error != null)
+                    {
+                        var ex = error.Error;
+
+                        await context.Response.WriteAsync(ex.ToString(), Encoding.UTF8);
+                    }
+                });
+            });
+
 
             app.UseStaticFiles();
 
@@ -180,13 +203,28 @@ namespace Nobatgir
                 //    template: "{area:exists}/{controller=Home}/{action=Index}/{id?}");
 
                 routes.MapRoute(
+                    name: nameof(MyRoutes.SiteCatExpertWithoutDomain),
+                    template: "{sitename}/cat-{catname}/exp-{expertname}/{controller=Expert}/{action=Index}/{id?}");
+
+                routes.MapRoute(
+                    name: nameof(MyRoutes.SiteCatWithoutDomain),
+                    template: "{sitename}/cat-{catname}/{controller=Category}/{action=Index}/{id?}");
+
+                routes.MapRoute(
                     name: nameof(MyRoutes.SiteWithoutDomain),
                     template: "{sitename}/{controller=Home}/{action=Index}/{id?}");
 
                 routes.MapRoute(
+                    name: nameof(MyRoutes.SiteCatExpertDomain),
+                    template: "cat-{catname}/exp-{expertname}/{controller=Expert}/{action=Index}/{id?}");
+
+                routes.MapRoute(
+                    name: nameof(MyRoutes.SiteCatDomain),
+                    template: "cat-{catname}/{controller=Category}/{action=Index}/{id?}");
+
+                routes.MapRoute(
                     name: nameof(MyRoutes.SiteWithDomain),
                     template: "{controller=Home}/{action=Index}/{id?}");
-
             });
         }
     }

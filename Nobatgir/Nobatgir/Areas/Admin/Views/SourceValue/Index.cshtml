@@ -1,0 +1,5 @@
+﻿@model Nobatgir.ViewModel.PagedResult<SourceValue>
+
+<partial name="_TitleBar" model="@{new TitleBarViewModel{ActionType = ActionTypes.Index, Title = "لیست مقادیر", AddNewController=nameof(SourceValue), AddNewTitle = "ایجاد مقدار جدید"};}" />
+
+<partial name="_Grid"/>

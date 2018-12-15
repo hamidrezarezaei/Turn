@@ -10,5 +10,7 @@ namespace Nobatgir.Model
         public int SourceTypeID { get; set; }
 
         public SourceType SourceType { get; set; }
+
+        public string Value { get; set; }
     }
 }

@@ -1,0 +1,37 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+
+    <partial name="_BaseLayout" />
+
+</head>
+<body>
+
+    <div class="container">
+
+        <div class="row"><partial name="_Header.cshtml" /></div>
+
+        <div class="row">
+
+            <div class="col-1">
+                <partial name="_Right.cshtml" />
+                @RenderSection("Right", false)
+            </div>
+
+            <div class="col">
+                @RenderBody()
+            </div>
+
+            <div class="col-1">
+                <partial name="_Left.cshtml" />
+                @RenderSection("Left", false)
+            </div>
+        </div>
+
+        <div class="row"><partial name="_Footer.cshtml" /></div>
+
+    </div>
+
+    @RenderSection("Scripts", false)
+</body>
+</html>
