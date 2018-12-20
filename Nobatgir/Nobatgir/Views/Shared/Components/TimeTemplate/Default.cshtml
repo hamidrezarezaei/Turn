@@ -41,12 +41,25 @@
                 <div class="row p-2">
                     @foreach (var turn in item.Turns)
                     {
-                        <form asp-action="AddTurn" method="post" class="col-2 p-1">
-                            <input type="hidden" name="turndate" value="@item.Day">
-                            <input type="hidden" name="time" value="@turn.Time">
+                        <div class="col-4 col-md-2 p-1">
+                            @if (turn.Status == TurnStatuses.Free)
+                            {
+                                <form asp-action="AddTurn" asp-controller="Expert" method="post">
+                                    <input type="hidden" name="turndate" value="@item.Day">
+                                    <input type="hidden" name="time" value="@turn.Time">
 
-                            <button type="submit" class="btn btn-success btn-block">@turn.Time</button>
-                        </form>
+                                    <button type="submit" class="btn btn-success btn-block">@turn.Time</button>
+                                </form>
+                            }
+                            else if (turn.Status == TurnStatuses.Completed)
+                            {
+                                <button class="btn btn-danger btn-block" disabled>@turn.Time</button>
+                            }
+                            else if (turn.Status == TurnStatuses.Reserve)
+                            {
+                                <button class="btn btn-warning btn-block" disabled>@turn.Time</button>
+                            }
+                        </div>
                     }
                 </div>
             </div>

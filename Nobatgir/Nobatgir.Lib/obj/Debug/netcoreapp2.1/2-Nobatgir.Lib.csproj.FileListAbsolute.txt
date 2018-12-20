@@ -24,3 +24,4 @@ E:\Projects\Nobatgir\GIT\Nobatgir\Nobatgir.Lib\obj\Debug\netcoreapp2.1\2-Nobatgi
 E:\Projects\Nobatgir\GIT\Nobatgir\Nobatgir.Lib\obj\Debug\netcoreapp2.1\2-Nobatgir.Lib.AssemblyInfo.cs
 E:\Projects\Nobatgir\GIT\Nobatgir\Nobatgir.Lib\obj\Debug\netcoreapp2.1\2-Nobatgir.Lib.dll
 E:\Projects\Nobatgir\GIT\Nobatgir\Nobatgir.Lib\obj\Debug\netcoreapp2.1\2-Nobatgir.Lib.pdb
+E:\Projects\Nobatgir\GIT\Nobatgir\Nobatgir.Lib\obj\Debug\netcoreapp2.1\2-Nobatgir.Lib.csprojAssemblyReference.cache

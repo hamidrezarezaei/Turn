@@ -8,6 +8,7 @@ using Nobatgir.Services;
 using Nobatgir.Data;
 using Nobatgir.Model;
 using Nobatgir.ViewModel;
+using Microsoft.EntityFrameworkCore;
 
 namespace Nobatgir.ViewComponents
 {
@@ -23,13 +24,34 @@ namespace Nobatgir.ViewComponents
         #endregion
 
         #region Invoke
-        public async Task<IViewComponentResult> InvokeAsync(Guid TurnID, string ViewName = "Default")
+        public async Task<IViewComponentResult> InvokeAsync(Guid TurnID, bool IsVeify = false, string ViewName = "Default")
         {
-            var fields = _repository.GetListActiveByParent<ExpertField, int>(x => x.ExpertID, _repository.ExpertID, x => x.SourceType);
+            var fields = _repository.GetListActiveByParent<ExpertField, int>(x => x.ExpertID, _repository.ExpertID)
+                .Include(x => x.SourceType).ThenInclude(x => x.SourceValues).ToList();
 
             var t = _repository.GetTurn(TurnID);
 
-            var m = new TurnFieldsViewModel { Turn = t, ExpertFields = fields.ToList() };
+            var lst = fields.Select(x => new ExpertFieldsViewModel
+            {
+                ID = x.ID,
+                Title = x.Title,
+                CssClass = x.CssClass,
+                Expert = x.Expert,
+                ExpertID = x.ExpertID,
+                FieldType = x.FieldType,
+                IsActive = x.IsActive,
+                IsDeleted = x.IsDeleted,
+                Name = x.Name,
+                OrderIndex = x.OrderIndex,
+                Placeholder = x.Placeholder,
+                SourceTypeID = x.SourceTypeID,
+                UpdateDateTime = x.UpdateDateTime,
+                UserID = x.UserID,
+                Value = _repository.GetTurnDetailsValue(t, x.ID, IsVeify) ?? x.Value,
+                SourceType = x.SourceType
+            }).ToList();
+
+            var m = new TurnFieldsViewModel { Turn = t, ExpertFields = lst, IsVeify = IsVeify };
 
             return View(ViewName, m);
         }

@@ -14,7 +14,6 @@
         <partial name="_TableRow" model="@(new TableRowViewModel<BaseClass>(Model, nameof(ExpertField.Value)))" />
         <partial name="_TableRow" model="@(new TableRowViewModel<BaseClass>(Model, nameof(ExpertField.FieldType), ViewBag.FieldTypesCombo, nameof(ExpertField.FieldTypeName)))" />
         <partial name="_TableRow" model="@(new TableRowViewModel<BaseClass>(Model, nameof(ExpertField.SourceTypeID), ViewBag.SourceTypesCombo, nameof(ExpertField.SourceTypeTitle)))" />
-        <partial name="_TableRow" model="@(new TableRowViewModel<BaseClass>(Model, nameof(ExpertField.FieldText)))" />
         <partial name="_TableRow" model="@(new TableRowViewModel<BaseClass>(Model, nameof(ExpertField.CssClass)))" />
 
     </table>

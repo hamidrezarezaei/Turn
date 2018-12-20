@@ -46,6 +46,8 @@ namespace Nobatgir.Data
 
         public DbSet<Turn> Turns { get; set; }
 
+        public DbSet<TurnDetails> TurnDetails { get; set; }
+
         public DbSet<SourceType> SourceTypes { get; set; }
 
         public DbSet<SourceValue> SourceValues { get; set; }

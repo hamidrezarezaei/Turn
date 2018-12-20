@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using System.Linq;
 using System.Text;
 
 namespace Nobatgir.Model
@@ -9,7 +10,7 @@ namespace Nobatgir.Model
     public class BaseTimeTemplate : BaseClass
     {
         [Display(Name = "روز هفته")]
-        public int WeekDay { get; set; }
+        public DayOfWeek WeekDay { get; set; }
 
         [Display(Name = "زمان ها")]
         public string Times { get; set; }
@@ -28,5 +29,28 @@ namespace Nobatgir.Model
 
         [NotMapped]
         public string WeekDayName => Enum.GetName(typeof(DayOfWeekPersians), this.WeekDay);
+
+        [NotMapped]
+        public TimeSpan ActiveTimeSpan => TimeSpan.Parse(this.ActiveTime);
+
+        [NotMapped]
+        public TimeSpan DeactiveTimeSpan => TimeSpan.Parse(this.DeactiveTime);
+
+        [NotMapped]
+        public List<string> TimesList => this.Times.Split(';').ToList();
+
+        [NotMapped]
+        public List<TimeSpan> TimesSpanList
+        {
+            get
+            {
+                if (!TimeSpan.TryParse(TimesList[0], out _))
+                {
+                    return null;
+                }
+
+                return TimesList.Select(TimeSpan.Parse).ToList();
+            }
+        }
     }
 }

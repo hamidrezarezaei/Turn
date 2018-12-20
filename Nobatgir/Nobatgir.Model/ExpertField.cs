@@ -27,9 +27,6 @@ namespace Nobatgir.Model
 
         public SourceType SourceType { get; set; }
 
-        [Display(Name = "متن HTML")]
-        public string FieldText { get; set; }
-
         [Display(Name = "کلاس css")]
         public string CssClass { get; set; }
 

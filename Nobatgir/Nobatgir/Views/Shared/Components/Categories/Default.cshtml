@@ -4,9 +4,10 @@
 
     @foreach (var cat in Model)
     {
-        <a  asp-route="@nameof(Nobatgir.MyRoutes.SiteCatWithoutDomain)" asp-route-controller="Category"
-            asp-route-action="Index" asp-route-catname="@cat.Name">@cat.Title</a>
-        <br />
+        <div class="col-6 col-md-3 border">
+            <a asp-route-controller="Category"
+               asp-route-action="Index" asp-route-catname="@cat.Name">@cat.Title</a>
+        </div>
     }
 
 </div>

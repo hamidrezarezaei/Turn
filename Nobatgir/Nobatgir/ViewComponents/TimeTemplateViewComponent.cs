@@ -25,21 +25,23 @@ namespace Nobatgir.ViewComponents
         #region Invoke
         public async Task<IViewComponentResult> InvokeAsync(string ViewName = "Default")
         {
-            var lst = new List<TimeTemplateViewModel>();
+            var lst = _repository.GetTimeTemplates();
 
-            lst.Add(new TimeTemplateViewModel
-            {
-                Day = DateTime.Now,
-                 Turns = new List<Model.Turn> { new Model.Turn { Time = "8:00" }, new Model.Turn { Time = "10:00" },
-                     new Model.Turn { Time = "12:00" }, new Model.Turn { Time = "15:00" } }
-            });
+            //var lst = new List<TimeTemplateViewModel>();
 
-            lst.Add(new TimeTemplateViewModel
-            {
-                Day = DateTime.Now.AddDays(1),
-                Turns = new List<Model.Turn> { new Model.Turn { Time = "8:12" }, new Model.Turn { Time = "10:12" },
-                    new Model.Turn { Time = "12:12" } }
-            });
+            //lst.Add(new TimeTemplateViewModel
+            //{
+            //    Day = DateTime.Now,
+            //     Turns = new List<Model.Turn> { new Model.Turn { Time = "8:00" }, new Model.Turn { Time = "10:00" },
+            //         new Model.Turn { Time = "12:00" }, new Model.Turn { Time = "15:00" } }
+            //});
+
+            //lst.Add(new TimeTemplateViewModel
+            //{
+            //    Day = DateTime.Now.AddDays(1),
+            //    Turns = new List<Model.Turn> { new Model.Turn { Time = "8:12" }, new Model.Turn { Time = "10:12" },
+            //        new Model.Turn { Time = "12:12" } }
+            //});
 
             return View(ViewName, lst);
         }

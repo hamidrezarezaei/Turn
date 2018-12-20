@@ -153,8 +153,6 @@ namespace _3Nobatgir.Data.Migrations
 
                     b.Property<int>("ExpertID");
 
-                    b.Property<string>("FieldText");
-
                     b.Property<int>("FieldType");
 
                     b.Property<bool>("IsActive");
@@ -477,6 +475,25 @@ namespace _3Nobatgir.Data.Migrations
                     b.ToTable("Turns");
                 });
 
+            modelBuilder.Entity("Nobatgir.Model.TurnDetails", b =>
+                {
+                    b.Property<int>("ID")
+                        .ValueGeneratedOnAdd()
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<int>("ExpertFieldID");
+
+                    b.Property<Guid>("TurnID");
+
+                    b.Property<string>("Value");
+
+                    b.HasKey("ID");
+
+                    b.HasIndex("ExpertFieldID");
+
+                    b.ToTable("TurnDetails");
+                });
+
             modelBuilder.Entity("Nobatgir.Model.AdminMenu", b =>
                 {
                     b.HasOne("Nobatgir.Model.SiteKind", "SiteKind")
@@ -608,6 +625,14 @@ namespace _3Nobatgir.Data.Migrations
                     b.HasOne("Nobatgir.Model.Expert", "Expert")
                         .WithMany()
                         .HasForeignKey("ExpertID")
+                        .OnDelete(DeleteBehavior.Cascade);
+                });
+
+            modelBuilder.Entity("Nobatgir.Model.TurnDetails", b =>
+                {
+                    b.HasOne("Nobatgir.Model.ExpertField", "ExpertField")
+                        .WithMany()
+                        .HasForeignKey("ExpertFieldID")
                         .OnDelete(DeleteBehavior.Cascade);
                 });
 #pragma warning restore 612, 618

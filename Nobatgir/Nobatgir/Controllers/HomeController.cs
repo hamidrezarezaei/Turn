@@ -27,6 +27,8 @@ namespace Nobatgir.Controllers
             ViewBag.Title = this._repository.GetSiteSetting(Settings.SiteTitle);
             ViewBag.ViewName = viewname;
 
+
+
             return "/Views/" + viewname + "/" + pagename + ".cshtml";
         }
 
@@ -38,25 +40,6 @@ namespace Nobatgir.Controllers
         public IActionResult Error()
         {
             return View();
-        }
-
-        public IActionResult AddTurn(string time, DateTime turndate)
-        {
-            var t = _repository.AddTurn(turndate, time);
-
-            return View(this.GetViewName("AddTurn"), t.ID);
-        }
-
-        public IActionResult VerifyTurn(TurnFieldsViewModel f)
-        {
-            return View(this.GetViewName("VerifyTurn"));
-        }
-
-        public IActionResult CancelTurn(TurnFieldsViewModel f)
-        {
-            var turnid = f.Turn.ID;
-
-            return View(this.GetViewName("VerifyTurn"));
         }
 
         public IActionResult Category(int ID)

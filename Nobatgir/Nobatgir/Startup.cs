@@ -174,6 +174,10 @@ namespace Nobatgir
             app.UseMvc(routes =>
             {
                 routes.MapRoute(
+                    name: nameof(MyRoutes.Cat),
+                    template: "cat-{catname}/{area:exists}/{controller=Home}/{action=Index}/{id?}");
+
+                routes.MapRoute(
                     name: nameof(MyRoutes.SiteCatExpert),
                     template: "{sitename}/cat-{catname}/exp-{expertname}/{area:exists}/{controller=Home}/{action=Index}/{id?}");
 
@@ -188,10 +192,6 @@ namespace Nobatgir
                 routes.MapRoute(
                     name: nameof(MyRoutes.CatExpert),
                     template: "cat-{catname}/exp-{expertname}/{area:exists}/{controller=Home}/{action=Index}/{id?}");
-
-                routes.MapRoute(
-                    name: nameof(MyRoutes.Cat),
-                    template: "cat-{catname}/{area:exists}/{controller=Home}/{action=Index}/{id?}");
 
                 routes.MapRoute(
                     name: nameof(MyRoutes.Admin),
@@ -211,6 +211,10 @@ namespace Nobatgir
                     template: "{sitename}/cat-{catname}/{controller=Category}/{action=Index}/{id?}");
 
                 routes.MapRoute(
+                    name: nameof(MyRoutes.SiteCatDomain),
+                    template: "cat-{catname}/{controller=Category}/{action=Index}/{id?}");
+
+                routes.MapRoute(
                     name: nameof(MyRoutes.SiteWithoutDomain),
                     template: "{sitename}/{controller=Home}/{action=Index}/{id?}");
 
@@ -218,10 +222,7 @@ namespace Nobatgir
                     name: nameof(MyRoutes.SiteCatExpertDomain),
                     template: "cat-{catname}/exp-{expertname}/{controller=Expert}/{action=Index}/{id?}");
 
-                routes.MapRoute(
-                    name: nameof(MyRoutes.SiteCatDomain),
-                    template: "cat-{catname}/{controller=Category}/{action=Index}/{id?}");
-
+               
                 routes.MapRoute(
                     name: nameof(MyRoutes.SiteWithDomain),
                     template: "{controller=Home}/{action=Index}/{id?}");
