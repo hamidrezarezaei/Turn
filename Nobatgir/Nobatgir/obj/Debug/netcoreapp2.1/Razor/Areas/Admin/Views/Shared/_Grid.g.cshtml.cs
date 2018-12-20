@@ -76,7 +76,7 @@ using Nobatgir.Areas.Admin.ViewModel;
             }
         }
         private global::Microsoft.AspNetCore.Mvc.TagHelpers.AnchorTagHelper __Microsoft_AspNetCore_Mvc_TagHelpers_AnchorTagHelper;
-        private global::Turn.Areas.Admin.AdminButton __Turn_Areas_Admin_AdminButton;
+        private global::Nobatgir.Areas.Admin.AdminButton __Nobatgir_Areas_Admin_AdminButton;
         private global::Nobatgir.Areas.Admin.PagerTagHelper __Nobatgir_Areas_Admin_PagerTagHelper;
         #pragma warning disable 1998
         public async override global::System.Threading.Tasks.Task ExecuteAsync()
@@ -117,7 +117,7 @@ using Nobatgir.Areas.Admin.ViewModel;
             WriteLiteral("                <tr>\r\n                    <td>\r\n                        ");
             EndContext();
             BeginContext(557, 123, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "720110db02e343af91298f15c2415125", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "53a79beb5f8f4689811da1a53c86554f", async() => {
                 BeginContext(675, 1, false);
 #line 20 "E:\Projects\Nobatgir\GIT\Nobatgir\Nobatgir\Areas\Admin\Views\Shared\_Grid.cshtml"
                                                                                                                                         Write(r);
@@ -183,7 +183,7 @@ using Nobatgir.Areas.Admin.ViewModel;
             WriteLiteral("                        <td>\r\n                            ");
             EndContext();
             BeginContext(854, 168, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "a7711421807c413bb0812a447ad536c2", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "16e199ff3b794efa872dc7526c79a36c", async() => {
                 BeginContext(972, 46, false);
 #line 25 "E:\Projects\Nobatgir\GIT\Nobatgir\Nobatgir\Areas\Admin\Views\Shared\_Grid.cshtml"
                                                                                                                                             Write(item.GetType().GetProperty(dis).GetValue(item));
@@ -248,7 +248,7 @@ using Nobatgir.Areas.Admin.ViewModel;
             WriteLiteral("                    <td class=\"op-buttons\">\r\n                        ");
             EndContext();
             BeginContext(1147, 140, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "1e2b070f054544359aa7dfcada4bef45", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "5bf3df44766a49ce984af78caa7107d1", async() => {
                 BeginContext(1277, 6, true);
                 WriteLiteral("ویرایش");
                 EndContext();
@@ -256,8 +256,8 @@ using Nobatgir.Areas.Admin.ViewModel;
             );
             __Microsoft_AspNetCore_Mvc_TagHelpers_AnchorTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.TagHelpers.AnchorTagHelper>();
             __tagHelperExecutionContext.Add(__Microsoft_AspNetCore_Mvc_TagHelpers_AnchorTagHelper);
-            __Turn_Areas_Admin_AdminButton = CreateTagHelper<global::Turn.Areas.Admin.AdminButton>();
-            __tagHelperExecutionContext.Add(__Turn_Areas_Admin_AdminButton);
+            __Nobatgir_Areas_Admin_AdminButton = CreateTagHelper<global::Nobatgir.Areas.Admin.AdminButton>();
+            __tagHelperExecutionContext.Add(__Nobatgir_Areas_Admin_AdminButton);
             __tagHelperExecutionContext.AddHtmlAttribute(__tagHelperAttribute_1);
             __Microsoft_AspNetCore_Mvc_TagHelpers_AnchorTagHelper.Action = (string)__tagHelperAttribute_2.Value;
             __tagHelperExecutionContext.AddTagHelperAttribute(__tagHelperAttribute_2);
@@ -304,7 +304,7 @@ using Nobatgir.Areas.Admin.ViewModel;
             WriteLiteral("\r\n                        ");
             EndContext();
             BeginContext(1313, 142, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "50033d0886fd48e8a94cfee2652c9931", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "67e1e5403d5d41f9bfb829f50814bf30", async() => {
                 BeginContext(1447, 4, true);
                 WriteLiteral("حذف ");
                 EndContext();
@@ -312,8 +312,8 @@ using Nobatgir.Areas.Admin.ViewModel;
             );
             __Microsoft_AspNetCore_Mvc_TagHelpers_AnchorTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.TagHelpers.AnchorTagHelper>();
             __tagHelperExecutionContext.Add(__Microsoft_AspNetCore_Mvc_TagHelpers_AnchorTagHelper);
-            __Turn_Areas_Admin_AdminButton = CreateTagHelper<global::Turn.Areas.Admin.AdminButton>();
-            __tagHelperExecutionContext.Add(__Turn_Areas_Admin_AdminButton);
+            __Nobatgir_Areas_Admin_AdminButton = CreateTagHelper<global::Nobatgir.Areas.Admin.AdminButton>();
+            __tagHelperExecutionContext.Add(__Nobatgir_Areas_Admin_AdminButton);
             __tagHelperExecutionContext.AddHtmlAttribute(__tagHelperAttribute_3);
             __Microsoft_AspNetCore_Mvc_TagHelpers_AnchorTagHelper.Action = (string)__tagHelperAttribute_4.Value;
             __tagHelperExecutionContext.AddTagHelperAttribute(__tagHelperAttribute_4);
@@ -368,7 +368,7 @@ using Nobatgir.Areas.Admin.ViewModel;
             WriteLiteral("        </tbody>\r\n    </table>\r\n</div>\r\n\r\n");
             EndContext();
             BeginContext(1564, 80, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("nav", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "3e48dd7adfca4e8bac0b361f764fced4", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("nav", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "0a05d53bf5364b629e8010387f054809", async() => {
             }
             );
             __Nobatgir_Areas_Admin_PagerTagHelper = CreateTagHelper<global::Nobatgir.Areas.Admin.PagerTagHelper>();

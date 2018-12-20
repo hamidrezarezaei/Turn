@@ -133,6 +133,13 @@ namespace Nobatgir
             });
 
             services.AddScoped<IAuthorizationHandler, MyAuthorizationHandler>();
+
+            services.AddDistributedMemoryCache();
+
+            services.AddSession(options =>
+            {
+                //options.IdleTimeout = TimeSpan.FromMinutes(2);
+            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -166,6 +173,7 @@ namespace Nobatgir
                 });
             });
 
+            app.UseSession();
 
             app.UseStaticFiles();
 

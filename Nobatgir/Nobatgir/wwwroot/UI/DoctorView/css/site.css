@@ -1,1 +1,98 @@
-﻿
+﻿#TurnCompleted {
+    text-align: center;
+    line-height: 3;
+    font-weight: bold;
+}
+
+
+.steps .stepnumber {
+    position: relative;
+    z-index: 1;
+    display: inline-block;
+    width: 36px;
+    height: 36px;
+    line-height: 32px;
+    color: #fff;
+    text-align: center;
+    background: #bdbdbd;
+    border: 2px solid #bdbdbd;
+    border-radius: 50%;
+}
+
+.steps .astep.done .stepnumber {
+    color: green;
+    border: 2px solid green;
+}
+
+.steps .astep.current .stepnumber {
+    background: green;
+    border: 2px solid green;
+}
+
+.steps .steptitle {
+    display: block;
+    margin-top: .5em;
+    margin-bottom: 0;
+    overflow: hidden;
+    font-size: 16px;
+    text-overflow: ellipsis;
+    word-wrap: normal;
+    white-space: nowrap;
+}
+
+.steps .astep.done .steptitle {
+    color: green;
+}
+
+.steps .astep.current .steptitle {
+    font-weight: bold;
+    color: green;
+}
+
+.steps .astep {
+    text-align: center;
+}
+
+    .steps .astep:after, .steps .astep:before {
+        position: absolute;
+        top: 18px;
+        z-index: 0;
+        width: 50%;
+        height: 4px;
+        content: "";
+        background-color: #bdbdbd;
+    }
+
+    .steps .astep:after {
+        left: 0;
+        right: auto;
+    }
+
+    .steps .astep:before {
+        left: auto;
+        right: 0;
+    }
+
+    .steps .astep:first-child:before {
+        display: none;
+    }
+
+    .steps .astep:last-child:after {
+        display: none;
+    }
+
+    .steps .astep.done:after, .steps .astep.done:before {
+        background-color: green;
+    }
+
+    .steps .astep.current:before {
+        background-color: green;
+    }
+
+    .steps .astep.step4 {
+        width: 25%;
+    }
+
+    .steps .astep.step5 {
+        width: 20%;
+    }

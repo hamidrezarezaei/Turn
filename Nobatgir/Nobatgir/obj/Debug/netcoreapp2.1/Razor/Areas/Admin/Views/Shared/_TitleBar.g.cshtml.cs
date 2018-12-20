@@ -76,7 +76,7 @@ using Nobatgir.Areas.Admin.ViewModel;
         private global::Microsoft.AspNetCore.Mvc.TagHelpers.FormTagHelper __Microsoft_AspNetCore_Mvc_TagHelpers_FormTagHelper;
         private global::Microsoft.AspNetCore.Mvc.TagHelpers.RenderAtEndOfFormTagHelper __Microsoft_AspNetCore_Mvc_TagHelpers_RenderAtEndOfFormTagHelper;
         private global::Microsoft.AspNetCore.Mvc.TagHelpers.AnchorTagHelper __Microsoft_AspNetCore_Mvc_TagHelpers_AnchorTagHelper;
-        private global::Turn.Areas.Admin.AdminButton __Turn_Areas_Admin_AdminButton;
+        private global::Nobatgir.Areas.Admin.AdminButton __Nobatgir_Areas_Admin_AdminButton;
         #pragma warning disable 1998
         public async override global::System.Threading.Tasks.Task ExecuteAsync()
         {
@@ -113,7 +113,7 @@ using Nobatgir.Areas.Admin.ViewModel;
             WriteLiteral("\r\n        </h1>\r\n        <div class=\"col-md-5 admin-title\">\r\n            ");
             EndContext();
             BeginContext(353, 227, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "cacc4804007b43949528b6c8d91bb717", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "fbed55b7a78542c1885ea6ee0f4731d3", async() => {
                 BeginContext(359, 68, true);
                 WriteLiteral("\r\n                <p>\r\n                    فیلتر: <input type=\"text\"");
                 EndContext();
@@ -145,7 +145,7 @@ WriteAttributeValue("", 435, ViewBag.SearchString, 435, 21, false);
             WriteLiteral("\r\n        </div>\r\n        <div class=\"col-6 col-md-3 op-buttons top\">\r\n            ");
             EndContext();
             BeginContext(663, 218, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "8935373022c64291943bf62597096e91", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "a2ea970c4db043a7a493ab29b6bde04a", async() => {
                 BeginContext(827, 18, true);
                 WriteLiteral("\r\n                ");
                 EndContext();
@@ -163,8 +163,8 @@ WriteAttributeValue("", 435, ViewBag.SearchString, 435, 21, false);
             );
             __Microsoft_AspNetCore_Mvc_TagHelpers_AnchorTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.TagHelpers.AnchorTagHelper>();
             __tagHelperExecutionContext.Add(__Microsoft_AspNetCore_Mvc_TagHelpers_AnchorTagHelper);
-            __Turn_Areas_Admin_AdminButton = CreateTagHelper<global::Turn.Areas.Admin.AdminButton>();
-            __tagHelperExecutionContext.Add(__Turn_Areas_Admin_AdminButton);
+            __Nobatgir_Areas_Admin_AdminButton = CreateTagHelper<global::Nobatgir.Areas.Admin.AdminButton>();
+            __tagHelperExecutionContext.Add(__Nobatgir_Areas_Admin_AdminButton);
             __tagHelperExecutionContext.AddHtmlAttribute(__tagHelperAttribute_0);
             BeginWriteTagHelperAttribute();
 #line 23 "E:\Projects\Nobatgir\GIT\Nobatgir\Nobatgir\Areas\Admin\Views\Shared\_TitleBar.cshtml"
@@ -231,14 +231,14 @@ else if (Model.ActionType == ActionTypes.Edit)
             WriteLiteral("\r\n        </h1>\r\n        <div class=\"col-md-3 op-buttons top\">\r\n            ");
             EndContext();
             BeginContext(1131, 46, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "cc713e6f56b948b582e97e972c652e85", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "c0c77d37e10c4fb1a96aa9ec657e010a", async() => {
                 BeginContext(1166, 7, true);
                 WriteLiteral("بازگشت ");
                 EndContext();
             }
             );
-            __Turn_Areas_Admin_AdminButton = CreateTagHelper<global::Turn.Areas.Admin.AdminButton>();
-            __tagHelperExecutionContext.Add(__Turn_Areas_Admin_AdminButton);
+            __Nobatgir_Areas_Admin_AdminButton = CreateTagHelper<global::Nobatgir.Areas.Admin.AdminButton>();
+            __tagHelperExecutionContext.Add(__Nobatgir_Areas_Admin_AdminButton);
             __tagHelperExecutionContext.AddHtmlAttribute(__tagHelperAttribute_2);
             BeginAddHtmlAttributeValues(__tagHelperExecutionContext, "href", 1, global::Microsoft.AspNetCore.Razor.TagHelpers.HtmlAttributeValueStyle.DoubleQuotes);
 #line 37 "E:\Projects\Nobatgir\GIT\Nobatgir\Nobatgir\Areas\Admin\Views\Shared\_TitleBar.cshtml"
@@ -279,14 +279,14 @@ else if (Model.ActionType == ActionTypes.Create)
             WriteLiteral("\r\n        </h1>\r\n        <div class=\"col-md-3 op-buttons top\">\r\n            ");
             EndContext();
             BeginContext(1429, 47, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "437a00a73d7b4fd3a455ad65a250746c", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "76f002d99fe5446988800540751190c1", async() => {
                 BeginContext(1464, 8, true);
                 WriteLiteral(" بازگشت ");
                 EndContext();
             }
             );
-            __Turn_Areas_Admin_AdminButton = CreateTagHelper<global::Turn.Areas.Admin.AdminButton>();
-            __tagHelperExecutionContext.Add(__Turn_Areas_Admin_AdminButton);
+            __Nobatgir_Areas_Admin_AdminButton = CreateTagHelper<global::Nobatgir.Areas.Admin.AdminButton>();
+            __tagHelperExecutionContext.Add(__Nobatgir_Areas_Admin_AdminButton);
             __tagHelperExecutionContext.AddHtmlAttribute(__tagHelperAttribute_2);
             BeginAddHtmlAttributeValues(__tagHelperExecutionContext, "href", 1, global::Microsoft.AspNetCore.Razor.TagHelpers.HtmlAttributeValueStyle.DoubleQuotes);
 #line 48 "E:\Projects\Nobatgir\GIT\Nobatgir\Nobatgir\Areas\Admin\Views\Shared\_TitleBar.cshtml"
@@ -327,14 +327,14 @@ else if (Model.ActionType == ActionTypes.Delete)
             WriteLiteral("\r\n        </h1>\r\n        <div class=\"col-md-3 op-buttons top\">\r\n            ");
             EndContext();
             BeginContext(1728, 46, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "445095a847cf44da95b0b3a4ef4bc24d", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "438045586db345f691edb58f08d3b1f2", async() => {
                 BeginContext(1763, 7, true);
                 WriteLiteral("بازگشت ");
                 EndContext();
             }
             );
-            __Turn_Areas_Admin_AdminButton = CreateTagHelper<global::Turn.Areas.Admin.AdminButton>();
-            __tagHelperExecutionContext.Add(__Turn_Areas_Admin_AdminButton);
+            __Nobatgir_Areas_Admin_AdminButton = CreateTagHelper<global::Nobatgir.Areas.Admin.AdminButton>();
+            __tagHelperExecutionContext.Add(__Nobatgir_Areas_Admin_AdminButton);
             __tagHelperExecutionContext.AddHtmlAttribute(__tagHelperAttribute_2);
             BeginAddHtmlAttributeValues(__tagHelperExecutionContext, "href", 1, global::Microsoft.AspNetCore.Razor.TagHelpers.HtmlAttributeValueStyle.DoubleQuotes);
 #line 59 "E:\Projects\Nobatgir\GIT\Nobatgir\Nobatgir\Areas\Admin\Views\Shared\_TitleBar.cshtml"
@@ -375,14 +375,14 @@ else if (Model.ActionType == ActionTypes.Details)
             WriteLiteral("\r\n        </h1>\r\n        <div class=\"col-md-3 op-buttons top\">\r\n            ");
             EndContext();
             BeginContext(2027, 46, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "e7f4bb381de34d72a1611fdb3dbaea2c", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "dc6fbd677bfa4f999d2664f996f08b0d", async() => {
                 BeginContext(2062, 7, true);
                 WriteLiteral("بازگشت ");
                 EndContext();
             }
             );
-            __Turn_Areas_Admin_AdminButton = CreateTagHelper<global::Turn.Areas.Admin.AdminButton>();
-            __tagHelperExecutionContext.Add(__Turn_Areas_Admin_AdminButton);
+            __Nobatgir_Areas_Admin_AdminButton = CreateTagHelper<global::Nobatgir.Areas.Admin.AdminButton>();
+            __tagHelperExecutionContext.Add(__Nobatgir_Areas_Admin_AdminButton);
             __tagHelperExecutionContext.AddHtmlAttribute(__tagHelperAttribute_2);
             BeginAddHtmlAttributeValues(__tagHelperExecutionContext, "href", 1, global::Microsoft.AspNetCore.Razor.TagHelpers.HtmlAttributeValueStyle.DoubleQuotes);
 #line 70 "E:\Projects\Nobatgir\GIT\Nobatgir\Nobatgir\Areas\Admin\Views\Shared\_TitleBar.cshtml"

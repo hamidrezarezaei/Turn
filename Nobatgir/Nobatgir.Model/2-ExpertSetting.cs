@@ -5,7 +5,7 @@ using System.Text;
 
 namespace Nobatgir.Model
 {
-    public class ExpertSetting:BaseSetting
+    public class ExpertSetting : BaseSetting
     {
         [Display(Name = "بخش")]
         public Expert Expert { get; set; }

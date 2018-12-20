@@ -5,13 +5,8 @@ using System.Text;
 
 namespace Nobatgir.Model
 {
-    public class BaseSetting
+    public class BaseSetting : BaseClass
     {
-        public int ID { get; set; }
-
-        [Display(Name = "کلید")]
-        public string Key { get; set; }
-
         [Display(Name = "مقدار")]
         public string Value { get; set; }
     }

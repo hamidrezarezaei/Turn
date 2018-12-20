@@ -92,7 +92,19 @@ namespace _3Nobatgir.Data.Migrations
 
                     b.Property<int>("CategoryID");
 
-                    b.Property<string>("Key");
+                    b.Property<bool>("IsActive");
+
+                    b.Property<bool>("IsDeleted");
+
+                    b.Property<string>("Name");
+
+                    b.Property<int>("OrderIndex");
+
+                    b.Property<string>("Title");
+
+                    b.Property<DateTime>("UpdateDateTime");
+
+                    b.Property<int>("UserID");
 
                     b.Property<string>("Value");
 
@@ -192,7 +204,19 @@ namespace _3Nobatgir.Data.Migrations
 
                     b.Property<int>("ExpertID");
 
-                    b.Property<string>("Key");
+                    b.Property<bool>("IsActive");
+
+                    b.Property<bool>("IsDeleted");
+
+                    b.Property<string>("Name");
+
+                    b.Property<int>("OrderIndex");
+
+                    b.Property<string>("Title");
+
+                    b.Property<DateTime>("UpdateDateTime");
+
+                    b.Property<int>("UserID");
 
                     b.Property<string>("Value");
 
@@ -361,9 +385,21 @@ namespace _3Nobatgir.Data.Migrations
                         .ValueGeneratedOnAdd()
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<string>("Key");
+                    b.Property<bool>("IsActive");
+
+                    b.Property<bool>("IsDeleted");
+
+                    b.Property<string>("Name");
+
+                    b.Property<int>("OrderIndex");
 
                     b.Property<int>("SiteKindID");
+
+                    b.Property<string>("Title");
+
+                    b.Property<DateTime>("UpdateDateTime");
+
+                    b.Property<int>("UserID");
 
                     b.Property<string>("Value");
 
@@ -380,9 +416,21 @@ namespace _3Nobatgir.Data.Migrations
                         .ValueGeneratedOnAdd()
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<string>("Key");
+                    b.Property<bool>("IsActive");
+
+                    b.Property<bool>("IsDeleted");
+
+                    b.Property<string>("Name");
+
+                    b.Property<int>("OrderIndex");
 
                     b.Property<int>("SiteID");
+
+                    b.Property<string>("Title");
+
+                    b.Property<DateTime>("UpdateDateTime");
+
+                    b.Property<int>("UserID");
 
                     b.Property<string>("Value");
 
@@ -460,11 +508,17 @@ namespace _3Nobatgir.Data.Migrations
 
                     b.Property<int>("ExpertID");
 
+                    b.Property<DateTime>("ExpireTime");
+
+                    b.Property<long>("Price");
+
                     b.Property<DateTime>("RegDate");
 
                     b.Property<int>("Status");
 
                     b.Property<string>("Time");
+
+                    b.Property<int>("TrackingCode");
 
                     b.Property<DateTime>("TurnDate");
 
@@ -491,6 +545,8 @@ namespace _3Nobatgir.Data.Migrations
 
                     b.HasIndex("ExpertFieldID");
 
+                    b.HasIndex("TurnID");
+
                     b.ToTable("TurnDetails");
                 });
 
@@ -499,7 +555,7 @@ namespace _3Nobatgir.Data.Migrations
                     b.HasOne("Nobatgir.Model.SiteKind", "SiteKind")
                         .WithMany()
                         .HasForeignKey("SiteKindID")
-                        .OnDelete(DeleteBehavior.Cascade);
+                        .OnDelete(DeleteBehavior.Restrict);
                 });
 
             modelBuilder.Entity("Nobatgir.Model.Category", b =>
@@ -507,7 +563,7 @@ namespace _3Nobatgir.Data.Migrations
                     b.HasOne("Nobatgir.Model.Site", "Site")
                         .WithMany()
                         .HasForeignKey("SiteID")
-                        .OnDelete(DeleteBehavior.Cascade);
+                        .OnDelete(DeleteBehavior.Restrict);
                 });
 
             modelBuilder.Entity("Nobatgir.Model.CategorySetting", b =>
@@ -515,7 +571,7 @@ namespace _3Nobatgir.Data.Migrations
                     b.HasOne("Nobatgir.Model.Category", "Category")
                         .WithMany("CategorySettings")
                         .HasForeignKey("CategoryID")
-                        .OnDelete(DeleteBehavior.Cascade);
+                        .OnDelete(DeleteBehavior.Restrict);
                 });
 
             modelBuilder.Entity("Nobatgir.Model.Expert", b =>
@@ -523,7 +579,7 @@ namespace _3Nobatgir.Data.Migrations
                     b.HasOne("Nobatgir.Model.Category", "Category")
                         .WithMany("Experts")
                         .HasForeignKey("CategoryID")
-                        .OnDelete(DeleteBehavior.Cascade);
+                        .OnDelete(DeleteBehavior.Restrict);
                 });
 
             modelBuilder.Entity("Nobatgir.Model.ExpertField", b =>
@@ -531,11 +587,12 @@ namespace _3Nobatgir.Data.Migrations
                     b.HasOne("Nobatgir.Model.Expert", "Expert")
                         .WithMany()
                         .HasForeignKey("ExpertID")
-                        .OnDelete(DeleteBehavior.Cascade);
+                        .OnDelete(DeleteBehavior.Restrict);
 
                     b.HasOne("Nobatgir.Model.SourceType", "SourceType")
                         .WithMany()
-                        .HasForeignKey("SourceTypeID");
+                        .HasForeignKey("SourceTypeID")
+                        .OnDelete(DeleteBehavior.Restrict);
                 });
 
             modelBuilder.Entity("Nobatgir.Model.ExpertSetting", b =>
@@ -543,7 +600,7 @@ namespace _3Nobatgir.Data.Migrations
                     b.HasOne("Nobatgir.Model.Expert", "Expert")
                         .WithMany("ExpertSettings")
                         .HasForeignKey("ExpertID")
-                        .OnDelete(DeleteBehavior.Cascade);
+                        .OnDelete(DeleteBehavior.Restrict);
                 });
 
             modelBuilder.Entity("Nobatgir.Model.ExpertTimeTemplate", b =>
@@ -551,7 +608,7 @@ namespace _3Nobatgir.Data.Migrations
                     b.HasOne("Nobatgir.Model.Expert", "Expert")
                         .WithMany("ExpertTimeTemplates")
                         .HasForeignKey("ExpertID")
-                        .OnDelete(DeleteBehavior.Cascade);
+                        .OnDelete(DeleteBehavior.Restrict);
                 });
 
             modelBuilder.Entity("Nobatgir.Model.Site", b =>
@@ -559,7 +616,7 @@ namespace _3Nobatgir.Data.Migrations
                     b.HasOne("Nobatgir.Model.SiteKind", "SiteKind")
                         .WithMany("Sites")
                         .HasForeignKey("SiteKindID")
-                        .OnDelete(DeleteBehavior.Cascade);
+                        .OnDelete(DeleteBehavior.Restrict);
                 });
 
             modelBuilder.Entity("Nobatgir.Model.SiteDictionary", b =>
@@ -567,12 +624,12 @@ namespace _3Nobatgir.Data.Migrations
                     b.HasOne("Nobatgir.Model.DictionaryTerm", "DictionaryTerm")
                         .WithMany()
                         .HasForeignKey("DictionaryTermID")
-                        .OnDelete(DeleteBehavior.Cascade);
+                        .OnDelete(DeleteBehavior.Restrict);
 
                     b.HasOne("Nobatgir.Model.Site", "Site")
                         .WithMany()
                         .HasForeignKey("SiteID")
-                        .OnDelete(DeleteBehavior.Cascade);
+                        .OnDelete(DeleteBehavior.Restrict);
                 });
 
             modelBuilder.Entity("Nobatgir.Model.SiteKindDictionary", b =>
@@ -580,12 +637,12 @@ namespace _3Nobatgir.Data.Migrations
                     b.HasOne("Nobatgir.Model.DictionaryTerm", "DictionaryTerm")
                         .WithMany()
                         .HasForeignKey("DictionaryTermID")
-                        .OnDelete(DeleteBehavior.Cascade);
+                        .OnDelete(DeleteBehavior.Restrict);
 
                     b.HasOne("Nobatgir.Model.SiteKind", "SiteKind")
                         .WithMany("SiteKindDictionaries")
                         .HasForeignKey("SiteKindID")
-                        .OnDelete(DeleteBehavior.Cascade);
+                        .OnDelete(DeleteBehavior.Restrict);
                 });
 
             modelBuilder.Entity("Nobatgir.Model.SiteKindSetting", b =>
@@ -593,7 +650,7 @@ namespace _3Nobatgir.Data.Migrations
                     b.HasOne("Nobatgir.Model.SiteKind", "SiteKind")
                         .WithMany()
                         .HasForeignKey("SiteKindID")
-                        .OnDelete(DeleteBehavior.Cascade);
+                        .OnDelete(DeleteBehavior.Restrict);
                 });
 
             modelBuilder.Entity("Nobatgir.Model.SiteSetting", b =>
@@ -601,7 +658,7 @@ namespace _3Nobatgir.Data.Migrations
                     b.HasOne("Nobatgir.Model.Site", "Site")
                         .WithMany("SiteSettings")
                         .HasForeignKey("SiteID")
-                        .OnDelete(DeleteBehavior.Cascade);
+                        .OnDelete(DeleteBehavior.Restrict);
                 });
 
             modelBuilder.Entity("Nobatgir.Model.SourceType", b =>
@@ -609,7 +666,7 @@ namespace _3Nobatgir.Data.Migrations
                     b.HasOne("Nobatgir.Model.Expert", "Expert")
                         .WithMany()
                         .HasForeignKey("ExpertID")
-                        .OnDelete(DeleteBehavior.Cascade);
+                        .OnDelete(DeleteBehavior.Restrict);
                 });
 
             modelBuilder.Entity("Nobatgir.Model.SourceValue", b =>
@@ -617,7 +674,7 @@ namespace _3Nobatgir.Data.Migrations
                     b.HasOne("Nobatgir.Model.SourceType", "SourceType")
                         .WithMany("SourceValues")
                         .HasForeignKey("SourceTypeID")
-                        .OnDelete(DeleteBehavior.Cascade);
+                        .OnDelete(DeleteBehavior.Restrict);
                 });
 
             modelBuilder.Entity("Nobatgir.Model.Turn", b =>
@@ -625,7 +682,7 @@ namespace _3Nobatgir.Data.Migrations
                     b.HasOne("Nobatgir.Model.Expert", "Expert")
                         .WithMany()
                         .HasForeignKey("ExpertID")
-                        .OnDelete(DeleteBehavior.Cascade);
+                        .OnDelete(DeleteBehavior.Restrict);
                 });
 
             modelBuilder.Entity("Nobatgir.Model.TurnDetails", b =>
@@ -633,7 +690,12 @@ namespace _3Nobatgir.Data.Migrations
                     b.HasOne("Nobatgir.Model.ExpertField", "ExpertField")
                         .WithMany()
                         .HasForeignKey("ExpertFieldID")
-                        .OnDelete(DeleteBehavior.Cascade);
+                        .OnDelete(DeleteBehavior.Restrict);
+
+                    b.HasOne("Nobatgir.Model.Turn", "Turn")
+                        .WithMany("TurnDetails")
+                        .HasForeignKey("TurnID")
+                        .OnDelete(DeleteBehavior.Restrict);
                 });
 #pragma warning restore 612, 618
         }

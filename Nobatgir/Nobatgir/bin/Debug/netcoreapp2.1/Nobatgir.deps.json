@@ -1,7 +1,7 @@
 {
   "runtimeTarget": {
     "name": ".NETCoreApp,Version=v2.1",
-    "signature": "bbdfac47d537848215413225866c997345d7420f"
+    "signature": "6d0c87984976c88157e152784aaa27ae462a3e56"
   },
   "compilationOptions": {
     "defines": [
@@ -27,6 +27,7 @@
           "1-Nobatgir.Model": "1.0.0",
           "2-Nobatgir.Lib": "1.0.0",
           "3-Nobatgir.Data": "1.0.0",
+          "Jint": "2.11.58",
           "Microsoft.AspNetCore.App": "2.1.1",
           "Microsoft.AspNetCore.Razor.Design": "2.1.2",
           "Microsoft.NETCore.App": "2.1.0",
@@ -38,6 +39,17 @@
         },
         "compile": {
           "Nobatgir.dll": {}
+        }
+      },
+      "Jint/2.11.58": {
+        "runtime": {
+          "lib/netstandard2.0/Jint.dll": {
+            "assemblyVersion": "0.0.0.0",
+            "fileVersion": "2.11.58.0"
+          }
+        },
+        "compile": {
+          "lib/netstandard2.0/Jint.dll": {}
         }
       },
       "Microsoft.AspNetCore.Razor.Design/2.1.2": {},
@@ -3545,6 +3557,13 @@
       "type": "project",
       "serviceable": false,
       "sha512": ""
+    },
+    "Jint/2.11.58": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-obRlPnuSmbjO7I2bfuKc1d+K1LB3xyg1Cnm2MT7PGUOHOntcdR96pDhsQnWBI5Dhxqr1Bj5/odpNi/B+AwVlPA==",
+      "path": "jint/2.11.58",
+      "hashPath": "jint.2.11.58.nupkg.sha512"
     },
     "Microsoft.AspNetCore.Razor.Design/2.1.2": {
       "type": "package",

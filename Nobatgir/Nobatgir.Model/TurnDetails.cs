@@ -13,6 +13,8 @@ namespace Nobatgir.Model
 
         public Guid TurnID { get; set; }
 
+        public Turn Turn { get; set; }
+
         public int ExpertFieldID { get; set; }
 
         public ExpertField ExpertField { get; set; }

@@ -18,14 +18,16 @@
         }
         else
         {
-            if (Model.IsList)
-            {
-                @Html.Display(Model.SelectListColumnName)
-            }
-            else
-            {
-                @Html.Display(Model.ColumnName)
-            }
+            <span class="@Model.ClassName">
+                @if (Model.IsList)
+                {
+                    @Html.Display(Model.SelectListColumnName)
+                }
+                else
+                {
+                    @Html.Display(Model.ColumnName)
+                }
+            </span>
         }
     </td>
 </tr>

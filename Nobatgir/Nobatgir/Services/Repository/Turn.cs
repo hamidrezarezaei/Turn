@@ -19,8 +19,9 @@ namespace Nobatgir.Services
                 ExpertID = this.ExpertID,
                 TurnDate = new DateTime(turndate.Year, turndate.Month, turndate.Day),
                 Time = time,
+                Status = TurnStatuses.Reserve,
                 RegDate = DateTime.Now,
-                Status = TurnStatuses.Reserve
+                ExpireTime = DateTime.Now.AddMinutes(2)
             });
 
             _myContext.SaveChanges();
@@ -28,20 +29,60 @@ namespace Nobatgir.Services
             return t.Entity;
         }
 
-        public Model.Turn GetTurn(Guid id)
+        /// <summary>
+        /// آیا برای این زمان نوبتی گرفته شده یا نه
+        /// </summary>
+        /// <param name="time"></param>
+        /// <param name="turndate"></param>
+        /// <returns></returns>
+        public Turn CheckTurnConflict(string time, DateTime turndate)
+        {
+            // اگر شخص دیگری برای این زمان رزرو گرفته یا کامل شده
+            var f = _myContext.Turns.Where(x => x.Time == time
+                                              && x.TurnDate == turndate
+                                              && (x.Status == TurnStatuses.Completed
+                                                  || (x.Status == TurnStatuses.Reserve) && x.ExpireTime.CompareTo(DateTime.Now) > 0)).ToList();
+
+            if (f.Count > 1)
+                throw new Exception("نوبت اشتباه شده ثبت شده.");
+
+            return f.Count == 1 ? f[0] : null;
+        }
+
+        public Turn GetTurn(Guid id)
         {
             var t = _myContext.Turns.Include(x => x.TurnDetails).FirstOrDefault(x => x.ID == id);
 
             return t;
         }
 
-        public IEnumerable<Model.Turn> GetTurnsExpert(int ExpertID, DateTime dtfrom, DateTime dtto)
+        public void CancelTurn(Guid id)
         {
-            var t = _myContext.Turns.Where(x => x.ExpertID == ExpertID && x.TurnDate >= dtfrom && x.TurnDate <= dtto);
+            var t = GetTurn(id);
+
+            t.Status = TurnStatuses.Canceled;
+
+            _myContext.SaveChanges();
+        }
+
+        public void CompleteTurn(Guid id)
+        {
+            var t = GetTurn(id);
+
+            t.TrackingCode = t.TurnDetails.First().ID;
+
+            t.Status = TurnStatuses.Completed;
+
+            _myContext.SaveChanges();
+        }
+
+        public IEnumerable<Turn> GetTurnsExpert(int expertID, DateTime dtfrom, DateTime dtto)
+        {
+            var t = _myContext.Turns.Where(x => x.ExpertID == expertID && x.TurnDate >= dtfrom && x.TurnDate <= dtto);
             return t;
         }
 
-        public string GetTurnDetailsValue(Model.Turn turn, int expertfieldid, bool returntext)
+        public string GetTurnDetailsTitle(Model.Turn turn, int expertfieldid, bool returntext)
         {
             var turndetails = turn.TurnDetails.FirstOrDefault(x => x.ExpertFieldID == expertfieldid);
 
@@ -49,7 +90,7 @@ namespace Nobatgir.Services
                 return null;
 
             // اگر نوع کنترل کمبو باشد باید متن آن استخراج شود و برگردد
-            if (turndetails.ExpertField.FieldType == FieldTypes.ComboBox)
+            if (turndetails.ExpertField.FieldType == FieldTypes.ComboBox && returntext)
             {
                 var r = turndetails.ExpertField.SourceType.SourceValues.FirstOrDefault(x => x.ID.ToString() == turndetails.Value)?.Title;
 
@@ -57,6 +98,15 @@ namespace Nobatgir.Services
             }
 
             return turndetails.Value;
+        }
+
+        public int DeleteTurnDetails(Guid turnid)
+        {
+            var t = _myContext.TurnDetails.Where(x => x.TurnID == turnid);
+
+            _myContext.TurnDetails.RemoveRange(t);
+    
+            return _myContext.SaveChanges();
         }
 
         public int AddTurnDetails(Guid turnid, List<ExpertFieldsViewModel> fields)
@@ -75,6 +125,25 @@ namespace Nobatgir.Services
             }
 
             return _myContext.SaveChanges();
+        }
+
+        public IEnumerable<TurnDetails> GetTurnDetails(Guid turnid)
+        {
+            return _myContext.TurnDetails.Include(x => x.ExpertField).Where(X => X.TurnID == turnid);
+        }
+
+        public string GetTurnDetailsValue(Guid turnid, string fieldname)
+        {
+            var td = _myContext.TurnDetails.Include(x => x.ExpertField).FirstOrDefault(X => X.TurnID == turnid && X.ExpertField.Name.ToLower() == fieldname.ToLower());
+
+            if (td == null)
+                return null;
+
+            // اگر فهرست است باید مقدار را از مقادیر پیدا شود
+            if (td.ExpertField.FieldType == FieldTypes.ComboBox)
+                return _myContext.SourceValues.FirstOrDefault(x => x.ID.ToString() == td.Value)?.Value;
+
+            return td.Value;
         }
     }
 }

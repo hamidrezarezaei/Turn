@@ -2,6 +2,15 @@
   "version": 3,
   "targets": {
     ".NETCoreApp,Version=v2.1": {
+      "Jint/2.11.58": {
+        "type": "package",
+        "compile": {
+          "lib/netstandard2.0/Jint.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/Jint.dll": {}
+        }
+      },
       "Microsoft.AspNet.WebApi.Client/5.2.6": {
         "type": "package",
         "dependencies": {
@@ -4671,6 +4680,21 @@
     }
   },
   "libraries": {
+    "Jint/2.11.58": {
+      "sha512": "obRlPnuSmbjO7I2bfuKc1d+K1LB3xyg1Cnm2MT7PGUOHOntcdR96pDhsQnWBI5Dhxqr1Bj5/odpNi/B+AwVlPA==",
+      "type": "package",
+      "path": "jint/2.11.58",
+      "files": [
+        ".nupkg.metadata",
+        "jint.2.11.58.nupkg.sha512",
+        "jint.nuspec",
+        "lib/net40/Jint.dll",
+        "lib/net45/Jint.dll",
+        "lib/net451/Jint.dll",
+        "lib/netstandard1.3/Jint.dll",
+        "lib/netstandard2.0/Jint.dll"
+      ]
+    },
     "Microsoft.AspNet.WebApi.Client/5.2.6": {
       "sha512": "AIgEc1up4pvH8kXy+eG1x4Qfqd6piAq3yk11pveCQXWNkkYoiKdflSmcJZuWcerdMcAaoF0xC/mWGoTW4vF4Dg==",
       "type": "package",
@@ -12551,6 +12575,7 @@
       "1-Nobatgir.Model >= 1.0.0",
       "2-Nobatgir.Lib >= 1.0.0",
       "3-Nobatgir.Data >= 1.0.0",
+      "Jint >= 2.11.58",
       "Microsoft.AspNetCore.App >= 2.1.1",
       "Microsoft.AspNetCore.Razor.Design >= 2.1.2",
       "Microsoft.NETCore.App >= 2.1.0",
@@ -12609,6 +12634,10 @@
     "frameworks": {
       "netcoreapp2.1": {
         "dependencies": {
+          "Jint": {
+            "target": "Package",
+            "version": "[2.11.58, )"
+          },
           "Microsoft.AspNetCore.App": {
             "suppressParent": "All",
             "target": "Package",

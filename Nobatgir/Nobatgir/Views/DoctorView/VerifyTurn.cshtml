@@ -1,12 +1,18 @@
-﻿@model Guid
+﻿@model Turn
 
 <div class="row">
 
-    <form asp-action="Completed" method="post" class="col-12" id="completeform">
+    <form asp-controller="Expert" asp-action="Verified" method="post" class="col-12" id="completeform">
 
-        @await Component.InvokeAsync("TurnFields", new { ViewName = "Default", TurnID = Model, IsVeify = true })
+        <input type="hidden" name="TurnID" value="@Model.ID" />
+
+        @await Component.InvokeAsync("TurnFields", new { ViewName = "Default", TurnID = Model.ID, IsVeify = true })
 
     </form>
+
+    <div>
+        مبلغ: @Model.Price
+    </div>
 
 </div>
 
@@ -14,9 +20,9 @@
 
     <button class="col-6 col-md-3 btn btn-success btn-block" onclick="$('#completeform').submit();">تایید</button>
 
-    <form asp-action="ReturnToTurn" method="post" class="col-6 col-md-3">
+    <form asp-controller="Expert" asp-action="VerifyBack" method="post" class="col-6 col-md-3">
 
-        <input type="hidden" name="Turn.TurnID" value="@Model" />
+        <input type="hidden" name="TurnID" value="@Model.ID" />
 
         <button type="submit" class="btn btn-success btn-block">بازگشت</button>
     </form>

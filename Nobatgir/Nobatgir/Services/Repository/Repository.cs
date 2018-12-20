@@ -72,6 +72,24 @@ namespace Nobatgir.Services
             }
         }
 
+        public string GetControllerName
+        {
+            get
+            {
+                var routedata = this.httpContextAccessor.HttpContext.GetRouteData();
+                return routedata.Values["controller"].ToString();
+            }
+        }
+
+        public string GetActionName
+        {
+            get
+            {
+                var routedata = this.httpContextAccessor.HttpContext.GetRouteData();
+                return routedata.Values["action"].ToString();
+            }
+        }
+
         private int pageSize = 2;
 
         IHttpContextAccessor httpContextAccessor;
@@ -131,40 +149,56 @@ namespace Nobatgir.Services
 
         private void SetSiteParams()
         {
+            var host = this.httpContextAccessor.HttpContext.Request.Host.ToString().ToLower();
+
+            var site = this._myContext.Sites.FirstOrDefault(x => x.Domain.ToLower() == host);
+
+            if (site != null)
+            {
+                this.SiteID = site.ID;
+                this.SiteKindID = site.SiteKindEnum;
+                return;
+            }
+
             var routedata = this.httpContextAccessor.HttpContext.GetRouteData();
             var sitenam = routedata.Values["sitename"];
 
-            if (sitenam != null)
-            {
-                var s = this._myContext.Sites.FirstOrDefault(x => x.Name.ToLower() == sitenam.ToString().ToLower());
-
-                if (s != null)
-                {
-                    this.SiteID = s.ID;
-                    this.SiteKindID = (SiteKinds)s.SiteKindID;
-                    return;
-                }
-                else
-                    throw new Exception(sitenam + " 1111این سایت   ندارد.");
-            }
-
-            var host = this.httpContextAccessor.HttpContext.Request.Host.ToString().ToLower();
-
-            if (host.Contains("localhost"))
+            if (host.Contains("localhost") && sitenam == null)
             {
                 this.SiteID = 1;
                 this.SiteKindID = SiteKinds.SuperAdmin;
+                return;
             }
-            else
+
+            if (sitenam == null)
+                throw new Exception(host + " 222این سایت   ندارد.");
+
+            var s = this._myContext.Sites.FirstOrDefault(x => x.Name.ToLower() == sitenam.ToString().ToLower());
+
+            if (s != null)
             {
-                var site = this._myContext.Sites.FirstOrDefault(x => x.Domain.ToLower() == host);
-
-                if (site == null)
-                    throw new Exception(host + " 222این سایت   ندارد.");
-
-                this.SiteID = site.ID;
-                this.SiteKindID = site.SiteKindEnum;
+                this.SiteID = s.ID;
+                this.SiteKindID = (SiteKinds)s.SiteKindID;
+                return;
             }
+
+            throw new Exception(sitenam + " 1111این سایت   ندارد.");
+
+            //if (host.Contains("localhost"))
+            //{
+            //    this.SiteID = 1;
+            //    this.SiteKindID = SiteKinds.SuperAdmin;
+            //}
+            //else
+            //{
+            //    var site = this._myContext.Sites.FirstOrDefault(x => x.Domain.ToLower() == host);
+
+            //    if (site == null)
+            //        throw new Exception(host + " 222این سایت   ندارد.");
+
+            //    this.SiteID = site.ID;
+            //    this.SiteKindID = site.SiteKindEnum;
+            //}
         }
 
         #endregion
@@ -239,14 +273,21 @@ namespace Nobatgir.Services
 
         public string GetSiteKindSetting(Settings setting)
         {
-            var sd = this._myContext.SiteKindSettings.FirstOrDefault(x => x.SiteKindID == (int)this.SiteKindID && x.Key == setting.ToString());
+            var sd = this._myContext.SiteKindSettings.FirstOrDefault(x => x.SiteKindID == (int)this.SiteKindID && x.Name == setting.ToString());
 
             return sd?.Value;
         }
 
         public string GetSiteSetting(Settings setting)
         {
-            var sd = this._myContext.SiteSettings.FirstOrDefault(x => x.SiteID == this.SiteID && x.Key == setting.ToString());
+            var sd = this._myContext.SiteSettings.FirstOrDefault(x => x.SiteID == this.SiteID && x.Name == setting.ToString());
+
+            return sd?.Value;
+        }
+
+        public string GetExpertSetting(Settings setting)
+        {
+            var sd = this._myContext.ExpertSettings.FirstOrDefault(x => x.ExpertID == this.ExpertID && x.Name == setting.ToString());
 
             return sd?.Value;
         }

@@ -214,3 +214,7 @@ E:\Projects\Nobatgir\GIT\Nobatgir\Nobatgir\obj\Debug\netcoreapp2.1\Nobatgir.View
 E:\Projects\Nobatgir\GIT\Nobatgir\Nobatgir\obj\Debug\netcoreapp2.1\Nobatgir.csproj.CopyComplete
 E:\Projects\Nobatgir\GIT\Nobatgir\Nobatgir\obj\Debug\netcoreapp2.1\Nobatgir.dll
 E:\Projects\Nobatgir\GIT\Nobatgir\Nobatgir\obj\Debug\netcoreapp2.1\Nobatgir.pdb
+E:\Projects\Nobatgir\GIT\Nobatgir\Nobatgir\obj\Debug\netcoreapp2.1\Razor\Areas\Admin\Views\ExpertSetting\Details_partial.g.cshtml.cs
+E:\Projects\Nobatgir\GIT\Nobatgir\Nobatgir\obj\Debug\netcoreapp2.1\Razor\Areas\Admin\Views\ExpertSetting\Index.g.cshtml.cs
+E:\Projects\Nobatgir\GIT\Nobatgir\Nobatgir\obj\Debug\netcoreapp2.1\Razor\Views\DoctorView\Completed.g.cshtml.cs
+E:\Projects\Nobatgir\GIT\Nobatgir\Nobatgir\obj\Debug\netcoreapp2.1\Razor\Views\Shared\Components\Steps\Default.g.cshtml.cs

@@ -1,0 +1,27 @@
+﻿@model CompletedViewModel
+
+<div class="row">
+
+    <div class="alert alert-success col-12" id="TurnCompleted">
+        <div class="Message">
+            ثبت نوبت با موفقیت انجام شد.
+        </div>
+        <div class="TrackingCode ByBorder">
+            <span class="key">کد رهگیری شما:</span> <span class="value">@Model.Turn.TrackingCode</span>
+        </div>
+        @*<div class="DoctorFullName">
+            <span class="key">نام پزشک: </span><span class="value">دکتر حمیدرضا رضایی</span>
+        </div>*@
+        @*<div class="PatientFullName ByBorder">
+            <span class="key">نام بیمار: </span><span class="value">@Model.Turn.</span>
+        </div>*@
+        <div class="Date">
+            <span class="key">تاریخ مراجعه: </span><span class="value">@Model.Turn.TurnDatePersian</span>
+        </div>
+        <div class="Time">
+            <span class="key">ساعت حضور در مطب:</span> <span class="value">@Model.Turn.Time</span>
+
+        </div>
+    </div>
+
+</div>

@@ -13,21 +13,30 @@ namespace Nobatgir.Model
         public Guid ID { get; set; }
 
         public int ExpertID { get; set; }
-    
-        [Display(Name="تاریخ نوبت")]
+
+        [Display(Name = "تاریخ نوبت")]
         public DateTime TurnDate { get; set; }
 
-        [Display(Name="ساعت نوبت")]
+        [Display(Name = "ساعت نوبت")]
         public string Time { get; set; }
+
+        [Display(Name = "قیمت")]
+        public long Price { get; set; }
 
         public TurnStatuses Status { get; set; }
 
-        [Display(Name="زمان ثبت نوبت")]
+        [Display(Name = "زمان انقضا")]
+        public DateTime ExpireTime { get; set; }
+
+        [Display(Name = "زمان ثبت نوبت")]
         public DateTime RegDate { get; set; }
 
         public Expert Expert { get; set; }
 
-        public IEnumerable<TurnDetails> TurnDetails { get; set; }
+        public ICollection<TurnDetails> TurnDetails { get; set; }
+
+        [Display(Name = "کد رهگیری")]
+        public int TrackingCode { get; set; }
 
         [NotMapped]
         public string TurnDatePersian => persianDateTime.PersianDateStringFormat(this.TurnDate);

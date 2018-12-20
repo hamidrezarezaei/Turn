@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace Turn.Areas.Admin
+namespace Nobatgir.Areas.Admin
 {
     [HtmlTargetElement(tag: "a", Attributes = "btn-type")]
     [HtmlTargetElement(tag: "input",  Attributes = "btn-type")]

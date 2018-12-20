@@ -1,5 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using System;
+using System.Linq;
 using Nobatgir.Model;
 
 namespace Nobatgir.Data
@@ -20,6 +21,11 @@ namespace Nobatgir.Data
             base.OnModelCreating(modelBuilder);
 
             modelBuilder.HasDefaultSchema("dbo");
+
+            foreach (var relationship in modelBuilder.Model.GetEntityTypes().SelectMany(e => e.GetForeignKeys()))
+            {
+                relationship.DeleteBehavior = DeleteBehavior.Restrict;
+            }
         }
 
         public DbSet<Site> Sites { get; set; }

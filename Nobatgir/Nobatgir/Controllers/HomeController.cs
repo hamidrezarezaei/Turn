@@ -27,13 +27,16 @@ namespace Nobatgir.Controllers
             ViewBag.Title = this._repository.GetSiteSetting(Settings.SiteTitle);
             ViewBag.ViewName = viewname;
 
-
-
             return "/Views/" + viewname + "/" + pagename + ".cshtml";
         }
 
         public IActionResult Index()
         {
+            if (_repository.SessionTurnID != null)
+            {
+                return View(this.GetViewName("AddTurn"), _repository.SessionTurnID);
+            }
+
             return View(this.GetViewName("index"));
         }
 

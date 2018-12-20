@@ -1,0 +1,42 @@
+﻿@model StepsViewModel
+
+<div class="row">
+
+    <div class="col-md-12">
+        <div class="row steps">
+
+            @for (var i = 0; i < Model.StepNames.Count; i++)
+            {
+                var c = Model.CurrentStep > i ? "done" : Model.CurrentStep == i ? "current" : "";
+
+                <div class="col-4 astep @c">
+                    <span class="stepnumber">
+
+                        @if (Model.CurrentStep <= i)
+                        {
+                            <span>@(i + 1)</span>
+                        }
+                        else
+                        {
+                            <i class="fa fa-check"></i>
+                        }
+
+                    </span>
+                    <span class="steptitle">@Html.Raw(Model.StepNames[i])</span>
+                </div>
+            }
+
+
+            @*<div class="col-4  astep current">
+                    <span class="stepnumber"><span class="fa fa-check"></span></span>
+                    <span class="steptitle"><span class="desktop">تکمیل </span><span>اطلاعات</span></span>
+                </div>
+                <div class="col-4  astep ">
+                    <span class="stepnumber">3</span>
+                    <span class="steptitle">پایان</span>
+                </div>*@
+
+        </div>
+
+    </div>
+</div>

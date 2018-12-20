@@ -47,7 +47,7 @@ namespace Nobatgir.ViewComponents
                 SourceTypeID = x.SourceTypeID,
                 UpdateDateTime = x.UpdateDateTime,
                 UserID = x.UserID,
-                Value = _repository.GetTurnDetailsValue(t, x.ID, IsVeify) ?? x.Value,
+                Value = _repository.GetTurnDetailsTitle(t, x.ID, IsVeify) ?? x.Value,
                 SourceType = x.SourceType
             }).ToList();
 

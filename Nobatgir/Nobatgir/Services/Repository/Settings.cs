@@ -12,7 +12,31 @@ namespace Nobatgir.Services
 {
     public enum Settings
     {
-        ViewName, SiteTitle
+        ViewName, SiteTitle, Formula
     }
 
+    public partial class Repository
+    {
+        public IEnumerable<ExpertSetting> GetExpertSettings()
+        {
+            return this._myContext.ExpertSettings.Where(x => x.ExpertID == this.ExpertID);
+        }
+
+        public ExpertSetting GetExpertSetting(int id)
+        {
+            return this._myContext.ExpertSettings.FirstOrDefault(x => x.ID == id);
+        }
+
+        public int AddExpertSettings(ExpertSetting exs)
+        {
+            this._myContext.ExpertSettings.Add(exs);
+            return this._myContext.SaveChanges();
+        }
+
+        public int UpdateExpertSettings(ExpertSetting exs)
+        {
+            this._myContext.Update(exs);
+            return this._myContext.SaveChanges();
+        }
+    }
 }
