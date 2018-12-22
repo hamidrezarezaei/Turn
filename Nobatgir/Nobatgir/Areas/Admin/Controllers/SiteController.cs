@@ -83,7 +83,12 @@ namespace Nobatgir.Areas.Admin.Controllers
         [ValidateAntiForgeryToken]
         public IActionResult Create(Site row, string ReturnUrl)
         {
-            return this.CreateBase(row, ReturnUrl);
+            var r = this.CreateBase(row, ReturnUrl);
+
+            var c = Repository.AddDefaultCategory(row.ID, row.Title, row.Name);
+            Repository.AddDefaultExpert(c.ID, row.Title, row.Name);
+
+            return r;
         }
     }
 }

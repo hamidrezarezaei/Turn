@@ -1,0 +1,151 @@
+﻿@using Microsoft.AspNetCore.Html
+@model List<TimeTemplateViewModel>
+
+@{
+    int index = 1;
+}
+
+@if (Model == null)
+{
+    return;
+}
+
+
+<div class="row well">
+
+    <div class="col-12" id="calendar-nav">
+        
+        <div class="row no-gutters">
+
+            <a href="#carouselExampleControls" role="button" data-slide="prev" class="carousel-nav-right">
+                <i class="fa fa-chevron-right" aria-hidden="true"></i>
+                <span>هفته قبلی</span>
+            </a>
+
+            <div id="carouselExampleControls" class="carousel slide  flex-grow-1" data-ride="carousel" data-interval="false" data-wrap="false">
+                <div class="carousel-inner">
+
+                    @{
+                        bool iscontinue = true;
+                        int i = 1;
+                    }
+                    @while (iscontinue)
+                    {
+
+
+                        string c = "";
+                        if (i == 1)
+                        {
+                            c = "active";
+                        }
+
+                        <div class="carousel-item @c ">
+                            <ul class="nav nav-tabs" id="myTab1" role="tablist">
+
+
+                                @for (; i <= Model.Count; i++)
+                                {
+                                    var item = Model[i - 1];
+
+                                    c = "";
+                                    if (i == 1)
+                                    {
+                                        c = "active";
+                                    }
+
+                                    <li class="nav-item">
+                                        <a class="btn btn-light nav-link @c" style="margin-left: 5px" id="home-tab" onclick="$('.nav-link').removeClass('active');" data-toggle="tab" href="#tab_@i" role="tab" aria-controls="home" aria-selected="true">@Nobatgir.Lib.persianDateTime.GetPersianDateShort(item.Day)</a>
+                                    </li>
+
+                                    if (i < Model.Count - 1 && ((int) item.Day.DayOfWeek + 1) % 7 > ((int) Model[i].Day.DayOfWeek + 1) % 7)
+
+                                        //if (i % 7 == 0)
+                                    {
+                                        i++;
+                                        break;
+                                    }
+                                    if (i == Model.Count)
+                                    {
+                                        iscontinue = false;
+                                    }
+                                }
+
+
+                            </ul>
+                        </div>
+                    }
+
+
+
+
+                </div>
+
+            </div>
+
+            <a href="#carouselExampleControls" role="button" data-slide="next" class="carousel-nav-left">
+                <span>هفته بعدی</span>
+                <i class="fa fa-chevron-left" aria-hidden="true"></i>
+            </a>
+        </div>
+    </div>
+    <div class="tab-content col-12" id="myTabContent">
+
+        @{ index = 1; }
+
+        @foreach (var item in Model)
+        {
+            string c = "";
+            if (index == 1)
+            {
+                c = "active";
+            }
+
+            <div class="tab-pane fade show @c" id="tab_@index" role="tabpanel" aria-labelledby="home-tab">
+
+                <div class="row p-2">
+                    @foreach (var turn in item.Turns)
+                    {
+                        <div class="col-4 col-md-2 p-1">
+                            @if (turn.Status == TurnStatuses.Free)
+                            {
+                                <form asp-action="AddTurn" asp-controller="Expert" method="post">
+                                    <input type="hidden" name="turndate" value="@item.Day">
+                                    <input type="hidden" name="time" value="@turn.Time">
+
+                                    <button type="submit" class="btn btn-success btn-block">
+                                        @turn.Time<br />
+                                        <span class="small">قابل رزرو</span>
+                                    </button>
+                                </form>
+                            }
+                            else if (turn.Status == TurnStatuses.Completed)
+                            {
+                                <button class="btn btn-danger btn-block" disabled>
+                                    @turn.Time
+                                <br />
+                                <span class="small">رزرو شده</span>
+                            </button>
+                        }
+                        else if (turn.Status == TurnStatuses.Reserve)
+                        {
+                            <button class="btn btn-warning btn-block" disabled>
+                                @turn.Time
+                            <br />
+                            <span class="small">در حال رزرو</span>
+                        </button>
+                    }
+                        </div>
+                    }
+                </div>
+            </div>
+
+            index++;
+        }
+    </div>
+</div>
+
+
+
+
+
+

@@ -86,7 +86,7 @@ using Nobatgir.Areas.Admin.ViewModel;
             WriteLiteral("\r\n<html>\r\n");
             EndContext();
             BeginContext(69, 15, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("head", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "316293c263994d43a2e6230ec556acc2", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("head", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "04771c1b651a409f897cca7b6ab65191", async() => {
                 BeginContext(75, 2, true);
                 WriteLiteral("\r\n");
                 EndContext();
@@ -106,7 +106,7 @@ using Nobatgir.Areas.Admin.ViewModel;
             WriteLiteral("\r\n");
             EndContext();
             BeginContext(86, 35, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("body", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "566a63020735493686b4b57ab3562ef4", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("body", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "838a41a636194e9b8af0aac9104d90ea", async() => {
                 BeginContext(92, 22, true);
                 WriteLiteral("\r\n    <h2>Error</h2>\r\n");
                 EndContext();

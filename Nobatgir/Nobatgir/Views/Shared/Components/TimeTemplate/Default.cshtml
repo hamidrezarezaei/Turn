@@ -4,6 +4,12 @@
     int index = 1;
 }
 
+@if (Model == null)
+{
+    return;
+}
+
+
 <div class="row">
 
     <ul class="nav nav-tabs col-12" id="myTab" role="tablist">
@@ -16,14 +22,17 @@
                 c = "active";
             }
 
-            <li class="nav-item">
-                <a class="nav-link @c" id="home-tab" data-toggle="tab" href="#tab_@index" role="tab" aria-controls="home" aria-selected="true">@item.FullDay</a>
+            <li class="nav-item" >
+                <a class="nav-link @c" id="home-tab" data-toggle="tab" href="#tab_@index" role="tab" aria-controls="home" aria-selected="true">@Nobatgir.Lib.persianDateTime.GetPersianDateShort(item.Day)</a>
             </li>
 
             index++;
         }
 
     </ul>
+
+
+
     <div class="tab-content col-12" id="myTabContent">
 
         @{ index = 1; }
@@ -68,3 +77,9 @@
         }
     </div>
 </div>
+
+
+
+
+
+

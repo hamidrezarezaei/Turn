@@ -90,7 +90,7 @@ namespace Nobatgir.Services
             }
         }
 
-        private int pageSize = 2;
+        private int pageSize = 10;
 
         IHttpContextAccessor httpContextAccessor;
 
@@ -151,29 +151,30 @@ namespace Nobatgir.Services
         {
             var host = this.httpContextAccessor.HttpContext.Request.Host.ToString().ToLower();
 
-            var site = this._myContext.Sites.FirstOrDefault(x => x.Domain.ToLower() == host);
+            var site = this._myContext.Sites.FirstOrDefault(x => x.Domain.ToLower() == host.Replace("www.", ""));
 
-            if (site != null)
+            var routedata = this.httpContextAccessor.HttpContext.GetRouteData();
+            var sitename = routedata.Values["sitename"];
+
+            // اگر خود سایت superadmin باشد
+            if (site != null && sitename == null)
             {
                 this.SiteID = site.ID;
                 this.SiteKindID = site.SiteKindEnum;
                 return;
             }
 
-            var routedata = this.httpContextAccessor.HttpContext.GetRouteData();
-            var sitenam = routedata.Values["sitename"];
-
-            if (host.Contains("localhost") && sitenam == null)
+            if (host.Contains("localhost") && sitename == null)
             {
                 this.SiteID = 1;
                 this.SiteKindID = SiteKinds.SuperAdmin;
                 return;
             }
 
-            if (sitenam == null)
+            if (sitename == null)
                 throw new Exception(host + " 222این سایت   ندارد.");
 
-            var s = this._myContext.Sites.FirstOrDefault(x => x.Name.ToLower() == sitenam.ToString().ToLower());
+            var s = this._myContext.Sites.FirstOrDefault(x => x.Name.ToLower() == sitename.ToString().ToLower());
 
             if (s != null)
             {
@@ -182,7 +183,7 @@ namespace Nobatgir.Services
                 return;
             }
 
-            throw new Exception(sitenam + " 1111این سایت   ندارد.");
+            throw new Exception(sitename + " 1111این سایت   ندارد.");
 
             //if (host.Contains("localhost"))
             //{
@@ -213,7 +214,7 @@ namespace Nobatgir.Services
         private void Labeling(BaseClass row)
         {
             //row.siteId = this.siteId;
-            //row.updateUserId = this.userId;
+            row.UserID = this.UserID;
             row.UpdateDateTime = DateTime.Now;
         }
 
@@ -243,7 +244,7 @@ namespace Nobatgir.Services
             this._myContext.Update(row);
             this._myContext.SaveChanges();
         }
-        public BaseClass AddRow<T>(T row) where T : BaseClass
+        public T AddRow<T>(T row) where T : BaseClass
         {
             var indx = this._myContext.Set<T>().Any() ? this._myContext.Set<T>().Max(x => x.OrderIndex) : 1;
             row.OrderIndex = indx + 1;
@@ -271,26 +272,48 @@ namespace Nobatgir.Services
             return f.Value;
         }
 
-        public string GetSiteKindSetting(Settings setting)
+        public string GetSetting(Settings setting)
         {
+            var expertsetting = this._myContext.ExpertSettings.FirstOrDefault(x => x.ExpertID == this.ExpertID && x.Name == setting.ToString());
+
+            if (expertsetting != null)
+                return expertsetting.Value;
+
+            var catsetting = this._myContext.CategorySettings.FirstOrDefault(x => x.CategoryID == this.CategoryID && x.Name == setting.ToString());
+
+            if (catsetting != null)
+                return catsetting.Value;
+
+            var sitesetting = this._myContext.SiteSettings.FirstOrDefault(x => x.SiteID == this.SiteID && x.Name == setting.ToString());
+
+            if (sitesetting != null)
+                return sitesetting.Value;
+
             var sd = this._myContext.SiteKindSettings.FirstOrDefault(x => x.SiteKindID == (int)this.SiteKindID && x.Name == setting.ToString());
 
             return sd?.Value;
         }
 
-        public string GetSiteSetting(Settings setting)
-        {
-            var sd = this._myContext.SiteSettings.FirstOrDefault(x => x.SiteID == this.SiteID && x.Name == setting.ToString());
+        //public string GetSiteKindSetting(Settings setting)
+        //{
+        //    var sd = this._myContext.SiteKindSettings.FirstOrDefault(x => x.SiteKindID == (int)this.SiteKindID && x.Name == setting.ToString());
 
-            return sd?.Value;
-        }
+        //    return sd?.Value;
+        //}
 
-        public string GetExpertSetting(Settings setting)
-        {
-            var sd = this._myContext.ExpertSettings.FirstOrDefault(x => x.ExpertID == this.ExpertID && x.Name == setting.ToString());
+        //public string GetSiteSetting(Settings setting)
+        //{
+        //    var sd = this._myContext.SiteSettings.FirstOrDefault(x => x.SiteID == this.SiteID && x.Name == setting.ToString());
 
-            return sd?.Value;
-        }
+        //    return sd?.Value;
+        //}
+
+        //public string GetExpertSetting(Settings setting)
+        //{
+        //    var sd = this._myContext.ExpertSettings.FirstOrDefault(x => x.ExpertID == this.ExpertID && x.Name == setting.ToString());
+
+        //    return sd?.Value;
+        //}
 
         public IQueryable<T> FilterExist<T>(IQueryable<T> db) where T : BaseClass
         {

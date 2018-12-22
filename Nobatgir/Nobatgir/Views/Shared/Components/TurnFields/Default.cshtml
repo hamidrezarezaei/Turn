@@ -1,7 +1,8 @@
 ﻿@model TurnFieldsViewModel
 
-<div class="row">
-    <div class="col-12">زمان: ساعت @Model.Turn.Time روز @Model.Turn.TurnDatePersian</div>
+<div class="row" id="turnfields">
+
+    <div class="form-control col-12 type-html">زمان: ساعت @Model.Turn.Time روز @Model.Turn.TurnDatePersian</div>
 
     <input type="hidden" asp-for="@Model.Turn.ID" />
 
@@ -13,9 +14,20 @@
         {
             if (Model.ExpertFields[i].FieldType != FieldTypes.HTML)
             {
-                <label class="@Model.ExpertFields[i].CssClass mt-2">
-                    @Model.ExpertFields[i].Title : @Model.ExpertFields[i].Value
-                </label>
+                <div class="col-12 mt-2 form-control verifyfields">
+                    @{
+                        string v = Model.ExpertFields[i].Value;
+                        if (v == "true")
+                        {
+                            v = "بله";
+                        }
+                        else if (v == "false")
+                        {
+                            v = "خیر";
+                        }
+                    }
+                    @Model.ExpertFields[i].Title : @v
+                </div>
             }
         }
         else
@@ -24,19 +36,19 @@
             {
                 case FieldTypes.TextBox:
 
-                    <input asp-for="@Model.ExpertFields[i].Value" placeholder="@Model.ExpertFields[i].Placeholder" class="@Model.ExpertFields[i].CssClass mt-2" />
+                        <input asp-for="@Model.ExpertFields[i].Value" placeholder="@Model.ExpertFields[i].Placeholder" class="@Model.ExpertFields[i].CssClass form-control fields" />
+
 
                     break;
 
                 case FieldTypes.TextArea:
 
-                    <textarea asp-for="@Model.ExpertFields[i].Value" placeholder="@Model.ExpertFields[i].Placeholder" class="@Model.ExpertFields[i].CssClass mt-2"></textarea>
-
+                        <textarea asp-for="@Model.ExpertFields[i].Value" placeholder="@Model.ExpertFields[i].Placeholder" class="@Model.ExpertFields[i].CssClass form-control fields"></textarea>
                     break;
 
                 case FieldTypes.CheckBox:
 
-                    <div class="@Model.ExpertFields[i].CssClass mt-2">
+                    <div class="@Model.ExpertFields[i].CssClass fields">
                         <input type="checkbox" asp-for="@Model.ExpertFields[i].Value" />
                         <label asp-for="@Model.ExpertFields[i].Value">@Model.ExpertFields[i].Title</label>
                     </div>
@@ -45,7 +57,7 @@
 
                 case FieldTypes.HTML:
 
-                    <div class="@Model.ExpertFields[i].CssClass mt-2">
+                    <div class="type-html @Model.ExpertFields[i].CssClass fields">
                         @Html.Raw(Model.ExpertFields[i].Value)
                     </div>
 
@@ -53,13 +65,7 @@
 
                 case FieldTypes.ComboBox:
 
-                    <div class="@Model.ExpertFields[i].CssClass mt-2">
-
-                        <label asp-for="@Model.ExpertFields[i].Value">@Model.ExpertFields[i].Title</label>
-
-                        @Html.DropDownListFor(x => x.ExpertFields[i].Value, Model.ExpertFields[i].SourceValues)
-
-                    </div>
+                        @Html.DropDownListFor(x => x.ExpertFields[i].Value, Model.ExpertFields[i].SourceValues, new { @class = Model.ExpertFields[i].CssClass + " form-control fields" })
 
                     break;
 

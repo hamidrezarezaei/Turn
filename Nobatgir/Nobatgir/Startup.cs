@@ -179,6 +179,12 @@ namespace Nobatgir
 
             app.UseAuthentication();
 
+            app.Use(async (context, next) =>
+            {
+                context.Response.Headers.Add("X-Frame-Options", "*");
+                await next();
+            });
+
             app.UseMvc(routes =>
             {
                 routes.MapRoute(

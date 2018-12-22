@@ -22,7 +22,7 @@ namespace Nobatgir.Areas.Admin.Controllers
 
         public IActionResult Index(int pageNumber, string searchString)
         {
-            var data = this.Repository.GetListWithPaging<ExpertField>(pageNumber, searchString);
+            var data = this.Repository.GetListByParentWithPaging<ExpertField, int>(x => x.ExpertID, Repository.ExpertID, pageNumber, searchString);
             ViewBag.SearchString = searchString;
 
             //data.DisplayColumns.Add("SiteKindTitle");
@@ -35,7 +35,7 @@ namespace Nobatgir.Areas.Admin.Controllers
             if (id == null)
                 return NotFound();
 
-            var row = this.Repository.GetSingle<ExpertField>(id.Value, x=>x.SourceType);
+            var row = this.Repository.GetSingle<ExpertField>(id.Value, x => x.SourceType);
             var r = this.Repository.GetListByParentWithPaging<ExpertField, int>(x => x.ExpertID, id.Value, pageNumber, searchString);
             r.Controller = "ExpetField";
             ViewBag.Categories = r;
@@ -56,7 +56,8 @@ namespace Nobatgir.Areas.Admin.Controllers
         {
             ViewBag.FieldTypesCombo = new SelectList(FieldType.GetList(), "ID", "Name");
 
-            var lst = this.Repository.GetListActive<SourceType>().Select(x => new Tuple<int?, string>(x.ID, x.Title)).ToList();
+            var lst = this.Repository.GetListActiveByParent<SourceType, int>(x => x.ExpertID, Repository.ExpertID)
+                .Select(x => new Tuple<int?, string>(x.ID, x.Title)).ToList();
             lst.Insert(0, new Tuple<int?, string>(null, ""));
 
             ViewBag.SourceTypesCombo = new SelectList(lst, "Item1", "Item2");

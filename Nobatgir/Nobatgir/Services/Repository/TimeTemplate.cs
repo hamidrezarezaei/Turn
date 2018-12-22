@@ -16,11 +16,16 @@ namespace Nobatgir.Services
         {
             var r = new List<TimeTemplateViewModel>();
 
-            var lst = this.GetListActiveByParent<ExpertTimeTemplate, int>(x => x.ExpertID, this.ExpertID);
+            // فهرست قالب زمان های expert
+            var lst = this.GetListActiveByParent<ExpertTimeTemplate, int>(x => x.ExpertID, this.ExpertID).ToList();
+
+            if (!lst.Any())
+                return null;
 
             var now = DateTime.Now;
             var currenttime = now.TimeOfDay;
 
+            // حداکثر روزهای قابل رزرو
             var max = lst.Max(x => x.ActiveDayCount) + 1;
 
             var lstturns = this.GetTurnsExpert(this.ExpertID, now.AddDays(-1), now.AddDays(max)).ToList();
@@ -43,10 +48,10 @@ namespace Nobatgir.Services
                         // برای امروز
                         if (i == 0 && d.TimesSpanList != null)
                         {
-                            times = d.TimesSpanList.Where(x => x.CompareTo(currenttime) > 0).Select(x => x.ToString()).ToList();
+                            times = d.TimesSpanList.Where(x => x.CompareTo(currenttime) > 0).Select(x => x.ToString("hh\\:mm")).ToList();
                         }
 
-                        var turntimes = times.Select(x => new Model.Turn { Time = x }).ToList();
+                        var turntimes = times.Select(x => new Turn { Time = x }).ToList();
 
                         foreach (var turn in turntimes)
                         {
@@ -77,20 +82,14 @@ namespace Nobatgir.Services
             }
 
             return r;
-            //lst.Add(new TimeTemplateViewModel
-            //{
-            //    Day = DateTime.Now,
-            //    Turns = new List<Model.Turn> { new Model.Turn { Time = "8:00" }, new Model.Turn { Time = "10:00" },
-            //        new Model.Turn { Time = "12:00" }, new Model.Turn { Time = "15:00" } }
-            //});
+        }
 
-            //lst.Add(new TimeTemplateViewModel
-            //{
-            //    Day = DateTime.Now.AddDays(1),
-            //    Turns = new List<Model.Turn> { new Model.Turn { Time = "8:12" }, new Model.Turn { Time = "10:12" },
-            //        new Model.Turn { Time = "12:12" } }
-            //});
+        public IEnumerable<string> GetTimeTemplatesTimes(DayOfWeek week)
+        {
+            var lst = this.GetListActiveByParent<ExpertTimeTemplate, int>(x => x.ExpertID, this.ExpertID)
+                .FirstOrDefault(x => x.WeekDay == week)?.TimesList;
 
+            return lst;
         }
     }
 }

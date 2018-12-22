@@ -4,12 +4,27 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 using Nobatgir.Data;
+using Nobatgir.Model;
 using Nobatgir.ViewModel;
 
 namespace Nobatgir.Services
 {
     public partial class Repository
     {
+        public Expert AddDefaultExpert(int catid, string exptitle, string expname)
+        {
+            var c = new Expert
+            {
+                IsActive = true,
+                IsDeleted = false,
+                Name = expname + "Default",
+                Title = exptitle + " پیش فرض",
+                CategoryID = catid
+            };
+
+            return this.AddRow(c);
+        }
+
         //public Model.Expert GetExpert(int id)
         //{
         //    return FilterExist(_myContext.Experts).FirstOrDefault(x => x.ID == id);

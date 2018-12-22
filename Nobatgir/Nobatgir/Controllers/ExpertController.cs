@@ -23,9 +23,9 @@ namespace Nobatgir.Controllers
 
         private string GetViewName(string pagename)
         {
-            var viewname = this._repository.GetSiteKindSetting(Settings.ViewName);
+            var viewname = this._repository.GetSetting(Settings.ViewName);
 
-            ViewBag.Title = this._repository.GetSiteSetting(Settings.SiteTitle);
+            ViewBag.Title = this._repository.GetSetting(Settings.SiteTitle);
             ViewBag.ViewName = viewname;
 
             return "/Views/" + viewname + "/" + pagename + ".cshtml";
@@ -80,25 +80,32 @@ namespace Nobatgir.Controllers
         [ValidateAntiForgeryToken]
         public IActionResult VerifyTurn(TurnFieldsViewModel f)
         {
+            // حذف موارد قبلی
             _repository.DeleteTurnDetails(f.Turn.ID);
-            _repository.AddTurnDetails(f.Turn.ID, f.ExpertFields);
 
-            var formula = _repository.GetExpertSetting(Settings.Formula);
+            // اضافه کردن جزییات
+            if (f.ExpertFields != null)
+                _repository.AddTurnDetails(f.Turn.ID, f.ExpertFields);
 
-            formula = Regex.Replace(formula, "\\[(\\w+)\\]", m =>
+            // دریافت فرمول و محاسبه
             {
-                return _repository.GetTurnDetailsValue(f.Turn.ID, m.Groups[1].Value.ToLower());
-            });
+                var formula = _repository.GetSetting(Settings.Formula);
 
-            string func = @"function Func() {" + formula + "}";
+                formula = Regex.Replace(formula, "\\[([-a-z0-9]+)\\]",
+                    m => _repository.GetTurnDetailsValue(f.Turn.ID, m.Groups[1].Value.ToLower()), RegexOptions.IgnoreCase);
 
-            var GetResult = new Jint.Engine()
-                .Execute(func)
-                .GetValue("Func");
+                string func = @"function Func() {" + formula + "}";
 
-            var price = (long)(double)GetResult.Invoke().ToObject();
+                var GetResult = new Jint.Engine()
+                    .Execute(func)
+                    .GetValue("Func");
 
-            f.Turn.Price = price;
+                var price = (long)(double)GetResult.Invoke().ToObject();
+
+                f.Turn.Price = price;
+            }
+
+            _repository.UpdateTurnPrice(f.Turn.ID, f.Turn.Price);
 
             return View(this.GetViewName("VerifyTurn"), f.Turn);
         }
@@ -109,7 +116,7 @@ namespace Nobatgir.Controllers
         {
             var t = _repository.GetTurn(TurnID);
 
-            var c = new CompletedViewModel {Turn = t};
+            var c = new CompletedViewModel { Turn = t };
 
             _repository.CompleteTurn(t.ID);
 

@@ -12,16 +12,16 @@ namespace Nobatgir.Services
 {
     public partial class Repository
     {
-        public Model.Turn AddTurn(DateTime turndate, string time)
+        public Turn AddTurn(DateTime turndate, string time)
         {
-            var t = _myContext.Turns.Add(new Model.Turn
+            var t = _myContext.Turns.Add(new Turn
             {
                 ExpertID = this.ExpertID,
                 TurnDate = new DateTime(turndate.Year, turndate.Month, turndate.Day),
                 Time = time,
                 Status = TurnStatuses.Reserve,
                 RegDate = DateTime.Now,
-                ExpireTime = DateTime.Now.AddMinutes(2)
+                ExpireTime = DateTime.Now.AddMinutes(15)
             });
 
             _myContext.SaveChanges();
@@ -56,11 +56,29 @@ namespace Nobatgir.Services
             return t;
         }
 
+        public IQueryable<Turn> GetTurnsOfDate(DateTime dt)
+        {
+            var completed = _myContext.Turns
+                .Where(x => x.ExpertID == this.ExpertID
+                  && x.Status == TurnStatuses.Completed
+                  && x.TurnDate == dt);
+
+            return completed;
+        }
+
         public void CancelTurn(Guid id)
         {
             var t = GetTurn(id);
 
             t.Status = TurnStatuses.Canceled;
+
+            _myContext.SaveChanges();
+        }
+
+        public void UpdateTurnPrice(Guid id, long Price)
+        {
+            var t = GetTurn(id);
+            t.Price = Price;
 
             _myContext.SaveChanges();
         }
@@ -74,6 +92,14 @@ namespace Nobatgir.Services
             t.Status = TurnStatuses.Completed;
 
             _myContext.SaveChanges();
+        }
+
+        /// <summary>
+        /// بازگرداندن نوبت های منقضی شده به حالت رزرو
+        /// </summary>
+        public void ManageExpiredTurns()
+        {
+            _myContext.Database.ExecuteSqlCommand("UPDATE Turns SET Status = 0 WHERE status = 1 AND getdate() > ExpireTime");
         }
 
         public IEnumerable<Turn> GetTurnsExpert(int expertID, DateTime dtfrom, DateTime dtto)
@@ -105,7 +131,7 @@ namespace Nobatgir.Services
             var t = _myContext.TurnDetails.Where(x => x.TurnID == turnid);
 
             _myContext.TurnDetails.RemoveRange(t);
-    
+
             return _myContext.SaveChanges();
         }
 

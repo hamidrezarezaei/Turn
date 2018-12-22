@@ -79,7 +79,7 @@ using Nobatgir.Areas.Admin.ViewModel;
             WriteLiteral("<div>\r\n\r\n    ");
             EndContext();
             BeginContext(13, 30, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "6c30d94ecff34a5bb2b062fa0a4dd4ef", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "15269ebc92ad426496b052923feb60c9", async() => {
                 BeginContext(35, 4, true);
                 WriteLiteral("Home");
                 EndContext();

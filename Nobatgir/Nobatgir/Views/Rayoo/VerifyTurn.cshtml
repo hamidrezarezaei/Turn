@@ -1,0 +1,30 @@
+﻿@model Turn
+
+<div class="row">
+
+    <form asp-controller="Expert" asp-action="Verified" method="post" class="col-12" id="completeform">
+
+        <input type="hidden" name="TurnID" value="@Model.ID" />
+
+        @await Component.InvokeAsync("TurnFields", new { ViewName = "Default", TurnID = Model.ID, IsVeify = true })
+
+    </form>
+
+    <div class="price col-12">
+        مبلغ: @Model.Price.ToString("#,###") تومان
+    </div>
+
+</div>
+
+<div class="row mt-2 flex-row-reverse">
+
+    <button class="col-6 col-md-3 btn btn-success btn-block" onclick="$('#completeform').submit();">تایید</button>
+
+    <form asp-controller="Expert" asp-action="VerifyBack" method="post" class="col-6 col-md-3">
+
+        <input type="hidden" name="TurnID" value="@Model.ID" />
+
+        <button type="submit" class="btn btn-success btn-block">بازگشت</button>
+    </form>
+
+</div>

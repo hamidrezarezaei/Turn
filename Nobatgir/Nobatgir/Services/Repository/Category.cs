@@ -17,39 +17,18 @@ namespace Nobatgir.Services
             return data;
         }
 
-        //public Model.Category GetCategory(int id)
-        //{
-        //    return this.GetCategories().FirstOrDefault(x => x.ID == id);
-        //}
+        public Category AddDefaultCategory(int siteid, string cattitle, string catname)
+        {
+            var c = new Category
+            {
+                IsActive = true,
+                IsDeleted = false,
+                Name = catname + "Default",
+                Title = cattitle + " پیش فرض",
+                SiteID = siteid,
+            };
 
-        //public IQueryable<Model.Category> GetActiveCategorys()
-        //{
-        //    var r = FilterActive(this.GetCategories());
-        //    return r;
-        //}
-
-        //public IQueryable<Model.Category> GetCategoriesBySiteID(int SiteID)
-        //{
-        //    return this.GetCategories().Where(x => x.SiteID == SiteID);
-        //}
-
-        //public IQueryable<Model.Category> GetActiveCategoriesBySiteID(int SiteID)
-        //{
-        //    var r = FilterActive(GetCategoriesBySiteID(SiteID));
-        //    return r;
-        //}
-
-        //public PagedResult<Model.Category> GetCategoriesBySiteID(int SiteID, int pageNumber, string searchString = "")
-        //{
-        //    var q = this.GetActiveCategoriesBySiteID(SiteID);
-        //    var r = GetPagedResult(q, pageNumber, searchString);
-        //    r.Controller = "Category";
-        //    return r;
-        //}
-
-        //public PagedResult<Model.Category> GetCategories(int pageNumber, string searchString = "")
-        //{
-        //    return GetPagedResult(this.GetCategories(), pageNumber, searchString);
-        //}
+            return this.AddRow(c);
+        }
     }
 }

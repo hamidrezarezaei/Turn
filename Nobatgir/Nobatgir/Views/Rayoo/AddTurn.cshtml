@@ -1,0 +1,24 @@
+﻿@model Guid
+
+<div class="row">
+
+    <form asp-controller="Expert" asp-action="VerifyTurn" method="post" class="col-12" id="verifyform">
+
+        @await Component.InvokeAsync("TurnFields", new { ViewName = "Default", TurnID = Model })
+
+    </form>
+
+</div>
+
+<div class="row mt-2 flex-row-reverse">
+
+    <button class="col-6 col-md-3 btn btn-success btn-block" onclick="$('#verifyform').submit();">تایید</button>
+
+    <form asp-controller="Expert" asp-action="CancelTurn" method="post" class="col-6 col-md-3">
+
+        <input type="hidden" name="TurnID" value="@Model" />
+
+        <button type="submit" class="btn btn-success btn-block">بازگشت</button>
+    </form>
+
+</div>

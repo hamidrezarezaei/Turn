@@ -1,0 +1,17 @@
+﻿@model DetailsViewModel<BaseClass>
+@{
+    var Row = Model.Row as SiteSetting;
+}
+
+<div class="admin-data-box">
+    <table class="table detail table-striped">
+
+        <partial name="_TableRow" model="@(new TableRowViewModel<BaseClass>(Model, nameof(ExpertSetting.Title)))" />
+        <partial name="_TableRow" model="@(new TableRowViewModel<BaseClass>(Model, nameof(ExpertSetting.Name), "ltr"))" />
+        <partial name="_TableRow" model="@(new TableRowViewModel<BaseClass>(Model, nameof(ExpertSetting.Value), "ltr"))" />
+
+    </table>
+</div>
+
+
+

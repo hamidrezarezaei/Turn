@@ -1,0 +1,136 @@
+﻿@model CalendarViewModel
+
+@{
+    var pc = new System.Globalization.PersianCalendar();
+
+    int CurrentDay = pc.GetDayOfMonth(DateTime.Now);
+    int CurrentMonth = pc.GetMonth(DateTime.Now);
+    int CurrentYear = pc.GetYear(DateTime.Now);
+
+    int YearNumber = Model.Year;
+    int MonthNumber = Model.Month;
+
+    int MonthLen = pc.GetDaysInMonth(YearNumber, MonthNumber);
+
+    int DiffDay = ((YearNumber - 1396) * 365) + ((YearNumber - 1396) / 4);
+    switch (MonthNumber)
+    {
+        case 2:
+            DiffDay += 31;
+            break;
+        case 3:
+            DiffDay += 62;
+            break;
+        case 4:
+            DiffDay += 93;
+            break;
+        case 5:
+            DiffDay += 124;
+            break;
+        case 6:
+            DiffDay += 155;
+            break;
+        case 7:
+            DiffDay += 186;
+            break;
+        case 8:
+            DiffDay += 216;
+            break;
+        case 9:
+            DiffDay += 246;
+            break;
+        case 10:
+            DiffDay += 276;
+            break;
+        case 11:
+            DiffDay += 306;
+            break;
+        case 12:
+            DiffDay += 336;
+            break;
+        default:
+            break;
+    }
+
+    int DayOfWeek = (3 + DiffDay) % 7;
+    //Dictionary<int, int> IsActive = Newtonsoft.Json.JsonConvert.DeserializeObject<Dictionary<int, int>>(Json);
+}
+
+
+<div>
+
+    @{
+        int nextyear = Model.Month == 12 ? Model.Year + 1 : Model.Year;
+        int nextmonth = Model.Month == 12 ? 1 : Model.Month + 1;
+
+        int prevyear = Model.Month == 1 ? Model.Year - 1 : Model.Year;
+        int prevmonth = Model.Month == 1 ? 12 : Model.Month - 1;
+
+    }
+
+    <a asp-route-year="@nextyear" asp-route-month="@nextmonth">بعدی</a>
+
+    <a asp-route-year="@prevyear" asp-route-month="@prevmonth">قبلی</a>
+
+</div>
+
+
+
+
+<table class="calendar">
+    <tr>
+        <th>شنبه</th>
+        <th>یکشنبه</th>
+        <th>دوشنبه</th>
+        <th>سه شنبه</th>
+        <th>چهارشنبه</th>
+        <th>پنجشنبه</th>
+        <th>جمعه</th>
+    </tr>
+
+    <tr>
+        @for (int i = 0; i < DayOfWeek; i++)
+        {
+            <td></td>
+        }
+
+        @for (int i = 1; i <= MonthLen; i++)
+        {
+            if (DayOfWeek == 0)
+            {
+                @Html.Raw("</tr><tr>");
+            }
+            <td>
+                @{
+                    //istoday
+                    string Class = "btn-default";
+                    if (DayOfWeek == 6)
+                    {
+                        Class = "btn-danger";
+                    }
+                    else if (i == CurrentDay && Model.Month == CurrentMonth && Model.Year == CurrentYear)
+                    {
+                        Class = "btn-success";
+                    }
+                }
+
+                <div class="daycontainer">
+                    <form asp-action="ShowDay" method="post">
+                        <input name="year" value="@Model.Year" type="hidden" />
+                        <input name="month" value="@Model.Month" type="hidden" />
+                        <input name="day" value="@i" type="hidden" />
+                        <input type="submit" class="btn  btn-days @Class" value="@i" />
+                    </form>
+                </div>
+            </td>
+            DayOfWeek = ++DayOfWeek % 7;
+        }
+        @if (DayOfWeek != 0)
+        {
+            for (int i = DayOfWeek - 1; i < 6; i++)
+            {
+                <td></td>
+            }
+        }
+    </tr>
+</table>

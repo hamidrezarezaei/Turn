@@ -25,6 +25,9 @@ namespace Nobatgir.Model
 
         public TurnStatuses Status { get; set; }
 
+        /// <summary>
+        /// باید قبل از پرداخت به این مقداری اضافه شود
+        /// </summary>
         [Display(Name = "زمان انقضا")]
         public DateTime ExpireTime { get; set; }
 

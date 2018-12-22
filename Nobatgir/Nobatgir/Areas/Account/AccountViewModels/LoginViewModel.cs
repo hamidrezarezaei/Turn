@@ -10,10 +10,12 @@ namespace Nobatgir.Areas.Admin.AccountViewModels
     {
         [Required]
         [EmailAddress]
+        [Display(Name = "نام کاربری")]
         public string Email { get; set; }
 
         [Required]
         [DataType(DataType.Password)]
+        [Display(Name = "رمز عبور")]
         public string Password { get; set; }
 
         [Display(Name = "Remember me?")]

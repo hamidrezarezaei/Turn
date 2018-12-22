@@ -86,7 +86,7 @@ using Nobatgir.Areas.Admin.ViewModel;
             WriteLiteral("\r\n<div class=\"row\">\r\n\r\n    ");
             EndContext();
             BeginContext(40, 300, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "3aadf1caf3b241029642d343ed66919b", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "d92313eea11b41c39c2735bc0df92af8", async() => {
                 BeginContext(139, 46, true);
                 WriteLiteral("\r\n\r\n        <input type=\"hidden\" name=\"TurnID\"");
                 EndContext();
@@ -146,7 +146,7 @@ WriteAttributeValue("", 193, Model.ID, 193, 9, false);
             WriteLiteral("\r\n    </div>\r\n\r\n</div>\r\n\r\n<div class=\"row mt-2 flex-row-reverse\">\r\n\r\n    <button class=\"col-6 col-md-3 btn btn-success btn-block\" onclick=\"$(\'#completeform\').submit();\">تایید</button>\r\n\r\n    ");
             EndContext();
             BeginContext(572, 254, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "3defd9bd99e9453bb4c315c3eb606b89", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "47ef90b8ad0e4c17a99d17990ed8f798", async() => {
                 BeginContext(663, 46, true);
                 WriteLiteral("\r\n\r\n        <input type=\"hidden\" name=\"TurnID\"");
                 EndContext();

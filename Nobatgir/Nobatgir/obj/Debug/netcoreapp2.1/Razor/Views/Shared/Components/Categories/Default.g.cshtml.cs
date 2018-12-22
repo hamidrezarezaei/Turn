@@ -89,7 +89,7 @@ using Nobatgir.Areas.Admin.ViewModel;
             WriteLiteral("        <div class=\"col-6 col-md-3 border\">\r\n            ");
             EndContext();
             BeginContext(150, 120, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "79b62d47f2db43699a65e3830e361926", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "670d98d2aa564957923913484fff757b", async() => {
                 BeginContext(257, 9, false);
 #line 9 "E:\Projects\Nobatgir\GIT\Nobatgir\Nobatgir\Views\Shared\Components\Categories\Default.cshtml"
                                                                  Write(cat.Title);

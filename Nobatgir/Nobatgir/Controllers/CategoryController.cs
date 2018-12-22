@@ -22,9 +22,9 @@ namespace Nobatgir.Controllers
 
         private string GetViewName(string pagename)
         {
-            var viewname = this._repository.GetSiteKindSetting(Settings.ViewName);
+            var viewname = this._repository.GetSetting(Settings.ViewName);
 
-            ViewBag.Title = this._repository.GetSiteSetting(Settings.SiteTitle);
+            ViewBag.Title = this._repository.GetSetting(Settings.SiteTitle);
             ViewBag.ViewName = viewname;
 
             return "/Views/" + viewname + "/" + pagename + ".cshtml";
